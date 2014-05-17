@@ -13,7 +13,7 @@ namespace Kriptografi
     /// </summary>
     public class KriptografiLibrary
     {
-        private static BitArray isPrima = new BitArray(1000000, false);
+        public static BitArray isPrima = new BitArray(1000001, false);
         private static bool isPrimeGenerated = false;
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Kriptografi
         /// <summary>
         /// Sieve of eratosthenes
         /// </summary>
-        private static void Sieve()
+        public static void Sieve()
         {
             int n = 1000000;
             isPrima[2] = true;
@@ -84,10 +84,20 @@ namespace Kriptografi
                 {
                     for (int j = i * i; j <= n; j += i)
                     {
-                        isPrima[i] = false;
+                        isPrima[j] = false;
                     }
                 }
             }
+        }
+
+        public static bool IsRelatifPrima(int num1, int num2)
+        {
+            return GCD(num1, num2) == 1;
+        }
+
+        public static bool IsRelatifPrima(long num1, long num2)
+        {
+            return GCD(num1, num2) == 1;
         }
 
         /// <summary>
@@ -161,9 +171,10 @@ namespace Kriptografi
             return hexa.IsMatch(data);
         }
 
-        /*
+        //*
         /// <summary>
-        /// Rabin miller primality test
+        /// Rabin miller primality test, iteration signifies the accuracy,
+        /// source http://community.topcoder.com/tc&amp;module=Static&amp;d1=tutorials&amp;d2=primalityTesting
         /// </summary>
         /// <param name="number">Number to test</param>
         /// <param name="iteration">Number of iteration</param>
@@ -188,7 +199,7 @@ namespace Kriptografi
             {
                 long a = ((long)rand.Next() * (long)rand.Next()) % (number - 1) + 1;
                 long temp = s;
-                long mod = FastExponential(a, temp, number);
+                long mod = QuickModulo(a, temp, number);
                 while (temp != number - 1 && mod != 1 && mod != number - 1)
                 {
                     mod = (mod * mod) % number;

@@ -35,11 +35,18 @@ namespace Kriptografi.Week3
         private void FormRabinMiller_Load(object sender, EventArgs e)
         {
             /*
-            for (int i = 0; i < 101; i++)
+            Kripto.Sieve();
+            for (int i = 0; i < 10001; i++)
             {
                 bool p = Kripto.TestPrima(i, 10);
                 bool p2 = Kripto.IsMiller(i, 20);
-                dataGridViewTes.Rows.Add(new object[] { i + " " + p + " " + p2 });
+                bool p3 = Kripto.isPrima[i];
+                //dataGridViewTes.Rows.Add(new object[] { i + " " + p + " " + p2 + " " + p3 + " " + ((p != p3 || p2 != p3) ? "BEDA" : "") });
+                if (p != p3 || p2 != p3)
+                {
+                    //dataGridViewTes.Rows[i].Cells[0].Style.BackColor = Color.Red;
+                    MessageBox.Show(i + " " + p + " " + p2 + " " + p3);
+                }
             }
             //*/
         }

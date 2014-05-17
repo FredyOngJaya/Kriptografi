@@ -41,6 +41,8 @@
             this.a5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lFSRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rC4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.week8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rSAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,8 @@
             this.week3ToolStripMenuItem,
             this.week4ToolStripMenuItem,
             this.week6ToolStripMenuItem,
-            this.week7ToolStripMenuItem});
+            this.week7ToolStripMenuItem,
+            this.week8ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(952, 24);
@@ -115,7 +118,7 @@
             // 
             this.aESToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aESToolStripMenuItem.Name = "aESToolStripMenuItem";
-            this.aESToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aESToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.aESToolStripMenuItem.Text = "AES";
             this.aESToolStripMenuItem.Click += new System.EventHandler(this.aESToolStripMenuItem_Click);
             // 
@@ -132,23 +135,38 @@
             // a5ToolStripMenuItem
             // 
             this.a5ToolStripMenuItem.Name = "a5ToolStripMenuItem";
-            this.a5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.a5ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.a5ToolStripMenuItem.Text = "A5";
             this.a5ToolStripMenuItem.Click += new System.EventHandler(this.a5ToolStripMenuItem_Click);
             // 
             // lFSRToolStripMenuItem
             // 
             this.lFSRToolStripMenuItem.Name = "lFSRToolStripMenuItem";
-            this.lFSRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lFSRToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.lFSRToolStripMenuItem.Text = "LFSR";
             this.lFSRToolStripMenuItem.Click += new System.EventHandler(this.lFSRToolStripMenuItem_Click);
             // 
             // rC4ToolStripMenuItem
             // 
             this.rC4ToolStripMenuItem.Name = "rC4ToolStripMenuItem";
-            this.rC4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rC4ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.rC4ToolStripMenuItem.Text = "RC-4";
             this.rC4ToolStripMenuItem.Click += new System.EventHandler(this.rC4ToolStripMenuItem_Click);
+            // 
+            // week8ToolStripMenuItem
+            // 
+            this.week8ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rSAToolStripMenuItem});
+            this.week8ToolStripMenuItem.Name = "week8ToolStripMenuItem";
+            this.week8ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.week8ToolStripMenuItem.Text = "Week8";
+            // 
+            // rSAToolStripMenuItem
+            // 
+            this.rSAToolStripMenuItem.Name = "rSAToolStripMenuItem";
+            this.rSAToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rSAToolStripMenuItem.Text = "RSA";
+            this.rSAToolStripMenuItem.Click += new System.EventHandler(this.rSAToolStripMenuItem_Click);
             // 
             // FormContainer
             // 
@@ -187,5 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem a5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lFSRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rC4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem week8ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rSAToolStripMenuItem;
     }
 }

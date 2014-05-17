@@ -33,6 +33,7 @@
             this.textBoxHasilRabinMiller = new System.Windows.Forms.TextBox();
             this.dataGridViewTes = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,11 +77,11 @@
             this.dataGridViewTes.ColumnHeadersVisible = false;
             this.dataGridViewTes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridViewTes.Location = new System.Drawing.Point(12, 113);
+            this.dataGridViewTes.Location = new System.Drawing.Point(12, 139);
             this.dataGridViewTes.Name = "dataGridViewTes";
             this.dataGridViewTes.ReadOnly = true;
             this.dataGridViewTes.RowHeadersVisible = false;
-            this.dataGridViewTes.Size = new System.Drawing.Size(553, 275);
+            this.dataGridViewTes.Size = new System.Drawing.Size(553, 249);
             this.dataGridViewTes.TabIndex = 8;
             // 
             // Column1
@@ -90,12 +91,21 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 5;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 108);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(553, 25);
+            this.textBox1.TabIndex = 9;
+            // 
             // FormRabinMiller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(577, 400);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridViewTes);
             this.Controls.Add(this.textBoxHasilRabinMiller);
             this.Controls.Add(this.buttonTesPrima);
@@ -121,5 +131,6 @@
         private System.Windows.Forms.TextBox textBoxHasilRabinMiller;
         private System.Windows.Forms.DataGridView dataGridViewTes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

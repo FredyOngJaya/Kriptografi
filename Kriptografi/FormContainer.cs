@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Kriptografi
 {
@@ -16,53 +17,76 @@ namespace Kriptografi
             InitializeComponent();
         }
 
+        private Week3.FormGF GF;
+        private Week3.FormQuickModulo QuickModulo;
+        private Week3.FormRabinMiller RabinMiller;
+        private Week4.FormChineseRemainderTheorem ChineseRemainderTheorem;
+        private Week6.FormAES AES;
+        private Week7.FormA5 A5;
+        private Week7.FormLFSR LFSR;
+        private Week7.FormRC4 RC4;
+        private Week8.FormRSA RSA;
+
         //private FormGF _FormGF = new FormGF();
         //private FormQuickModulo _FormFastExponentiation = new FormQuickModulo();
 
-        private void ShowForm(Form newForm)
+        private void ShowForm<T>(ref T newForm)
         {
-            newForm.MdiParent = this;
-            newForm.Show();
+            if (newForm == null || !(newForm as Form).IsHandleCreated)
+            {
+                Type t = typeof(T);
+                Assembly a = Assembly.GetAssembly(t);
+                newForm = (T)Convert.ChangeType(a.CreateInstance(t.FullName), t);
+            }
+            Form form = newForm as Form;
+            form.MdiParent = this;
+            form.Show();
+            form.Focus();
         }
 
         private void gFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week3.FormGF());
+            ShowForm(ref GF);
         }
 
         private void fastExponentiationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week3.FormQuickModulo());
+            ShowForm(ref QuickModulo);
         }
 
         private void rabinMillerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week3.FormRabinMiller());
+            ShowForm(ref RabinMiller);
         }
 
         private void chineseRemainderTheoremToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week4.FormChineseRemainderTheorem());
+            ShowForm(ref ChineseRemainderTheorem);
         }
 
         private void aESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week6.FormAES());
+            ShowForm(ref AES);
         }
 
         private void a5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week7.FormA5());
+            ShowForm(ref A5);
         }
 
         private void lFSRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week7.FormLFSR());
+            ShowForm(ref LFSR);
         }
 
         private void rC4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new Week7.FormRC4());
+            ShowForm(ref RC4);
+        }
+
+        private void rSAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref RSA);
         }
     }
 }

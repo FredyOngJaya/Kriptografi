@@ -124,7 +124,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(952, 526);
+            this.tabControl1.Size = new System.Drawing.Size(952, 506);
             this.tabControl1.TabIndex = 18;
             // 
             // tabPage1
@@ -148,8 +148,9 @@
             this.dataGridViewProsesKey.AllowUserToDeleteRows = false;
             this.dataGridViewProsesKey.AllowUserToResizeColumns = false;
             this.dataGridViewProsesKey.AllowUserToResizeRows = false;
-            this.dataGridViewProsesKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProsesKey.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProsesKey.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewProsesKey.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProsesKey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -158,7 +159,7 @@
             this.dataGridViewProsesKey.ReadOnly = true;
             this.dataGridViewProsesKey.RowHeadersVisible = false;
             this.dataGridViewProsesKey.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesKey.Size = new System.Drawing.Size(927, 297);
+            this.dataGridViewProsesKey.Size = new System.Drawing.Size(927, 247);
             this.dataGridViewProsesKey.TabIndex = 17;
             // 
             // dataGridViewKey
@@ -193,7 +194,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(944, 495);
+            this.tabPage2.Size = new System.Drawing.Size(944, 475);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Enkripsi";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -253,17 +254,18 @@
             this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
             this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
             this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(9, 46);
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(9, 45);
             this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
             this.dataGridViewProsesEnkripsi.ReadOnly = true;
             this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
             this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 439);
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesEnkripsi.TabIndex = 18;
             // 
             // tabPage3
@@ -277,7 +279,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(944, 495);
+            this.tabPage3.Size = new System.Drawing.Size(944, 475);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Dekripsi";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -332,17 +334,18 @@
             this.dataGridViewProsesDekripsi.AllowUserToDeleteRows = false;
             this.dataGridViewProsesDekripsi.AllowUserToResizeColumns = false;
             this.dataGridViewProsesDekripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesDekripsi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridViewProsesDekripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProsesDekripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewProsesDekripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProsesDekripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesDekripsi.Location = new System.Drawing.Point(9, 46);
+            this.dataGridViewProsesDekripsi.Location = new System.Drawing.Point(9, 45);
             this.dataGridViewProsesDekripsi.Name = "dataGridViewProsesDekripsi";
             this.dataGridViewProsesDekripsi.ReadOnly = true;
             this.dataGridViewProsesDekripsi.RowHeadersVisible = false;
             this.dataGridViewProsesDekripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 439);
+            this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesDekripsi.TabIndex = 24;
             // 
             // FormAES
@@ -350,12 +353,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(952, 526);
+            this.ClientSize = new System.Drawing.Size(952, 506);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(960, 540);
             this.Name = "FormAES";
             this.ShowIcon = false;
             this.Text = "AES";

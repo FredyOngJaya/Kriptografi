@@ -476,6 +476,7 @@
             this.MinimizeBox = false;
             this.Name = "FormRC4";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RC4";
             this.Load += new System.EventHandler(this.FormRC4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProduksiKey)).EndInit();
