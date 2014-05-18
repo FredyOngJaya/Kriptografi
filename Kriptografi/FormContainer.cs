@@ -27,8 +27,7 @@ namespace Kriptografi
         private Week7.FormRC4 RC4;
         private Week8.FormRSA RSA;
 
-        //private FormGF _FormGF = new FormGF();
-        //private FormQuickModulo _FormFastExponentiation = new FormQuickModulo();
+        private Week8.FormLUC LUC;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -87,6 +86,11 @@ namespace Kriptografi
         private void rSAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref RSA);
+        }
+
+        private void lUCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref LUC);
         }
     }
 }

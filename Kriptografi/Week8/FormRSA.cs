@@ -24,6 +24,8 @@ namespace Kriptografi.Week8
             InitializeComponent();
             //labelTotienN.Text = "\u03A6\u03C6\u03D5\u0278(n)";
             labelTotienN.Text = "\u03D5(n)";
+            dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
+            dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
         }
 
         private void FormRSA_Load(object sender, EventArgs e)
@@ -116,19 +118,35 @@ namespace Kriptografi.Week8
 
         #endregion
 
+        List<long> cipher = new List<long>();
+        int blokSize;
+
         #region "Tab Enkrip"
 
         private void buttonEnkripsi_Click(object sender, EventArgs e)
         {
-            string plain = textBoxEnkripsiPlainText.Text;
-            StringBuilder cipher = new StringBuilder();
-            foreach (char c in plain)
+            dataGridViewProsesEnkripsi.Rows.Clear();
+            string text = textBoxEnkripsiPlainText.Text;
+            blokSize = (int)numericUpDownBlockSize.Value;
+            string now;
+            StringBuilder plainBiner = new StringBuilder();
+            foreach (char c in text)
             {
-                int m = (int)Kripto.QuickModulo(c, E, N);
-                cipher.Append((char)m);
+                plainBiner.Append(((int)c).ToBin(8));
             }
-            textBoxEnkripsiCipherText.Text = cipher.ToString();
-            textBoxDekripsiCipherText.Text = cipher.ToString();
+            dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
+            cipher.Clear();
+            while (plainBiner.Length > 0)
+            {
+                now = plainBiner.ToString(0, Math.Min(blokSize, plainBiner.Length));
+                plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
+                int t = now.BinToInt();
+                dataGridViewProsesEnkripsi.Rows.Add();
+                dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
+                long c = Kripto.QuickModulo(t, E, N);
+                cipher.Add(c);
+                dataGridViewProsesEnkripsi.Rows.Add("C = " + t + " ^ " + E + " mod " + N + " = " + c);
+            }
         }
 
         #endregion
@@ -137,14 +155,13 @@ namespace Kriptografi.Week8
 
         private void buttonDekripsi_Click(object sender, EventArgs e)
         {
-            string cipher = textBoxDekripsiCipherText.Text;
-            StringBuilder plain = new StringBuilder();
-            foreach (char c in cipher)
+            dataGridViewProsesDekripsi.Rows.Clear();
+            foreach (long c in cipher)
             {
-                int m = (int)Kripto.QuickModulo(c, D, N);
-                plain.Append((char)m);
+                long m = Kripto.QuickModulo(c, D, N);
+                dataGridViewProsesDekripsi.Rows.Add("M = " + c + " ^ " + D + " mod " + N + " = " + m);
+                dataGridViewProsesDekripsi.Rows.Add();
             }
-            textBoxDekripsiPlainText.Text = plain.ToString();
         }
 
         #endregion

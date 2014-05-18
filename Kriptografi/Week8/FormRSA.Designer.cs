@@ -47,14 +47,14 @@
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
+            this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonEnkripsi = new System.Windows.Forms.Button();
             this.textBoxEnkripsiPlainText = new System.Windows.Forms.TextBox();
-            this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
@@ -65,8 +65,8 @@
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             this.tabPageEnkripsi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +166,7 @@
             // 
             this.textBoxE.Location = new System.Drawing.Point(59, 161);
             this.textBoxE.Name = "textBoxE";
+            this.textBoxE.ReadOnly = true;
             this.textBoxE.Size = new System.Drawing.Size(200, 25);
             this.textBoxE.TabIndex = 8;
             // 
@@ -265,31 +266,43 @@
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // dataGridViewProsesEnkripsi
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 18);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Plain text";
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
-            // buttonEnkripsi
+            // label9
             // 
-            this.buttonEnkripsi.Location = new System.Drawing.Point(320, 13);
-            this.buttonEnkripsi.Name = "buttonEnkripsi";
-            this.buttonEnkripsi.Size = new System.Drawing.Size(110, 26);
-            this.buttonEnkripsi.TabIndex = 19;
-            this.buttonEnkripsi.Text = "Enkripsi";
-            this.buttonEnkripsi.UseVisualStyleBackColor = true;
-            this.buttonEnkripsi.Click += new System.EventHandler(this.buttonEnkripsi_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(644, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 18);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Cipher text";
             // 
-            // textBoxEnkripsiPlainText
+            // textBoxEnkripsiCipherText
             // 
-            this.textBoxEnkripsiPlainText.Location = new System.Drawing.Point(109, 13);
-            this.textBoxEnkripsiPlainText.Name = "textBoxEnkripsiPlainText";
-            this.textBoxEnkripsiPlainText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxEnkripsiPlainText.TabIndex = 17;
+            this.textBoxEnkripsiCipherText.Location = new System.Drawing.Point(732, 13);
+            this.textBoxEnkripsiCipherText.Name = "textBoxEnkripsiCipherText";
+            this.textBoxEnkripsiCipherText.ReadOnly = true;
+            this.textBoxEnkripsiCipherText.Size = new System.Drawing.Size(204, 25);
+            this.textBoxEnkripsiCipherText.TabIndex = 25;
             // 
             // numericUpDownBlockSize
             // 
@@ -322,43 +335,31 @@
             this.label8.TabIndex = 23;
             this.label8.Text = "Blok size ?";
             // 
-            // label9
+            // label7
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(644, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 18);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Cipher text";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 18);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Plain text";
             // 
-            // textBoxEnkripsiCipherText
+            // buttonEnkripsi
             // 
-            this.textBoxEnkripsiCipherText.Location = new System.Drawing.Point(732, 13);
-            this.textBoxEnkripsiCipherText.Name = "textBoxEnkripsiCipherText";
-            this.textBoxEnkripsiCipherText.ReadOnly = true;
-            this.textBoxEnkripsiCipherText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxEnkripsiCipherText.TabIndex = 25;
+            this.buttonEnkripsi.Location = new System.Drawing.Point(320, 13);
+            this.buttonEnkripsi.Name = "buttonEnkripsi";
+            this.buttonEnkripsi.Size = new System.Drawing.Size(110, 26);
+            this.buttonEnkripsi.TabIndex = 19;
+            this.buttonEnkripsi.Text = "Enkripsi";
+            this.buttonEnkripsi.UseVisualStyleBackColor = true;
+            this.buttonEnkripsi.Click += new System.EventHandler(this.buttonEnkripsi_Click);
             // 
-            // dataGridViewProsesEnkripsi
+            // textBoxEnkripsiPlainText
             // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            this.textBoxEnkripsiPlainText.Location = new System.Drawing.Point(109, 13);
+            this.textBoxEnkripsiPlainText.Name = "textBoxEnkripsiPlainText";
+            this.textBoxEnkripsiPlainText.Size = new System.Drawing.Size(204, 25);
+            this.textBoxEnkripsiPlainText.TabIndex = 17;
             // 
             // tabPage3
             // 
@@ -459,8 +460,8 @@
             this.tabPageKey.PerformLayout();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();

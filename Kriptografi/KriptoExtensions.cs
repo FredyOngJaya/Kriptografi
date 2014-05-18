@@ -17,6 +17,25 @@ namespace KriptografiExtensions
             return Convert.ToString(number, 2);
         }
 
+        public static string ToBin(this int number, int binLength)
+        {
+            return number.ToBin().PadLeft(binLength, '0');
+        }
+        public static string ToHex(this long number)
+        {
+            return number.ToString("X2");
+        }
+
+        public static string ToBin(this long number)
+        {
+            return Convert.ToString(number, 2);
+        }
+
+        public static string ToBin(this long number, int binLength)
+        {
+            return number.ToBin().PadLeft(binLength, '0');
+        }
+
         public static int BinToInt(this string binary)
         {
             return Convert.ToInt32(binary, 2);

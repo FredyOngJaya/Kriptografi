@@ -95,6 +95,9 @@
     <EmbeddedResource Include="Week7\FormRC4.resx">
       <DependentUpon>FormRC4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week8\FormLUC.resx">
+      <DependentUpon>FormLUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week8\FormRSA.resx">
       <DependentUpon>FormRSA.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +167,12 @@
     </Compile>
     <Compile Include="Week7\FormRC4.designer.cs">
       <DependentUpon>FormRC4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Week8\FormLUC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week8\FormLUC.Designer.cs">
+      <DependentUpon>FormLUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Week8\FormRSA.cs">
       <SubType>Form</SubType>

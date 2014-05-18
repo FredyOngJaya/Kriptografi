@@ -138,7 +138,7 @@ namespace Kriptografi
         }
 
         /// <summary>
-        /// Multiply Modulo anticipate overflow
+        /// Multiply num1 and num2 Modulo N, anticipate overflow
         /// </summary>
         /// <param name="num1">Number 1</param>
         /// <param name="num2">Number 2</param>
