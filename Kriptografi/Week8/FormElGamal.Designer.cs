@@ -1,6 +1,6 @@
 ﻿namespace Kriptografi.Week8
 {
-    partial class FormRSA
+    partial class FormElGamal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxP = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxQ = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxN = new System.Windows.Forms.TextBox();
-            this.buttonHitungN = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
+            this.textBoxP = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonRandomD = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonHitungE = new System.Windows.Forms.Button();
+            this.textBoxQ = new System.Windows.Forms.TextBox();
+            this.buttonHitungN = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxTotientN = new System.Windows.Forms.TextBox();
+            this.textBoxD = new System.Windows.Forms.TextBox();
+            this.labelTotienN = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxN = new System.Windows.Forms.TextBox();
+            this.textBoxE = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
@@ -52,93 +61,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.buttonDekripsi = new System.Windows.Forms.Button();
             this.textBoxDekripsiCipherText = new System.Windows.Forms.TextBox();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
-            this.textBoxE = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelTotienN = new System.Windows.Forms.Label();
-            this.textBoxD = new System.Windows.Forms.TextBox();
-            this.textBoxTotientN = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonHitungE = new System.Windows.Forms.Button();
-            this.buttonRandomD = new System.Windows.Forms.Button();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             this.tabPageEnkripsi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "P";
-            // 
-            // textBoxP
-            // 
-            this.textBoxP.Location = new System.Drawing.Point(59, 6);
-            this.textBoxP.Name = "textBoxP";
-            this.textBoxP.Size = new System.Drawing.Size(200, 25);
-            this.textBoxP.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Q";
-            // 
-            // textBoxQ
-            // 
-            this.textBoxQ.Location = new System.Drawing.Point(59, 37);
-            this.textBoxQ.Name = "textBoxQ";
-            this.textBoxQ.Size = new System.Drawing.Size(200, 25);
-            this.textBoxQ.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "N";
-            // 
-            // textBoxN
-            // 
-            this.textBoxN.Location = new System.Drawing.Point(59, 68);
-            this.textBoxN.Name = "textBoxN";
-            this.textBoxN.ReadOnly = true;
-            this.textBoxN.Size = new System.Drawing.Size(200, 25);
-            this.textBoxN.TabIndex = 4;
-            // 
-            // buttonHitungN
-            // 
-            this.buttonHitungN.Location = new System.Drawing.Point(265, 37);
-            this.buttonHitungN.Name = "buttonHitungN";
-            this.buttonHitungN.Size = new System.Drawing.Size(156, 25);
-            this.buttonHitungN.TabIndex = 3;
-            this.buttonHitungN.Text = "Hitung N dan Totient N";
-            this.buttonHitungN.UseVisualStyleBackColor = true;
-            this.buttonHitungN.Click += new System.EventHandler(this.buttonHitungN_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(519, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Publikasikan N dan E sebagai kunci publik, sedangkan P, Q ,dan D sebagai kunci pr" +
-                "ivat";
             // 
             // tabControlRSA
             // 
@@ -150,7 +81,7 @@
             this.tabControlRSA.Name = "tabControlRSA";
             this.tabControlRSA.SelectedIndex = 0;
             this.tabControlRSA.Size = new System.Drawing.Size(952, 506);
-            this.tabControlRSA.TabIndex = 11;
+            this.tabControlRSA.TabIndex = 12;
             // 
             // tabPageKey
             // 
@@ -178,6 +109,142 @@
             this.tabPageKey.Text = "Key";
             this.tabPageKey.UseVisualStyleBackColor = true;
             // 
+            // textBoxP
+            // 
+            this.textBoxP.Location = new System.Drawing.Point(59, 6);
+            this.textBoxP.Name = "textBoxP";
+            this.textBoxP.Size = new System.Drawing.Size(200, 25);
+            this.textBoxP.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(519, 18);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Publikasikan N dan E sebagai kunci publik, sedangkan P, Q ,dan D sebagai kunci pr" +
+                "ivat";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "P";
+            // 
+            // buttonRandomD
+            // 
+            this.buttonRandomD.Location = new System.Drawing.Point(265, 130);
+            this.buttonRandomD.Name = "buttonRandomD";
+            this.buttonRandomD.Size = new System.Drawing.Size(89, 25);
+            this.buttonRandomD.TabIndex = 7;
+            this.buttonRandomD.Text = "Random D";
+            this.buttonRandomD.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Q";
+            // 
+            // buttonHitungE
+            // 
+            this.buttonHitungE.Location = new System.Drawing.Point(265, 161);
+            this.buttonHitungE.Name = "buttonHitungE";
+            this.buttonHitungE.Size = new System.Drawing.Size(89, 25);
+            this.buttonHitungE.TabIndex = 9;
+            this.buttonHitungE.Text = "Hitung E";
+            this.buttonHitungE.UseVisualStyleBackColor = true;
+            // 
+            // textBoxQ
+            // 
+            this.textBoxQ.Location = new System.Drawing.Point(59, 37);
+            this.textBoxQ.Name = "textBoxQ";
+            this.textBoxQ.Size = new System.Drawing.Size(200, 25);
+            this.textBoxQ.TabIndex = 2;
+            // 
+            // buttonHitungN
+            // 
+            this.buttonHitungN.Location = new System.Drawing.Point(265, 37);
+            this.buttonHitungN.Name = "buttonHitungN";
+            this.buttonHitungN.Size = new System.Drawing.Size(156, 25);
+            this.buttonHitungN.TabIndex = 3;
+            this.buttonHitungN.Text = "Hitung N dan Totient N";
+            this.buttonHitungN.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "D";
+            // 
+            // textBoxTotientN
+            // 
+            this.textBoxTotientN.Location = new System.Drawing.Point(59, 99);
+            this.textBoxTotientN.Name = "textBoxTotientN";
+            this.textBoxTotientN.ReadOnly = true;
+            this.textBoxTotientN.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientN.TabIndex = 5;
+            // 
+            // textBoxD
+            // 
+            this.textBoxD.Location = new System.Drawing.Point(59, 130);
+            this.textBoxD.Name = "textBoxD";
+            this.textBoxD.Size = new System.Drawing.Size(200, 25);
+            this.textBoxD.TabIndex = 6;
+            // 
+            // labelTotienN
+            // 
+            this.labelTotienN.AutoSize = true;
+            this.labelTotienN.Location = new System.Drawing.Point(6, 102);
+            this.labelTotienN.Name = "labelTotienN";
+            this.labelTotienN.Size = new System.Drawing.Size(44, 18);
+            this.labelTotienN.TabIndex = 0;
+            this.labelTotienN.Text = "totient";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "E";
+            // 
+            // textBoxN
+            // 
+            this.textBoxN.Location = new System.Drawing.Point(59, 68);
+            this.textBoxN.Name = "textBoxN";
+            this.textBoxN.ReadOnly = true;
+            this.textBoxN.Size = new System.Drawing.Size(200, 25);
+            this.textBoxN.TabIndex = 4;
+            // 
+            // textBoxE
+            // 
+            this.textBoxE.Location = new System.Drawing.Point(59, 161);
+            this.textBoxE.Name = "textBoxE";
+            this.textBoxE.ReadOnly = true;
+            this.textBoxE.Size = new System.Drawing.Size(200, 25);
+            this.textBoxE.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "N";
+            // 
             // tabPageEnkripsi
             // 
             this.tabPageEnkripsi.Controls.Add(this.dataGridViewProsesEnkripsi);
@@ -195,6 +262,27 @@
             this.tabPageEnkripsi.TabIndex = 1;
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewProsesEnkripsi
+            // 
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // label9
             // 
@@ -261,7 +349,6 @@
             this.buttonEnkripsi.TabIndex = 19;
             this.buttonEnkripsi.Text = "Enkripsi";
             this.buttonEnkripsi.UseVisualStyleBackColor = true;
-            this.buttonEnkripsi.Click += new System.EventHandler(this.buttonEnkripsi_Click);
             // 
             // textBoxEnkripsiPlainText
             // 
@@ -320,7 +407,6 @@
             this.buttonDekripsi.TabIndex = 23;
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
-            this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
             // 
             // textBoxDekripsiCipherText
             // 
@@ -329,27 +415,6 @@
             this.textBoxDekripsiCipherText.ReadOnly = true;
             this.textBoxDekripsiCipherText.Size = new System.Drawing.Size(204, 25);
             this.textBoxDekripsiCipherText.TabIndex = 21;
-            // 
-            // dataGridViewProsesEnkripsi
-            // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // dataGridViewProsesDekripsi
             // 
@@ -371,77 +436,7 @@
             this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesDekripsi.TabIndex = 24;
             // 
-            // textBoxE
-            // 
-            this.textBoxE.Location = new System.Drawing.Point(59, 161);
-            this.textBoxE.Name = "textBoxE";
-            this.textBoxE.ReadOnly = true;
-            this.textBoxE.Size = new System.Drawing.Size(200, 25);
-            this.textBoxE.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 164);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "E";
-            // 
-            // labelTotienN
-            // 
-            this.labelTotienN.AutoSize = true;
-            this.labelTotienN.Location = new System.Drawing.Point(6, 102);
-            this.labelTotienN.Name = "labelTotienN";
-            this.labelTotienN.Size = new System.Drawing.Size(44, 18);
-            this.labelTotienN.TabIndex = 0;
-            this.labelTotienN.Text = "totient";
-            // 
-            // textBoxD
-            // 
-            this.textBoxD.Location = new System.Drawing.Point(59, 130);
-            this.textBoxD.Name = "textBoxD";
-            this.textBoxD.Size = new System.Drawing.Size(200, 25);
-            this.textBoxD.TabIndex = 6;
-            // 
-            // textBoxTotientN
-            // 
-            this.textBoxTotientN.Location = new System.Drawing.Point(59, 99);
-            this.textBoxTotientN.Name = "textBoxTotientN";
-            this.textBoxTotientN.ReadOnly = true;
-            this.textBoxTotientN.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientN.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "D";
-            // 
-            // buttonHitungE
-            // 
-            this.buttonHitungE.Location = new System.Drawing.Point(265, 161);
-            this.buttonHitungE.Name = "buttonHitungE";
-            this.buttonHitungE.Size = new System.Drawing.Size(89, 25);
-            this.buttonHitungE.TabIndex = 9;
-            this.buttonHitungE.Text = "Hitung E";
-            this.buttonHitungE.UseVisualStyleBackColor = true;
-            this.buttonHitungE.Click += new System.EventHandler(this.buttonHitungE_Click);
-            // 
-            // buttonRandomD
-            // 
-            this.buttonRandomD.Location = new System.Drawing.Point(265, 130);
-            this.buttonRandomD.Name = "buttonRandomD";
-            this.buttonRandomD.Size = new System.Drawing.Size(89, 25);
-            this.buttonRandomD.TabIndex = 7;
-            this.buttonRandomD.Text = "Random D";
-            this.buttonRandomD.UseVisualStyleBackColor = true;
-            this.buttonRandomD.Click += new System.EventHandler(this.buttonRandomD_Click);
-            // 
-            // FormRSA
+            // FormElGamal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -449,22 +444,21 @@
             this.ClientSize = new System.Drawing.Size(952, 506);
             this.Controls.Add(this.tabControlRSA);
             this.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimumSize = new System.Drawing.Size(960, 540);
-            this.Name = "FormRSA";
+            this.Name = "FormElGamal";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RSA (Rivest Shamir Adleman)";
-            this.Load += new System.EventHandler(this.FormRSA_Load);
+            this.Text = "El Gamal";
+            this.Load += new System.EventHandler(this.FormElGamal_Load);
             this.tabControlRSA.ResumeLayout(false);
             this.tabPageKey.ResumeLayout(false);
             this.tabPageKey.PerformLayout();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
             this.ResumeLayout(false);
 
@@ -472,25 +466,33 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxP;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxQ;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxN;
-        private System.Windows.Forms.Button buttonHitungN;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabControl tabControlRSA;
         private System.Windows.Forms.TabPage tabPageKey;
+        private System.Windows.Forms.TextBox textBoxP;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonRandomD;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonHitungE;
+        private System.Windows.Forms.TextBox textBoxQ;
+        private System.Windows.Forms.Button buttonHitungN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxTotientN;
+        private System.Windows.Forms.TextBox textBoxD;
+        private System.Windows.Forms.Label labelTotienN;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxN;
+        private System.Windows.Forms.TextBox textBoxE;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPageEnkripsi;
+        private DataGridViewNotSortAble dataGridViewProsesEnkripsi;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxEnkripsiCipherText;
+        private System.Windows.Forms.NumericUpDown numericUpDownBlockSize;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonEnkripsi;
         private System.Windows.Forms.TextBox textBoxEnkripsiPlainText;
-        private System.Windows.Forms.NumericUpDown numericUpDownBlockSize;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxEnkripsiCipherText;
-        private DataGridViewNotSortAble dataGridViewProsesEnkripsi;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxDekripsiPlainText;
@@ -498,13 +500,5 @@
         private System.Windows.Forms.Button buttonDekripsi;
         private System.Windows.Forms.TextBox textBoxDekripsiCipherText;
         private DataGridViewNotSortAble dataGridViewProsesDekripsi;
-        private System.Windows.Forms.Button buttonRandomD;
-        private System.Windows.Forms.Button buttonHitungE;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxTotientN;
-        private System.Windows.Forms.TextBox textBoxD;
-        private System.Windows.Forms.Label labelTotienN;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxE;
     }
 }

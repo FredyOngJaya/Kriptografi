@@ -26,14 +26,15 @@ namespace Kriptografi.Week8
             labelTotienN.Text = "\u03D5(n)";
             dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
             dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
+            buttonRandomE.Enabled = false;
+            buttonHitungD.Enabled = false;
+            buttonEnkripsi.Enabled = false;
+            //buttonDekripsi.Enabled = false;
         }
 
         private void FormRSA_Load(object sender, EventArgs e)
         {
             random = new Random(DateTime.Now.Millisecond);
-            buttonRandomE.Enabled = false;
-            buttonHitungD.Enabled = false;
-            buttonEnkripsi.Enabled = false;
         }
 
         #region "Tab Key"
@@ -42,6 +43,10 @@ namespace Kriptografi.Week8
         {
             textBoxE.Clear();
             textBoxD.Clear();
+            textBoxN.Clear();
+            textBoxTotientN.Clear();
+            buttonRandomE.Enabled = false;
+            buttonHitungD.Enabled = false;
             if (long.TryParse(textBoxP.Text, out P) && long.TryParse(textBoxQ.Text, out Q))
             {
                 if (!Kripto.IsMiller(P, (int)Math.Min(P, (long)100)))
@@ -60,17 +65,12 @@ namespace Kriptografi.Week8
                     textBoxTotientN.Text = TN.ToString();
                     buttonRandomE.Enabled = true;
                     buttonHitungD.Enabled = true;
-                    return;
                 }
             }
             else
             {
                 MessageBox.Show("Cek p dan q");
             }
-            textBoxN.Clear();
-            textBoxTotientN.Clear();
-            buttonRandomE.Enabled = false;
-            buttonHitungD.Enabled = false;
         }
 
         private void buttonRandomE_Click(object sender, EventArgs e)
@@ -86,6 +86,8 @@ namespace Kriptografi.Week8
 
         private void buttonHitungD_Click(object sender, EventArgs e)
         {
+            textBoxD.Clear();
+            buttonEnkripsi.Enabled = false;
             if (long.TryParse(textBoxE.Text, out E))
             {
                 if (Kripto.IsRelatifPrima(E, TN))
@@ -101,7 +103,6 @@ namespace Kriptografi.Week8
                         x >>= 1;
                     }
                     numericUpDownBlockSize.Maximum = t;
-                    return;
                 }
                 else
                 {
@@ -112,8 +113,6 @@ namespace Kriptografi.Week8
             {
                 MessageBox.Show("Cek E");
             }
-            textBoxD.Clear();
-            buttonEnkripsi.Enabled = false;
         }
 
         #endregion

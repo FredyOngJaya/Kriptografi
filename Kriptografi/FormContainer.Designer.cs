@@ -70,27 +70,27 @@
             this.fastExponentiationToolStripMenuItem,
             this.rabinMillerToolStripMenuItem});
             this.week3ToolStripMenuItem.Name = "week3ToolStripMenuItem";
-            this.week3ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.week3ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.week3ToolStripMenuItem.Text = "Week 3";
             // 
             // gFToolStripMenuItem
             // 
             this.gFToolStripMenuItem.Name = "gFToolStripMenuItem";
-            this.gFToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.gFToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.gFToolStripMenuItem.Text = "GF";
             this.gFToolStripMenuItem.Click += new System.EventHandler(this.gFToolStripMenuItem_Click);
             // 
             // fastExponentiationToolStripMenuItem
             // 
             this.fastExponentiationToolStripMenuItem.Name = "fastExponentiationToolStripMenuItem";
-            this.fastExponentiationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.fastExponentiationToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.fastExponentiationToolStripMenuItem.Text = "Fast Exponentiation";
             this.fastExponentiationToolStripMenuItem.Click += new System.EventHandler(this.fastExponentiationToolStripMenuItem_Click);
             // 
             // rabinMillerToolStripMenuItem
             // 
             this.rabinMillerToolStripMenuItem.Name = "rabinMillerToolStripMenuItem";
-            this.rabinMillerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.rabinMillerToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.rabinMillerToolStripMenuItem.Text = "Rabin Miller";
             this.rabinMillerToolStripMenuItem.Click += new System.EventHandler(this.rabinMillerToolStripMenuItem_Click);
             // 
@@ -99,13 +99,13 @@
             this.week4ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chineseRemainderTheoremToolStripMenuItem});
             this.week4ToolStripMenuItem.Name = "week4ToolStripMenuItem";
-            this.week4ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.week4ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.week4ToolStripMenuItem.Text = "Week 4";
             // 
             // chineseRemainderTheoremToolStripMenuItem
             // 
             this.chineseRemainderTheoremToolStripMenuItem.Name = "chineseRemainderTheoremToolStripMenuItem";
-            this.chineseRemainderTheoremToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.chineseRemainderTheoremToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.chineseRemainderTheoremToolStripMenuItem.Text = "Chinese Remainder Theorem";
             this.chineseRemainderTheoremToolStripMenuItem.Click += new System.EventHandler(this.chineseRemainderTheoremToolStripMenuItem_Click);
             // 
@@ -114,14 +114,14 @@
             this.week6ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aESToolStripMenuItem});
             this.week6ToolStripMenuItem.Name = "week6ToolStripMenuItem";
-            this.week6ToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.week6ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.week6ToolStripMenuItem.Text = "Week6";
             // 
             // aESToolStripMenuItem
             // 
             this.aESToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aESToolStripMenuItem.Name = "aESToolStripMenuItem";
-            this.aESToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.aESToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.aESToolStripMenuItem.Text = "AES";
             this.aESToolStripMenuItem.Click += new System.EventHandler(this.aESToolStripMenuItem_Click);
             // 
@@ -132,27 +132,27 @@
             this.lFSRToolStripMenuItem,
             this.rC4ToolStripMenuItem});
             this.week7ToolStripMenuItem.Name = "week7ToolStripMenuItem";
-            this.week7ToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.week7ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.week7ToolStripMenuItem.Text = "Week7";
             // 
             // a5ToolStripMenuItem
             // 
             this.a5ToolStripMenuItem.Name = "a5ToolStripMenuItem";
-            this.a5ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.a5ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.a5ToolStripMenuItem.Text = "A5";
             this.a5ToolStripMenuItem.Click += new System.EventHandler(this.a5ToolStripMenuItem_Click);
             // 
             // lFSRToolStripMenuItem
             // 
             this.lFSRToolStripMenuItem.Name = "lFSRToolStripMenuItem";
-            this.lFSRToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.lFSRToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.lFSRToolStripMenuItem.Text = "LFSR";
             this.lFSRToolStripMenuItem.Click += new System.EventHandler(this.lFSRToolStripMenuItem_Click);
             // 
             // rC4ToolStripMenuItem
             // 
             this.rC4ToolStripMenuItem.Name = "rC4ToolStripMenuItem";
-            this.rC4ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.rC4ToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.rC4ToolStripMenuItem.Text = "RC-4";
             this.rC4ToolStripMenuItem.Click += new System.EventHandler(this.rC4ToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             this.lUCToolStripMenuItem,
             this.rabinToolStripMenuItem});
             this.week8ToolStripMenuItem.Name = "week8ToolStripMenuItem";
-            this.week8ToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.week8ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.week8ToolStripMenuItem.Text = "Week8";
             // 
             // rSAToolStripMenuItem
@@ -179,6 +179,7 @@
             this.elGamalToolStripMenuItem.Name = "elGamalToolStripMenuItem";
             this.elGamalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.elGamalToolStripMenuItem.Text = "El Gamal";
+            this.elGamalToolStripMenuItem.Click += new System.EventHandler(this.elGamalToolStripMenuItem_Click);
             // 
             // lUCToolStripMenuItem
             // 
@@ -192,6 +193,7 @@
             this.rabinToolStripMenuItem.Name = "rabinToolStripMenuItem";
             this.rabinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rabinToolStripMenuItem.Text = "Rabin";
+            this.rabinToolStripMenuItem.Click += new System.EventHandler(this.rabinToolStripMenuItem_Click);
             // 
             // FormContainer
             // 

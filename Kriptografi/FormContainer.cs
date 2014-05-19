@@ -26,8 +26,9 @@ namespace Kriptografi
         private Week7.FormLFSR LFSR;
         private Week7.FormRC4 RC4;
         private Week8.FormRSA RSA;
-
+        private Week8.FormElGamal ElGamal;
         private Week8.FormLUC LUC;
+        private Week8.FormRabin Rabin;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -88,9 +89,19 @@ namespace Kriptografi
             ShowForm(ref RSA);
         }
 
+        private void elGamalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void lUCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref LUC);
+        }
+
+        private void rabinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref Rabin);
         }
     }
 }
