@@ -34,12 +34,12 @@
             this.textBoxQ = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxN = new System.Windows.Forms.TextBox();
-            this.labelTotienN = new System.Windows.Forms.Label();
-            this.textBoxTotientN = new System.Windows.Forms.TextBox();
+            this.labelTotientNPPlusQPlus = new System.Windows.Forms.Label();
+            this.textBoxTotientNPPlusQPlus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxE = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxD = new System.Windows.Forms.TextBox();
+            this.textBoxDPMinQMin = new System.Windows.Forms.TextBox();
             this.buttonHitungN = new System.Windows.Forms.Button();
             this.buttonHitungD = new System.Windows.Forms.Button();
             this.buttonRandomE = new System.Windows.Forms.Button();
@@ -47,7 +47,6 @@
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
@@ -61,13 +60,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.buttonDekripsi = new System.Windows.Forms.Button();
             this.textBoxDekripsiCipherText = new System.Windows.Forms.TextBox();
+            this.textBoxDPPlusQPlus = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxDPPlusQMin = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxDPMinQPlus = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labelTotientNPPlusQMin = new System.Windows.Forms.Label();
+            this.textBoxTotientNPPlusQMin = new System.Windows.Forms.TextBox();
+            this.labelTotientNPMinQPlus = new System.Windows.Forms.Label();
+            this.textBoxTotientNPMinQPlus = new System.Windows.Forms.TextBox();
+            this.labelTotientNPMinQMin = new System.Windows.Forms.Label();
+            this.textBoxTotientNPMinQMin = new System.Windows.Forms.TextBox();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             this.tabPageEnkripsi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +94,7 @@
             // 
             // textBoxP
             // 
-            this.textBoxP.Location = new System.Drawing.Point(59, 6);
+            this.textBoxP.Location = new System.Drawing.Point(102, 6);
             this.textBoxP.Name = "textBoxP";
             this.textBoxP.Size = new System.Drawing.Size(200, 25);
             this.textBoxP.TabIndex = 1;
@@ -98,7 +110,7 @@
             // 
             // textBoxQ
             // 
-            this.textBoxQ.Location = new System.Drawing.Point(59, 37);
+            this.textBoxQ.Location = new System.Drawing.Point(102, 37);
             this.textBoxQ.Name = "textBoxQ";
             this.textBoxQ.Size = new System.Drawing.Size(200, 25);
             this.textBoxQ.TabIndex = 2;
@@ -114,33 +126,33 @@
             // 
             // textBoxN
             // 
-            this.textBoxN.Location = new System.Drawing.Point(59, 68);
+            this.textBoxN.Location = new System.Drawing.Point(102, 68);
             this.textBoxN.Name = "textBoxN";
             this.textBoxN.ReadOnly = true;
             this.textBoxN.Size = new System.Drawing.Size(200, 25);
             this.textBoxN.TabIndex = 4;
             // 
-            // labelTotienN
+            // labelTotientNPPlusQPlus
             // 
-            this.labelTotienN.AutoSize = true;
-            this.labelTotienN.Location = new System.Drawing.Point(6, 102);
-            this.labelTotienN.Name = "labelTotienN";
-            this.labelTotienN.Size = new System.Drawing.Size(44, 18);
-            this.labelTotienN.TabIndex = 0;
-            this.labelTotienN.Text = "totient";
+            this.labelTotientNPPlusQPlus.AutoSize = true;
+            this.labelTotientNPPlusQPlus.Location = new System.Drawing.Point(6, 133);
+            this.labelTotientNPPlusQPlus.Name = "labelTotientNPPlusQPlus";
+            this.labelTotientNPPlusQPlus.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPPlusQPlus.TabIndex = 0;
+            this.labelTotientNPPlusQPlus.Text = "totient";
             // 
-            // textBoxTotientN
+            // textBoxTotientNPPlusQPlus
             // 
-            this.textBoxTotientN.Location = new System.Drawing.Point(59, 99);
-            this.textBoxTotientN.Name = "textBoxTotientN";
-            this.textBoxTotientN.ReadOnly = true;
-            this.textBoxTotientN.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientN.TabIndex = 5;
+            this.textBoxTotientNPPlusQPlus.Location = new System.Drawing.Point(102, 130);
+            this.textBoxTotientNPPlusQPlus.Name = "textBoxTotientNPPlusQPlus";
+            this.textBoxTotientNPPlusQPlus.ReadOnly = true;
+            this.textBoxTotientNPPlusQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPPlusQPlus.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 133);
+            this.label4.Location = new System.Drawing.Point(6, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 18);
             this.label4.TabIndex = 0;
@@ -148,7 +160,7 @@
             // 
             // textBoxE
             // 
-            this.textBoxE.Location = new System.Drawing.Point(59, 130);
+            this.textBoxE.Location = new System.Drawing.Point(102, 99);
             this.textBoxE.Name = "textBoxE";
             this.textBoxE.Size = new System.Drawing.Size(200, 25);
             this.textBoxE.TabIndex = 6;
@@ -156,23 +168,23 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 164);
+            this.label5.Location = new System.Drawing.Point(345, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 18);
             this.label5.TabIndex = 0;
             this.label5.Text = "D";
             // 
-            // textBoxD
+            // textBoxDPMinQMin
             // 
-            this.textBoxD.Location = new System.Drawing.Point(59, 161);
-            this.textBoxD.Name = "textBoxD";
-            this.textBoxD.ReadOnly = true;
-            this.textBoxD.Size = new System.Drawing.Size(200, 25);
-            this.textBoxD.TabIndex = 8;
+            this.textBoxDPMinQMin.Location = new System.Drawing.Point(368, 223);
+            this.textBoxDPMinQMin.Name = "textBoxDPMinQMin";
+            this.textBoxDPMinQMin.ReadOnly = true;
+            this.textBoxDPMinQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPMinQMin.TabIndex = 8;
             // 
             // buttonHitungN
             // 
-            this.buttonHitungN.Location = new System.Drawing.Point(265, 37);
+            this.buttonHitungN.Location = new System.Drawing.Point(308, 37);
             this.buttonHitungN.Name = "buttonHitungN";
             this.buttonHitungN.Size = new System.Drawing.Size(156, 25);
             this.buttonHitungN.TabIndex = 3;
@@ -182,7 +194,7 @@
             // 
             // buttonHitungD
             // 
-            this.buttonHitungD.Location = new System.Drawing.Point(265, 161);
+            this.buttonHitungD.Location = new System.Drawing.Point(403, 99);
             this.buttonHitungD.Name = "buttonHitungD";
             this.buttonHitungD.Size = new System.Drawing.Size(89, 25);
             this.buttonHitungD.TabIndex = 9;
@@ -192,7 +204,7 @@
             // 
             // buttonRandomE
             // 
-            this.buttonRandomE.Location = new System.Drawing.Point(265, 130);
+            this.buttonRandomE.Location = new System.Drawing.Point(308, 99);
             this.buttonRandomE.Name = "buttonRandomE";
             this.buttonRandomE.Size = new System.Drawing.Size(89, 25);
             this.buttonRandomE.TabIndex = 7;
@@ -203,7 +215,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 198);
+            this.label6.Location = new System.Drawing.Point(6, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(519, 18);
             this.label6.TabIndex = 10;
@@ -233,12 +245,24 @@
             this.tabPageKey.Controls.Add(this.textBoxQ);
             this.tabPageKey.Controls.Add(this.buttonHitungN);
             this.tabPageKey.Controls.Add(this.label4);
-            this.tabPageKey.Controls.Add(this.textBoxTotientN);
+            this.tabPageKey.Controls.Add(this.textBoxTotientNPMinQMin);
+            this.tabPageKey.Controls.Add(this.textBoxTotientNPMinQPlus);
+            this.tabPageKey.Controls.Add(this.labelTotientNPMinQMin);
+            this.tabPageKey.Controls.Add(this.textBoxTotientNPPlusQMin);
+            this.tabPageKey.Controls.Add(this.labelTotientNPMinQPlus);
+            this.tabPageKey.Controls.Add(this.textBoxTotientNPPlusQPlus);
+            this.tabPageKey.Controls.Add(this.labelTotientNPPlusQMin);
             this.tabPageKey.Controls.Add(this.textBoxE);
-            this.tabPageKey.Controls.Add(this.labelTotienN);
+            this.tabPageKey.Controls.Add(this.labelTotientNPPlusQPlus);
+            this.tabPageKey.Controls.Add(this.label14);
+            this.tabPageKey.Controls.Add(this.label13);
+            this.tabPageKey.Controls.Add(this.label12);
             this.tabPageKey.Controls.Add(this.label5);
             this.tabPageKey.Controls.Add(this.textBoxN);
-            this.tabPageKey.Controls.Add(this.textBoxD);
+            this.tabPageKey.Controls.Add(this.textBoxDPMinQPlus);
+            this.tabPageKey.Controls.Add(this.textBoxDPPlusQMin);
+            this.tabPageKey.Controls.Add(this.textBoxDPPlusQPlus);
+            this.tabPageKey.Controls.Add(this.textBoxDPMinQMin);
             this.tabPageKey.Controls.Add(this.label3);
             this.tabPageKey.Location = new System.Drawing.Point(4, 27);
             this.tabPageKey.Name = "tabPageKey";
@@ -265,27 +289,6 @@
             this.tabPageEnkripsi.TabIndex = 1;
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewProsesEnkripsi
-            // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // label9
             // 
@@ -421,6 +424,129 @@
             this.textBoxDekripsiCipherText.Size = new System.Drawing.Size(204, 25);
             this.textBoxDekripsiCipherText.TabIndex = 21;
             // 
+            // textBoxDPPlusQPlus
+            // 
+            this.textBoxDPPlusQPlus.Location = new System.Drawing.Point(368, 130);
+            this.textBoxDPPlusQPlus.Name = "textBoxDPPlusQPlus";
+            this.textBoxDPPlusQPlus.ReadOnly = true;
+            this.textBoxDPPlusQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPPlusQPlus.TabIndex = 8;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(345, 164);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "D";
+            // 
+            // textBoxDPPlusQMin
+            // 
+            this.textBoxDPPlusQMin.Location = new System.Drawing.Point(368, 161);
+            this.textBoxDPPlusQMin.Name = "textBoxDPPlusQMin";
+            this.textBoxDPPlusQMin.ReadOnly = true;
+            this.textBoxDPPlusQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPPlusQMin.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(345, 195);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 18);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "D";
+            // 
+            // textBoxDPMinQPlus
+            // 
+            this.textBoxDPMinQPlus.Location = new System.Drawing.Point(368, 192);
+            this.textBoxDPMinQPlus.Name = "textBoxDPMinQPlus";
+            this.textBoxDPMinQPlus.ReadOnly = true;
+            this.textBoxDPMinQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPMinQPlus.TabIndex = 8;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(345, 226);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(17, 18);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "D";
+            // 
+            // labelTotientNPPlusQMin
+            // 
+            this.labelTotientNPPlusQMin.AutoSize = true;
+            this.labelTotientNPPlusQMin.Location = new System.Drawing.Point(6, 164);
+            this.labelTotientNPPlusQMin.Name = "labelTotientNPPlusQMin";
+            this.labelTotientNPPlusQMin.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPPlusQMin.TabIndex = 0;
+            this.labelTotientNPPlusQMin.Text = "totient";
+            // 
+            // textBoxTotientNPPlusQMin
+            // 
+            this.textBoxTotientNPPlusQMin.Location = new System.Drawing.Point(102, 161);
+            this.textBoxTotientNPPlusQMin.Name = "textBoxTotientNPPlusQMin";
+            this.textBoxTotientNPPlusQMin.ReadOnly = true;
+            this.textBoxTotientNPPlusQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPPlusQMin.TabIndex = 5;
+            // 
+            // labelTotientNPMinQPlus
+            // 
+            this.labelTotientNPMinQPlus.AutoSize = true;
+            this.labelTotientNPMinQPlus.Location = new System.Drawing.Point(6, 195);
+            this.labelTotientNPMinQPlus.Name = "labelTotientNPMinQPlus";
+            this.labelTotientNPMinQPlus.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPMinQPlus.TabIndex = 0;
+            this.labelTotientNPMinQPlus.Text = "totient";
+            // 
+            // textBoxTotientNPMinQPlus
+            // 
+            this.textBoxTotientNPMinQPlus.Location = new System.Drawing.Point(102, 192);
+            this.textBoxTotientNPMinQPlus.Name = "textBoxTotientNPMinQPlus";
+            this.textBoxTotientNPMinQPlus.ReadOnly = true;
+            this.textBoxTotientNPMinQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPMinQPlus.TabIndex = 5;
+            // 
+            // labelTotientNPMinQMin
+            // 
+            this.labelTotientNPMinQMin.AutoSize = true;
+            this.labelTotientNPMinQMin.Location = new System.Drawing.Point(6, 226);
+            this.labelTotientNPMinQMin.Name = "labelTotientNPMinQMin";
+            this.labelTotientNPMinQMin.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPMinQMin.TabIndex = 0;
+            this.labelTotientNPMinQMin.Text = "totient";
+            // 
+            // textBoxTotientNPMinQMin
+            // 
+            this.textBoxTotientNPMinQMin.Location = new System.Drawing.Point(102, 223);
+            this.textBoxTotientNPMinQMin.Name = "textBoxTotientNPMinQMin";
+            this.textBoxTotientNPMinQMin.ReadOnly = true;
+            this.textBoxTotientNPMinQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPMinQMin.TabIndex = 5;
+            // 
+            // dataGridViewProsesEnkripsi
+            // 
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            // 
             // dataGridViewProsesDekripsi
             // 
             this.dataGridViewProsesDekripsi.AllowUserToAddRows = false;
@@ -461,10 +587,10 @@
             this.tabPageKey.PerformLayout();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
             this.ResumeLayout(false);
 
@@ -478,12 +604,12 @@
         private System.Windows.Forms.TextBox textBoxQ;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxN;
-        private System.Windows.Forms.Label labelTotienN;
-        private System.Windows.Forms.TextBox textBoxTotientN;
+        private System.Windows.Forms.Label labelTotientNPPlusQPlus;
+        private System.Windows.Forms.TextBox textBoxTotientNPPlusQPlus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxE;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxD;
+        private System.Windows.Forms.TextBox textBoxDPMinQMin;
         private System.Windows.Forms.Button buttonHitungN;
         private System.Windows.Forms.Button buttonHitungD;
         private System.Windows.Forms.Button buttonRandomE;
@@ -506,5 +632,17 @@
         private System.Windows.Forms.Button buttonDekripsi;
         private System.Windows.Forms.TextBox textBoxDekripsiCipherText;
         private DataGridViewNotSortAble dataGridViewProsesDekripsi;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxDPMinQPlus;
+        private System.Windows.Forms.TextBox textBoxDPPlusQMin;
+        private System.Windows.Forms.TextBox textBoxDPPlusQPlus;
+        private System.Windows.Forms.TextBox textBoxTotientNPMinQMin;
+        private System.Windows.Forms.TextBox textBoxTotientNPMinQPlus;
+        private System.Windows.Forms.Label labelTotientNPMinQMin;
+        private System.Windows.Forms.TextBox textBoxTotientNPPlusQMin;
+        private System.Windows.Forms.Label labelTotientNPMinQPlus;
+        private System.Windows.Forms.Label labelTotientNPPlusQMin;
     }
 }

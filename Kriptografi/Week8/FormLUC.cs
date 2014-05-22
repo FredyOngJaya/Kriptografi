@@ -16,14 +16,19 @@ namespace Kriptografi.Week8
     {
         Random random;
         long P = 0, Q = 0;
-        long N = 0, TN = 0;
-        long D = 0, E = 0;
+        long N = 0;
+        long E = 0;
+        long[] TN = new long[4];
+        long[] D = new long[4];
 
         public FormLUC()
         {
             InitializeComponent();
             //labelTotienN.Text = "\u03A6\u03C6\u03D5\u0278(n)";
-            labelTotienN.Text = "\u03D5(n)";
+            labelTotientNPPlusQPlus.Text = "\u03D5(n)(p+1)(q+1)";
+            labelTotientNPPlusQMin.Text = "\u03D5(n)(p+1)(q-1)";
+            labelTotientNPMinQPlus.Text = "\u03D5(n)(p-1)(q+1)";
+            labelTotientNPMinQMin.Text = "\u03D5(n)(p-1)(q-1)";
             dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
             dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
             buttonRandomE.Enabled = false;
@@ -42,9 +47,9 @@ namespace Kriptografi.Week8
         private void buttonHitungN_Click(object sender, EventArgs e)
         {
             textBoxE.Clear();
-            textBoxD.Clear();
+            textBoxDPMinQMin.Clear();
             textBoxN.Clear();
-            textBoxTotientN.Clear();
+            textBoxTotientNPPlusQPlus.Clear();
             buttonRandomE.Enabled = false;
             buttonHitungD.Enabled = false;
             if (long.TryParse(textBoxP.Text, out P) && long.TryParse(textBoxQ.Text, out Q))
@@ -60,9 +65,15 @@ namespace Kriptografi.Week8
                 else
                 {
                     N = P * Q;
-                    TN = (P - 1) * (Q - 1);
+                    TN[0] = (P + 1) * (Q + 1);
+                    TN[1] = (P + 1) * (Q - 1);
+                    TN[2] = (P - 1) * (Q + 1);
+                    TN[3] = (P - 1) * (Q - 1);
                     textBoxN.Text = N.ToString();
-                    textBoxTotientN.Text = TN.ToString();
+                    textBoxTotientNPPlusQPlus.Text = TN[0].ToString();
+                    textBoxTotientNPPlusQMin.Text = TN[1].ToString();
+                    textBoxTotientNPMinQPlus.Text = TN[2].ToString();
+                    textBoxTotientNPMinQMin.Text = TN[3].ToString();
                     buttonRandomE.Enabled = true;
                     buttonHitungD.Enabled = true;
                 }
@@ -73,6 +84,16 @@ namespace Kriptografi.Week8
             }
         }
 
+        private bool relatifPrimaD(long v)
+        {
+            bool result = true;
+            foreach (long t in TN)
+            {
+                result = result & Kripto.IsRelatifPrima(v, t);
+            }
+            return result;
+        }
+
         private void buttonRandomE_Click(object sender, EventArgs e)
         {
             long max = Math.Max(P, Q) + 1;
@@ -80,20 +101,28 @@ namespace Kriptografi.Week8
             do
             {
                 t = (long)(random.NextDouble() * (N - max)) + max;
-            } while (!Kripto.IsRelatifPrima(t, TN));
+            } while (!relatifPrimaD(t));
             textBoxE.Text = t.ToString();
         }
 
         private void buttonHitungD_Click(object sender, EventArgs e)
         {
-            textBoxD.Clear();
+            textBoxDPMinQMin.Clear();
             buttonEnkripsi.Enabled = false;
             if (long.TryParse(textBoxE.Text, out E))
             {
-                if (Kripto.IsRelatifPrima(E, TN))
+                if (relatifPrimaD(E))
                 {
-                    D = Kripto.InversModulo(E, TN);
-                    textBoxD.Text = D.ToString();
+                    for (int i = 0; i < TN.Length; i++)
+                    {
+                        D[i] = Kripto.InversModulo(E, TN[i]);
+                    }
+
+                    textBoxDPPlusQPlus.Text = D[0].ToString();
+                    textBoxDPPlusQMin.Text = D[1].ToString();
+                    textBoxDPMinQPlus.Text = D[2].ToString();
+                    textBoxDPMinQMin.Text = D[3].ToString();
+
                     buttonEnkripsi.Enabled = true;
                     int t = 0;
                     long x = N;
@@ -120,24 +149,30 @@ namespace Kriptografi.Week8
         List<long> cipherList = new List<long>();
         int blokSize;
 
-        private long Lucas(long P, long e, long N, DataGridViewNotSortAble grid)
+        private long Lucas(long value, long key, long N, DataGridViewNotSortAble grid, bool printProcess)
         {
-            if (e == 0) return 2;
-            if (e == 1) return P;
+            if (key == 0) return 2;
+            if (key == 1) return value;
             long a0 = 2;
-            long a1 = P;
+            long a1 = value;
             long a2;
-            grid.Rows.Add("V[0](" + P + ",1) = 2");
-            grid.Rows.Add("V[1](" + P + ",1) = " + P);
-            for (long i = 2; i <= e; i++)
+            if (printProcess)
             {
-                a2 = Kripto.MultiplyModulo(P, a1, N) - a0;
+                grid.Rows.Add("V[0](" + value + ",1) = 2");
+                grid.Rows.Add("V[1](" + value + ",1) = " + value);
+            }
+            for (long i = 2; i <= key; i++)
+            {
+                a2 = Kripto.MultiplyModulo(value, a1, N) - a0;
                 if (a2 < 0)
                     a2 += N;
-                grid.Rows.Add();
-                grid.Rows.Add("V[" + i + "](" + P + ",1) = (P * V[" + (i - 1) + "](" + P + ",1) - V[" + (i - 2) + "](" + P + ",1) mod " + N);
-                grid.Rows.Add("V[" + i + "](" + P + ",1) = (" + P + " * " + a1 + " - " + a0 + ") mod " + N);
-                grid.Rows.Add("V[" + i + "](" + P + ",1) = " + a2);
+                if (printProcess)
+                {
+                    grid.Rows.Add();
+                    grid.Rows.Add("V[" + i + "](" + value + ",1) = (P * V[" + (i - 1) + "](" + value + ",1) - V[" + (i - 2) + "](" + value + ",1)) mod " + N);
+                    grid.Rows.Add("V[" + i + "](" + value + ",1) = (" + value + " * " + a1 + " - " + a0 + ") mod " + N);
+                    grid.Rows.Add("V[" + i + "](" + value + ",1) = " + a2);
+                }
                 a0 = a1;
                 a1 = a2;
             }
@@ -167,7 +202,7 @@ namespace Kriptografi.Week8
                 int t = now.BinToInt();
                 dataGridViewProsesEnkripsi.Rows.Add();
                 dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
-                long c = Lucas(t, E, N, dataGridViewProsesEnkripsi);
+                long c = Lucas(t, E, N, dataGridViewProsesEnkripsi, false);
                 cipherList.Add(c);
                 dataGridViewProsesEnkripsi.Rows.Add("C" + i++ +  " = V[" + E + "](" + t + ",1) mod " + N + " = " + c);
             }
@@ -180,26 +215,45 @@ namespace Kriptografi.Week8
         private void buttonDekripsi_Click(object sender, EventArgs e)
         {
             dataGridViewProsesDekripsi.Rows.Clear();
-            int i = 1;
-            StringBuilder plainBiner = new StringBuilder();
-            foreach (long c in cipherList)
+            StringBuilder[] plainBiner = new StringBuilder[4];
+            for (int i = 0; i < plainBiner.Length; i++)
             {
-                long m = Lucas(c, D, N, dataGridViewProsesDekripsi);
-                plainBiner.Append(m.ToBin(blokSize));
-                dataGridViewProsesDekripsi.Rows.Add("C" + i++ + " = V[" + D + "](" + c + ",1) mod " + N + " = " + m);
-                dataGridViewProsesDekripsi.Rows.Add();
+                plainBiner[i] = new StringBuilder();
             }
-            dataGridViewProsesDekripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
-            StringBuilder plainText = new StringBuilder();
-            string now;
-            while (plainBiner.Length > 0)
+            int last = 8 - (((cipherList.Count - 1) * blokSize) % 8);
+            for (int i = 0; i < cipherList.Count; i++)
             {
-                now = plainBiner.ToString(0, Math.Min(8, plainBiner.Length));
-                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
-                int t = now.BinToInt();
-                plainText.Append((char)t);
+                for (int iD = 0; iD < D.Length; iD++)
+                {
+                    long c = cipherList[i];
+                    long m = Lucas(c, D[iD], N, dataGridViewProsesDekripsi, false);
+                    if (i == cipherList.Count - 1)
+                    {
+                        plainBiner[iD].Append(m.ToBin(last));
+                    }
+                    else
+                    {
+                        plainBiner[iD].Append(m.ToBin(blokSize));
+                    }
+                    dataGridViewProsesDekripsi.Rows.Add("C" + (i + 1) + " = " + c);
+                    dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = V[" + D[iD] + "](" + c + ",1) mod " + N + " = " + m);
+                    dataGridViewProsesDekripsi.Rows.Add();
+                }
             }
-            textBoxDekripsiPlainText.Text = plainText.ToString();
+            for (int i = 0; i < D.Length; i++)
+            {
+                StringBuilder plainText = new StringBuilder();
+                string now;
+                while (plainBiner[i].Length > 0)
+                {
+                    now = plainBiner[i].ToString(0, Math.Min(8, plainBiner[i].Length));
+                    plainBiner[i].Remove(0, Math.Min(8, plainBiner[i].Length));
+                    int t = now.BinToInt();
+                    plainText.Append((char)t);
+                }
+                dataGridViewProsesDekripsi.Rows.Add(plainText.ToString());
+                textBoxDekripsiPlainText.Text = plainText.ToString();
+            }
         }
 
         #endregion

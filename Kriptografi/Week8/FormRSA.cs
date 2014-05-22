@@ -135,6 +135,7 @@ namespace Kriptografi.Week8
             }
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
             cipher.Clear();
+            int i = 1;
             while (plainBiner.Length > 0)
             {
                 now = plainBiner.ToString(0, Math.Min(blokSize, plainBiner.Length));
@@ -144,7 +145,7 @@ namespace Kriptografi.Week8
                 dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
                 long c = Kripto.QuickModulo(t, E, N);
                 cipher.Add(c);
-                dataGridViewProsesEnkripsi.Rows.Add("C = " + t + " ^ " + E + " mod " + N + " = " + c);
+                dataGridViewProsesEnkripsi.Rows.Add("C" + i++ + " = " + t + " ^ " + E + " mod " + N + " = " + c);
             }
         }
 
@@ -155,12 +156,34 @@ namespace Kriptografi.Week8
         private void buttonDekripsi_Click(object sender, EventArgs e)
         {
             dataGridViewProsesDekripsi.Rows.Clear();
-            foreach (long c in cipher)
+            StringBuilder plainBiner = new StringBuilder();
+            int last = 8 - (((cipher.Count - 1) * blokSize) % 8);
+            for (int i = 0; i < cipher.Count; i++)
             {
+                long c = cipher[i];
                 long m = Kripto.QuickModulo(c, D, N);
-                dataGridViewProsesDekripsi.Rows.Add("M = " + c + " ^ " + D + " mod " + N + " = " + m);
+                if (i == cipher.Count - 1)
+                {
+                    plainBiner.Append(m.ToBin(last));
+                }
+                else
+                {
+                    plainBiner.Append(m.ToBin(blokSize));
+                }
+                dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + c + " ^ " + D + " mod " + N + " = " + m);
                 dataGridViewProsesDekripsi.Rows.Add();
             }
+            dataGridViewProsesDekripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
+            StringBuilder plainText = new StringBuilder();
+            string now;
+            while (plainBiner.Length > 0)
+            {
+                now = plainBiner.ToString(0, Math.Min(8, plainBiner.Length));
+                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
+                int t = now.BinToInt();
+                plainText.Append((char)t);
+            }
+            textBoxDekripsiPlainText.Text = plainText.ToString();
         }
 
         #endregion
