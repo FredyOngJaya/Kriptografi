@@ -71,22 +71,26 @@ namespace Kriptografi
         /// </summary>
         public static void Sieve()
         {
-            int n = 1000000;
-            isPrima[2] = true;
-            for (int i = 3; i <= n; i += 2)
+            if (!isPrimeGenerated)
             {
-                isPrima[i] = true;
-            }
-            int sq = (int)Math.Sqrt(n + 1e-6);
-            for (int i = 3; i <= sq; i += 2)
-            {
-                if (isPrima[i])
+                int n = 1000000;
+                isPrima[2] = true;
+                for (int i = 3; i <= n; i += 2)
                 {
-                    for (int j = i * i; j <= n; j += i)
+                    isPrima[i] = true;
+                }
+                int sq = (int)Math.Sqrt(n + 1e-6);
+                for (int i = 3; i <= sq; i += 2)
+                {
+                    if (isPrima[i])
                     {
-                        isPrima[j] = false;
+                        for (int j = i * i; j <= n; j += i)
+                        {
+                            isPrima[j] = false;
+                        }
                     }
                 }
+                isPrimeGenerated = true;
             }
         }
 
@@ -228,11 +232,7 @@ namespace Kriptografi
         /// <returns></returns>
         public static bool IsGeneratorModulo(int number, int div)
         {
-            if (!isPrimeGenerated)
-            {
-                Sieve();
-                isPrimeGenerated = true;
-            }
+            Sieve();
             List<int> faktorPrima = new List<int>();
             int p = number - 1;
             int sq = (int)Math.Sqrt(p);
@@ -261,6 +261,18 @@ namespace Kriptografi
             return res;
         }
 
+        public static System.Data.DataTable GetPrime(int lower, int upper)
+        {
+            Sieve();
+            System.Data.DataTable list = new System.Data.DataTable();
+            list.Columns.Add("Prima");
+            for (int i = lower; i <= upper; i++)
+            {
+                if (isPrima[i]) list.Rows.Add(i);
+            }
+            return list;
+        }
+
         /// <summary>
         /// Invers modulo of a number
         /// </summary>
@@ -281,6 +293,42 @@ namespace Kriptografi
                 x = aLast - (mod * bLast);
                 aLast = bLast;
                 bLast = x;
+            }
+            if (aLast < 0)
+                aLast += div;
+            return aLast;
+        }
+        public static long InversModulo(long number, long divisor, System.Windows.Forms.DataGridView gridProses)
+        {
+            if (divisor == 1) return 1;
+            long div = divisor;
+            long aLast = 0, bLast = 1;
+            int i = 1;
+            int col = 0;
+            gridProses.Columns.Add("P" + i, "P" + i);
+            i++;
+            gridProses.Columns.Add("P" + i, "P" + i);
+            gridProses.Rows.Add();
+            gridProses.Rows.Add(new string[] { number.ToString(), divisor.ToString() });
+            gridProses.Rows.Add(new string[] { "0", "1" });
+            while (number > 0)
+            {
+                col = i;
+                i++;
+                gridProses.Columns.Add("P" + i, "P" + i);
+                long mod = divisor / number;
+                long x = divisor - (mod * number);
+
+                gridProses[col, 0].Value = mod;
+                gridProses[col, 1].Value = x;
+
+                divisor = number;
+                number = x;
+                x = aLast - (mod * bLast);
+                aLast = bLast;
+                bLast = x;
+                if (number != 0)
+                    gridProses[col, 2].Value = bLast;
             }
             if (aLast < 0)
                 aLast += div;

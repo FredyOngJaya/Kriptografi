@@ -101,6 +101,9 @@
     <EmbeddedResource Include="Week8\FormLUC.resx">
       <DependentUpon>FormLUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week8\FormPrimeList.resx">
+      <DependentUpon>FormPrimeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week8\FormRabin.resx">
       <DependentUpon>FormRabin.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +188,12 @@
     </Compile>
     <Compile Include="Week8\FormLUC.Designer.cs">
       <DependentUpon>FormLUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Week8\FormPrimeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week8\FormPrimeList.Designer.cs">
+      <DependentUpon>FormPrimeList.cs</DependentUpon>
     </Compile>
     <Compile Include="Week8\FormRabin.cs">
       <SubType>Form</SubType>

@@ -29,6 +29,7 @@ namespace Kriptografi
         private Week8.FormElGamal ElGamal;
         private Week8.FormLUC LUC;
         private Week8.FormRabin Rabin;
+        private Week8.FormPrimeList PrimeList;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -102,6 +103,11 @@ namespace Kriptografi
         private void rabinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref Rabin);
+        }
+
+        private void primeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref PrimeList);
         }
     }
 }

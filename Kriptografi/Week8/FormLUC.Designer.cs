@@ -46,9 +46,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
+            this.textBoxTotientNPMinQMin = new System.Windows.Forms.TextBox();
+            this.textBoxTotientNPMinQPlus = new System.Windows.Forms.TextBox();
+            this.labelTotientNPMinQMin = new System.Windows.Forms.Label();
+            this.textBoxTotientNPPlusQMin = new System.Windows.Forms.TextBox();
+            this.labelTotientNPMinQPlus = new System.Windows.Forms.Label();
+            this.labelTotientNPPlusQMin = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxDPMinQPlus = new System.Windows.Forms.TextBox();
+            this.textBoxDPPlusQMin = new System.Windows.Forms.TextBox();
+            this.textBoxDPPlusQPlus = new System.Windows.Forms.TextBox();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,29 +68,14 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.buttonDekripsi = new System.Windows.Forms.Button();
-            this.textBoxDekripsiCipherText = new System.Windows.Forms.TextBox();
-            this.textBoxDPPlusQPlus = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxDPPlusQMin = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxDPMinQPlus = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.labelTotientNPPlusQMin = new System.Windows.Forms.Label();
-            this.textBoxTotientNPPlusQMin = new System.Windows.Forms.TextBox();
-            this.labelTotientNPMinQPlus = new System.Windows.Forms.Label();
-            this.textBoxTotientNPMinQPlus = new System.Windows.Forms.TextBox();
-            this.labelTotientNPMinQMin = new System.Windows.Forms.Label();
-            this.textBoxTotientNPMinQMin = new System.Windows.Forms.TextBox();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             this.tabPageEnkripsi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,7 +211,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 337);
+            this.label6.Location = new System.Drawing.Point(6, 251);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(519, 18);
             this.label6.TabIndex = 10;
@@ -272,11 +268,111 @@
             this.tabPageKey.Text = "Key";
             this.tabPageKey.UseVisualStyleBackColor = true;
             // 
+            // textBoxTotientNPMinQMin
+            // 
+            this.textBoxTotientNPMinQMin.Location = new System.Drawing.Point(102, 223);
+            this.textBoxTotientNPMinQMin.Name = "textBoxTotientNPMinQMin";
+            this.textBoxTotientNPMinQMin.ReadOnly = true;
+            this.textBoxTotientNPMinQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPMinQMin.TabIndex = 5;
+            // 
+            // textBoxTotientNPMinQPlus
+            // 
+            this.textBoxTotientNPMinQPlus.Location = new System.Drawing.Point(102, 192);
+            this.textBoxTotientNPMinQPlus.Name = "textBoxTotientNPMinQPlus";
+            this.textBoxTotientNPMinQPlus.ReadOnly = true;
+            this.textBoxTotientNPMinQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPMinQPlus.TabIndex = 5;
+            // 
+            // labelTotientNPMinQMin
+            // 
+            this.labelTotientNPMinQMin.AutoSize = true;
+            this.labelTotientNPMinQMin.Location = new System.Drawing.Point(6, 226);
+            this.labelTotientNPMinQMin.Name = "labelTotientNPMinQMin";
+            this.labelTotientNPMinQMin.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPMinQMin.TabIndex = 0;
+            this.labelTotientNPMinQMin.Text = "totient";
+            // 
+            // textBoxTotientNPPlusQMin
+            // 
+            this.textBoxTotientNPPlusQMin.Location = new System.Drawing.Point(102, 161);
+            this.textBoxTotientNPPlusQMin.Name = "textBoxTotientNPPlusQMin";
+            this.textBoxTotientNPPlusQMin.ReadOnly = true;
+            this.textBoxTotientNPPlusQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxTotientNPPlusQMin.TabIndex = 5;
+            // 
+            // labelTotientNPMinQPlus
+            // 
+            this.labelTotientNPMinQPlus.AutoSize = true;
+            this.labelTotientNPMinQPlus.Location = new System.Drawing.Point(6, 195);
+            this.labelTotientNPMinQPlus.Name = "labelTotientNPMinQPlus";
+            this.labelTotientNPMinQPlus.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPMinQPlus.TabIndex = 0;
+            this.labelTotientNPMinQPlus.Text = "totient";
+            // 
+            // labelTotientNPPlusQMin
+            // 
+            this.labelTotientNPPlusQMin.AutoSize = true;
+            this.labelTotientNPPlusQMin.Location = new System.Drawing.Point(6, 164);
+            this.labelTotientNPPlusQMin.Name = "labelTotientNPPlusQMin";
+            this.labelTotientNPPlusQMin.Size = new System.Drawing.Size(44, 18);
+            this.labelTotientNPPlusQMin.TabIndex = 0;
+            this.labelTotientNPPlusQMin.Text = "totient";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(345, 226);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(17, 18);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "D";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(345, 195);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 18);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "D";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(345, 164);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "D";
+            // 
+            // textBoxDPMinQPlus
+            // 
+            this.textBoxDPMinQPlus.Location = new System.Drawing.Point(368, 192);
+            this.textBoxDPMinQPlus.Name = "textBoxDPMinQPlus";
+            this.textBoxDPMinQPlus.ReadOnly = true;
+            this.textBoxDPMinQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPMinQPlus.TabIndex = 8;
+            // 
+            // textBoxDPPlusQMin
+            // 
+            this.textBoxDPPlusQMin.Location = new System.Drawing.Point(368, 161);
+            this.textBoxDPPlusQMin.Name = "textBoxDPPlusQMin";
+            this.textBoxDPPlusQMin.ReadOnly = true;
+            this.textBoxDPPlusQMin.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPPlusQMin.TabIndex = 8;
+            // 
+            // textBoxDPPlusQPlus
+            // 
+            this.textBoxDPPlusQPlus.Location = new System.Drawing.Point(368, 130);
+            this.textBoxDPPlusQPlus.Name = "textBoxDPPlusQPlus";
+            this.textBoxDPPlusQPlus.ReadOnly = true;
+            this.textBoxDPPlusQPlus.Size = new System.Drawing.Size(200, 25);
+            this.textBoxDPPlusQPlus.TabIndex = 8;
+            // 
             // tabPageEnkripsi
             // 
             this.tabPageEnkripsi.Controls.Add(this.dataGridViewProsesEnkripsi);
-            this.tabPageEnkripsi.Controls.Add(this.label9);
-            this.tabPageEnkripsi.Controls.Add(this.textBoxEnkripsiCipherText);
             this.tabPageEnkripsi.Controls.Add(this.numericUpDownBlockSize);
             this.tabPageEnkripsi.Controls.Add(this.label8);
             this.tabPageEnkripsi.Controls.Add(this.label7);
@@ -290,22 +386,26 @@
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // dataGridViewProsesEnkripsi
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(644, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 18);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Cipher text";
-            // 
-            // textBoxEnkripsiCipherText
-            // 
-            this.textBoxEnkripsiCipherText.Location = new System.Drawing.Point(732, 13);
-            this.textBoxEnkripsiCipherText.Name = "textBoxEnkripsiCipherText";
-            this.textBoxEnkripsiCipherText.ReadOnly = true;
-            this.textBoxEnkripsiCipherText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxEnkripsiCipherText.TabIndex = 25;
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // numericUpDownBlockSize
             // 
@@ -368,9 +468,7 @@
             // 
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.textBoxDekripsiPlainText);
-            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.buttonDekripsi);
-            this.tabPage3.Controls.Add(this.textBoxDekripsiCipherText);
             this.tabPage3.Controls.Add(this.dataGridViewProsesDekripsi);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
@@ -397,15 +495,6 @@
             this.textBoxDekripsiPlainText.Size = new System.Drawing.Size(204, 25);
             this.textBoxDekripsiPlainText.TabIndex = 25;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 18);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Cipher text";
-            // 
             // buttonDekripsi
             // 
             this.buttonDekripsi.Location = new System.Drawing.Point(320, 13);
@@ -415,137 +504,6 @@
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
             this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
-            // 
-            // textBoxDekripsiCipherText
-            // 
-            this.textBoxDekripsiCipherText.Location = new System.Drawing.Point(109, 13);
-            this.textBoxDekripsiCipherText.Name = "textBoxDekripsiCipherText";
-            this.textBoxDekripsiCipherText.ReadOnly = true;
-            this.textBoxDekripsiCipherText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxDekripsiCipherText.TabIndex = 21;
-            // 
-            // textBoxDPPlusQPlus
-            // 
-            this.textBoxDPPlusQPlus.Location = new System.Drawing.Point(368, 130);
-            this.textBoxDPPlusQPlus.Name = "textBoxDPPlusQPlus";
-            this.textBoxDPPlusQPlus.ReadOnly = true;
-            this.textBoxDPPlusQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPPlusQPlus.TabIndex = 8;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(345, 164);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 18);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "D";
-            // 
-            // textBoxDPPlusQMin
-            // 
-            this.textBoxDPPlusQMin.Location = new System.Drawing.Point(368, 161);
-            this.textBoxDPPlusQMin.Name = "textBoxDPPlusQMin";
-            this.textBoxDPPlusQMin.ReadOnly = true;
-            this.textBoxDPPlusQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPPlusQMin.TabIndex = 8;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(345, 195);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(17, 18);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "D";
-            // 
-            // textBoxDPMinQPlus
-            // 
-            this.textBoxDPMinQPlus.Location = new System.Drawing.Point(368, 192);
-            this.textBoxDPMinQPlus.Name = "textBoxDPMinQPlus";
-            this.textBoxDPMinQPlus.ReadOnly = true;
-            this.textBoxDPMinQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPMinQPlus.TabIndex = 8;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(345, 226);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(17, 18);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "D";
-            // 
-            // labelTotientNPPlusQMin
-            // 
-            this.labelTotientNPPlusQMin.AutoSize = true;
-            this.labelTotientNPPlusQMin.Location = new System.Drawing.Point(6, 164);
-            this.labelTotientNPPlusQMin.Name = "labelTotientNPPlusQMin";
-            this.labelTotientNPPlusQMin.Size = new System.Drawing.Size(44, 18);
-            this.labelTotientNPPlusQMin.TabIndex = 0;
-            this.labelTotientNPPlusQMin.Text = "totient";
-            // 
-            // textBoxTotientNPPlusQMin
-            // 
-            this.textBoxTotientNPPlusQMin.Location = new System.Drawing.Point(102, 161);
-            this.textBoxTotientNPPlusQMin.Name = "textBoxTotientNPPlusQMin";
-            this.textBoxTotientNPPlusQMin.ReadOnly = true;
-            this.textBoxTotientNPPlusQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPPlusQMin.TabIndex = 5;
-            // 
-            // labelTotientNPMinQPlus
-            // 
-            this.labelTotientNPMinQPlus.AutoSize = true;
-            this.labelTotientNPMinQPlus.Location = new System.Drawing.Point(6, 195);
-            this.labelTotientNPMinQPlus.Name = "labelTotientNPMinQPlus";
-            this.labelTotientNPMinQPlus.Size = new System.Drawing.Size(44, 18);
-            this.labelTotientNPMinQPlus.TabIndex = 0;
-            this.labelTotientNPMinQPlus.Text = "totient";
-            // 
-            // textBoxTotientNPMinQPlus
-            // 
-            this.textBoxTotientNPMinQPlus.Location = new System.Drawing.Point(102, 192);
-            this.textBoxTotientNPMinQPlus.Name = "textBoxTotientNPMinQPlus";
-            this.textBoxTotientNPMinQPlus.ReadOnly = true;
-            this.textBoxTotientNPMinQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPMinQPlus.TabIndex = 5;
-            // 
-            // labelTotientNPMinQMin
-            // 
-            this.labelTotientNPMinQMin.AutoSize = true;
-            this.labelTotientNPMinQMin.Location = new System.Drawing.Point(6, 226);
-            this.labelTotientNPMinQMin.Name = "labelTotientNPMinQMin";
-            this.labelTotientNPMinQMin.Size = new System.Drawing.Size(44, 18);
-            this.labelTotientNPMinQMin.TabIndex = 0;
-            this.labelTotientNPMinQMin.Text = "totient";
-            // 
-            // textBoxTotientNPMinQMin
-            // 
-            this.textBoxTotientNPMinQMin.Location = new System.Drawing.Point(102, 223);
-            this.textBoxTotientNPMinQMin.Name = "textBoxTotientNPMinQMin";
-            this.textBoxTotientNPMinQMin.ReadOnly = true;
-            this.textBoxTotientNPMinQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPMinQMin.TabIndex = 5;
-            // 
-            // dataGridViewProsesEnkripsi
-            // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // dataGridViewProsesDekripsi
             // 
@@ -587,10 +545,10 @@
             this.tabPageKey.PerformLayout();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
             this.ResumeLayout(false);
 
@@ -622,15 +580,11 @@
         private System.Windows.Forms.TextBox textBoxEnkripsiPlainText;
         private System.Windows.Forms.NumericUpDown numericUpDownBlockSize;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxEnkripsiCipherText;
         private DataGridViewNotSortAble dataGridViewProsesEnkripsi;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxDekripsiPlainText;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonDekripsi;
-        private System.Windows.Forms.TextBox textBoxDekripsiCipherText;
         private DataGridViewNotSortAble dataGridViewProsesDekripsi;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

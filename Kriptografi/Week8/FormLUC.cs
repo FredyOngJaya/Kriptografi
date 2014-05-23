@@ -221,9 +221,9 @@ namespace Kriptografi.Week8
                 plainBiner[i] = new StringBuilder();
             }
             int last = 8 - (((cipherList.Count - 1) * blokSize) % 8);
-            for (int i = 0; i < cipherList.Count; i++)
+            for (int iD = 0; iD < D.Length; iD++)
             {
-                for (int iD = 0; iD < D.Length; iD++)
+                for (int i = 0; i < cipherList.Count; i++)
                 {
                     long c = cipherList[i];
                     long m = Lucas(c, D[iD], N, dataGridViewProsesDekripsi, false);
@@ -251,8 +251,7 @@ namespace Kriptografi.Week8
                     int t = now.BinToInt();
                     plainText.Append((char)t);
                 }
-                dataGridViewProsesDekripsi.Rows.Add(plainText.ToString());
-                textBoxDekripsiPlainText.Text = plainText.ToString();
+                dataGridViewProsesDekripsi.Rows.Add("Dengan D = " + D[i] + " plaintext = " + plainText.ToString());
             }
         }
 

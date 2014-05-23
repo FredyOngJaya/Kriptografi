@@ -46,6 +46,7 @@
             this.elGamalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lUCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rabinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.primeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,7 +163,8 @@
             this.rSAToolStripMenuItem,
             this.elGamalToolStripMenuItem,
             this.lUCToolStripMenuItem,
-            this.rabinToolStripMenuItem});
+            this.rabinToolStripMenuItem,
+            this.primeListToolStripMenuItem});
             this.week8ToolStripMenuItem.Name = "week8ToolStripMenuItem";
             this.week8ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.week8ToolStripMenuItem.Text = "Week8";
@@ -194,6 +196,13 @@
             this.rabinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rabinToolStripMenuItem.Text = "Rabin";
             this.rabinToolStripMenuItem.Click += new System.EventHandler(this.rabinToolStripMenuItem_Click);
+            // 
+            // primeListToolStripMenuItem
+            // 
+            this.primeListToolStripMenuItem.Name = "primeListToolStripMenuItem";
+            this.primeListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.primeListToolStripMenuItem.Text = "Prime List";
+            this.primeListToolStripMenuItem.Click += new System.EventHandler(this.primeListToolStripMenuItem_Click);
             // 
             // FormContainer
             // 
@@ -237,5 +246,6 @@
         private System.Windows.Forms.ToolStripMenuItem elGamalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lUCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rabinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem primeListToolStripMenuItem;
     }
 }
