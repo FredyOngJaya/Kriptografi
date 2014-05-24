@@ -305,22 +305,39 @@ namespace Kriptografi
             long aLast = 0, bLast = 1;
             int i = 1;
             int col = 0;
-            gridProses.Columns.Add("P" + i, "P" + i);
+            int nCol = gridProses.ColumnCount;
+            int nRow = gridProses.RowCount;
+            string pers = number + "^-1 % " + divisor + " = ";
+            if (i > nCol)
+            {
+                gridProses.Columns.Add("P" + i, "P" + i);
+            }
             i++;
-            gridProses.Columns.Add("P" + i, "P" + i);
+            if (i > nCol)
+            {
+                gridProses.Columns.Add("P" + i, "P" + i);
+            }
+            i++;
+            if (i > nCol)
+            {
+                gridProses.Columns.Add("P" + i, "P" + i);
+            }
             gridProses.Rows.Add();
-            gridProses.Rows.Add(new string[] { number.ToString(), divisor.ToString() });
-            gridProses.Rows.Add(new string[] { "0", "1" });
+            gridProses.Rows.Add(new string[] { "", number.ToString(), divisor.ToString() });
+            gridProses.Rows.Add(new string[] { "", "0", "1" });
             while (number > 0)
             {
                 col = i;
                 i++;
-                gridProses.Columns.Add("P" + i, "P" + i);
+                if (i > nCol)
+                {
+                    gridProses.Columns.Add("P" + i, "P" + i);
+                }
                 long mod = divisor / number;
                 long x = divisor - (mod * number);
 
-                gridProses[col, 0].Value = mod;
-                gridProses[col, 1].Value = x;
+                gridProses[col, nRow].Value = mod;
+                gridProses[col, nRow + 1].Value = x;
 
                 divisor = number;
                 number = x;
@@ -328,10 +345,15 @@ namespace Kriptografi
                 aLast = bLast;
                 bLast = x;
                 if (number != 0)
-                    gridProses[col, 2].Value = bLast;
+                    gridProses[col, nRow + 2].Value = bLast;
             }
             if (aLast < 0)
+            {
+                pers += aLast + " + " + div + " = ";
                 aLast += div;
+            }
+            gridProses.Rows.Add(pers + aLast);
+            gridProses.Rows.Add();
             return aLast;
         }
 

@@ -24,7 +24,6 @@ namespace Kriptografi.Week8
         public FormLUC()
         {
             InitializeComponent();
-            //labelTotienN.Text = "\u03A6\u03C6\u03D5\u0278(n)";
             labelTotientNPPlusQPlus.Text = "\u03D5(n)(p+1)(q+1)";
             labelTotientNPPlusQMin.Text = "\u03D5(n)(p+1)(q-1)";
             labelTotientNPMinQPlus.Text = "\u03D5(n)(p-1)(q+1)";
@@ -34,7 +33,7 @@ namespace Kriptografi.Week8
             buttonRandomE.Enabled = false;
             buttonHitungD.Enabled = false;
             buttonEnkripsi.Enabled = false;
-            //buttonDekripsi.Enabled = false;
+            buttonDekripsi.Enabled = false;
         }
 
         private void FormRSA_Load(object sender, EventArgs e)
@@ -105,17 +104,29 @@ namespace Kriptografi.Week8
             textBoxE.Text = t.ToString();
         }
 
-        private void buttonHitungD_Click(object sender, EventArgs e)
+        private void ClearKey()
         {
+            textBoxDPPlusQPlus.Clear();
+            textBoxDPPlusQMin.Clear();
+            textBoxDPMinQPlus.Clear();
             textBoxDPMinQMin.Clear();
             buttonEnkripsi.Enabled = false;
+            dataGridViewNotSortAbleEEA.Rows.Clear();
+            dataGridViewNotSortAbleEEA.Columns.Clear();
+            textBoxEnkripsiPlainText.Clear();
+            ClearEnkrip();
+        }
+
+        private void buttonHitungD_Click(object sender, EventArgs e)
+        {
+            ClearKey();
             if (long.TryParse(textBoxE.Text, out E))
             {
                 if (relatifPrimaD(E))
                 {
                     for (int i = 0; i < TN.Length; i++)
                     {
-                        D[i] = Kripto.InversModulo(E, TN[i]);
+                        D[i] = Kripto.InversModulo(E, TN[i], dataGridViewNotSortAbleEEA);
                     }
 
                     textBoxDPPlusQPlus.Text = D[0].ToString();
@@ -181,9 +192,16 @@ namespace Kriptografi.Week8
 
         #region "Tab Enkrip"
 
-        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        private void ClearEnkrip()
         {
             dataGridViewProsesEnkripsi.Rows.Clear();
+            buttonDekripsi.Enabled = false;
+            ClearDekrip();
+        }
+
+        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        {
+            ClearEnkrip();
             string text = textBoxEnkripsiPlainText.Text;
             blokSize = (int)numericUpDownBlockSize.Value;
             string now;
@@ -202,19 +220,26 @@ namespace Kriptografi.Week8
                 int t = now.BinToInt();
                 dataGridViewProsesEnkripsi.Rows.Add();
                 dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
-                long c = Lucas(t, E, N, dataGridViewProsesEnkripsi, false);
+                long c = Lucas(t, E, N, dataGridViewProsesEnkripsi, checkBoxShowEnkripsiDetail.Checked);
                 cipherList.Add(c);
                 dataGridViewProsesEnkripsi.Rows.Add("C" + i++ +  " = V[" + E + "](" + t + ",1) mod " + N + " = " + c);
             }
+            buttonDekripsi.Enabled = true;
         }
 
         #endregion
 
         #region "Tab Enkrip"
 
-        private void buttonDekripsi_Click(object sender, EventArgs e)
+        private void ClearDekrip()
         {
             dataGridViewProsesDekripsi.Rows.Clear();
+            textBoxDekripsiPlainText.Clear();
+        }
+
+        private void buttonDekripsi_Click(object sender, EventArgs e)
+        {
+            ClearDekrip();
             StringBuilder[] plainBiner = new StringBuilder[4];
             for (int i = 0; i < plainBiner.Length; i++)
             {
@@ -223,10 +248,11 @@ namespace Kriptografi.Week8
             int last = 8 - (((cipherList.Count - 1) * blokSize) % 8);
             for (int iD = 0; iD < D.Length; iD++)
             {
+                dataGridViewProsesDekripsi.Rows.Add("D  = " + D[iD]);
                 for (int i = 0; i < cipherList.Count; i++)
                 {
                     long c = cipherList[i];
-                    long m = Lucas(c, D[iD], N, dataGridViewProsesDekripsi, false);
+                    long m = Lucas(c, D[iD], N, dataGridViewProsesDekripsi, checkBoxShowDekripsiDetail.Checked);
                     if (i == cipherList.Count - 1)
                     {
                         plainBiner[iD].Append(m.ToBin(last));

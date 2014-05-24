@@ -23,26 +23,41 @@ namespace Kriptografi.Week8
             dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
             dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
             buttonEnkripsi.Enabled = false;
-            //buttonDekripsi.Enabled = false;
+            buttonDekripsi.Enabled = false;
         }
 
         private void FormRabin_Load(object sender, EventArgs e)
         {
         }
 
-        private void buttonHitungN_Click(object sender, EventArgs e)
+        private void ClearKey()
         {
             textBoxN.Clear();
             buttonEnkripsi.Enabled = false;
+            textBoxEnkripsiPlainText.Clear();
+            ClearEnkrip();
+        }
+
+        private void buttonHitungN_Click(object sender, EventArgs e)
+        {
+            ClearKey();
             if (long.TryParse(textBoxP.Text, out P) && long.TryParse(textBoxQ.Text, out Q))
             {
                 if (!Kripto.IsMiller(P, (int)Math.Min(P, (long)100)))
                 {
                     MessageBox.Show("P bukan prima");
                 }
+                else if ((P + 1) % 4 != 0)
+                {
+                    MessageBox.Show("P + 1 tidak habis dibagi 4");
+                }
                 else if (!Kripto.IsMiller(Q, (int)Math.Min(Q, (long)100)))
                 {
                     MessageBox.Show("Q bukan prima");
+                }
+                else if ((Q + 1) % 4 != 0)
+                {
+                    MessageBox.Show("Q + 1 tidak habis dibagi 4");
                 }
                 else
                 {
@@ -59,10 +74,17 @@ namespace Kriptografi.Week8
 
         List<long> cipher = new List<long>();
 
-        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        private void ClearEnkrip()
         {
             dataGridViewProsesEnkripsi.Rows.Clear();
             cipher.Clear();
+            buttonDekripsi.Enabled = false;
+            ClearDekrip();
+        }
+
+        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        {
+            ClearEnkrip();
             string text = textBoxEnkripsiPlainText.Text;
             int i = 1;
             foreach (char c in text)
@@ -78,12 +100,18 @@ namespace Kriptografi.Week8
                 dataGridViewProsesEnkripsi.Rows.Add();
                 i++;
             }
+            buttonDekripsi.Enabled = true;
+        }
+
+        private void ClearDekrip()
+        {
+            dataGridViewProsesDekripsi.Rows.Clear();
+            textBoxDekripsiPlainText.Clear();
         }
 
         private void buttonDekripsi_Click(object sender, EventArgs e)
         {
-            dataGridViewProsesDekripsi.Rows.Clear();
-            textBoxDekripsiPlainText.Clear();
+            ClearDekrip();
             long a = Kripto.InversModulo(P, Q);
             long b = Kripto.InversModulo(Q, P);
             dataGridViewProsesDekripsi.Rows.Add("a = " + P + "^-1 mod " + P + " = " + a);
@@ -115,7 +143,7 @@ namespace Kriptografi.Week8
                 for (int j = 0; j < 4; j++)
                 {
                     long t = arr[j];
-                    if ((t >> 8) == (t & ((1 << 8) - 1)))
+                    if (((t >> 8) & ((1 << 8) - 1)) == (t & ((1 << 8) - 1)))
                     {
                         m.Add(t);
                         dataGridViewProsesDekripsi[0, idx + j].Style.BackColor = Color.LimeGreen;

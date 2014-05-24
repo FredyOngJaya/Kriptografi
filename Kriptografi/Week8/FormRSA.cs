@@ -22,14 +22,13 @@ namespace Kriptografi.Week8
         public FormRSA()
         {
             InitializeComponent();
-            //labelTotienN.Text = "\u03A6\u03C6\u03D5\u0278(n)";
             labelTotienN.Text = "\u03D5(n)";
             dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
             dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
             buttonRandomD.Enabled = false;
             buttonHitungE.Enabled = false;
             buttonEnkripsi.Enabled = false;
-            //buttonDekripsi.Enabled = false;
+            buttonDekripsi.Enabled = false;
         }
 
         private void FormRSA_Load(object sender, EventArgs e)
@@ -84,12 +83,18 @@ namespace Kriptografi.Week8
             textBoxD.Text = t.ToString();
         }
 
-        private void buttonHitungE_Click(object sender, EventArgs e)
+        private void ClearKey()
         {
             textBoxE.Clear();
-            buttonEnkripsi.Enabled = false;
             dataGridViewNotSortAbleEEA.Rows.Clear();
             dataGridViewNotSortAbleEEA.Columns.Clear();
+            textBoxEnkripsiPlainText.Clear();
+            ClearEnkrip();
+        }
+
+        private void buttonHitungE_Click(object sender, EventArgs e)
+        {
+            ClearKey();
             if (long.TryParse(textBoxD.Text, out D))
             {
                 if (Kripto.IsRelatifPrima(D, TN))
@@ -197,9 +202,16 @@ namespace Kriptografi.Week8
 
         #region "Tab Enkrip"
 
-        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        private void ClearEnkrip()
         {
             dataGridViewProsesEnkripsi.Rows.Clear();
+            buttonDekripsi.Enabled = false;
+            ClearDekrip();
+        }
+
+        private void buttonEnkripsi_Click(object sender, EventArgs e)
+        {
+            ClearEnkrip();
             string text = textBoxEnkripsiPlainText.Text;
             blokSize = (int)numericUpDownBlockSize.Value;
             string now;
@@ -230,15 +242,22 @@ namespace Kriptografi.Week8
                 cipher.Add(c);
                 dataGridViewProsesEnkripsi.Rows.Add("C" + i++ + " = " + t + " ^ " + E + " mod " + N + " = " + c);
             }
+            buttonDekripsi.Enabled = true;
         }
 
         #endregion
 
         #region "Tab Enkrip"
 
-        private void buttonDekripsi_Click(object sender, EventArgs e)
+        private void ClearDekrip()
         {
             dataGridViewProsesDekripsi.Rows.Clear();
+            textBoxDekripsiPlainText.Clear();
+        }
+
+        private void buttonDekripsi_Click(object sender, EventArgs e)
+        {
+            ClearDekrip();
             StringBuilder plainBiner = new StringBuilder();
             int last = 8 - (((cipher.Count - 1) * blokSize) % 8);
             for (int i = 0; i < cipher.Count; i++)

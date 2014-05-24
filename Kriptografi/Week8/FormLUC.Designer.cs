@@ -46,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
+            this.dataGridViewNotSortAbleEEA = new Kriptografi.DataGridViewNotSortAble();
             this.textBoxTotientNPMinQMin = new System.Windows.Forms.TextBox();
             this.textBoxTotientNPMinQPlus = new System.Windows.Forms.TextBox();
             this.labelTotientNPMinQMin = new System.Windows.Forms.Label();
@@ -70,8 +71,11 @@
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
             this.buttonDekripsi = new System.Windows.Forms.Button();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
+            this.checkBoxShowEnkripsiDetail = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowDekripsiDetail = new System.Windows.Forms.CheckBox();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).BeginInit();
             this.tabPageEnkripsi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
@@ -232,6 +236,7 @@
             // 
             // tabPageKey
             // 
+            this.tabPageKey.Controls.Add(this.dataGridViewNotSortAbleEEA);
             this.tabPageKey.Controls.Add(this.textBoxP);
             this.tabPageKey.Controls.Add(this.label6);
             this.tabPageKey.Controls.Add(this.label1);
@@ -267,6 +272,27 @@
             this.tabPageKey.TabIndex = 0;
             this.tabPageKey.Text = "Key";
             this.tabPageKey.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewNotSortAbleEEA
+            // 
+            this.dataGridViewNotSortAbleEEA.AllowUserToAddRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToDeleteRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToOrderColumns = true;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeColumns = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeRows = false;
+            this.dataGridViewNotSortAbleEEA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewNotSortAbleEEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewNotSortAbleEEA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewNotSortAbleEEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotSortAbleEEA.Location = new System.Drawing.Point(6, 272);
+            this.dataGridViewNotSortAbleEEA.Name = "dataGridViewNotSortAbleEEA";
+            this.dataGridViewNotSortAbleEEA.ReadOnly = true;
+            this.dataGridViewNotSortAbleEEA.RowHeadersVisible = false;
+            this.dataGridViewNotSortAbleEEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewNotSortAbleEEA.Size = new System.Drawing.Size(930, 195);
+            this.dataGridViewNotSortAbleEEA.TabIndex = 29;
             // 
             // textBoxTotientNPMinQMin
             // 
@@ -372,6 +398,7 @@
             // 
             // tabPageEnkripsi
             // 
+            this.tabPageEnkripsi.Controls.Add(this.checkBoxShowEnkripsiDetail);
             this.tabPageEnkripsi.Controls.Add(this.dataGridViewProsesEnkripsi);
             this.tabPageEnkripsi.Controls.Add(this.numericUpDownBlockSize);
             this.tabPageEnkripsi.Controls.Add(this.label8);
@@ -466,6 +493,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.checkBoxShowDekripsiDetail);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.textBoxDekripsiPlainText);
             this.tabPage3.Controls.Add(this.buttonDekripsi);
@@ -481,7 +509,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(644, 16);
+            this.label10.Location = new System.Drawing.Point(8, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 18);
             this.label10.TabIndex = 26;
@@ -489,7 +517,7 @@
             // 
             // textBoxDekripsiPlainText
             // 
-            this.textBoxDekripsiPlainText.Location = new System.Drawing.Point(732, 13);
+            this.textBoxDekripsiPlainText.Location = new System.Drawing.Point(98, 14);
             this.textBoxDekripsiPlainText.Name = "textBoxDekripsiPlainText";
             this.textBoxDekripsiPlainText.ReadOnly = true;
             this.textBoxDekripsiPlainText.Size = new System.Drawing.Size(204, 25);
@@ -497,7 +525,7 @@
             // 
             // buttonDekripsi
             // 
-            this.buttonDekripsi.Location = new System.Drawing.Point(320, 13);
+            this.buttonDekripsi.Location = new System.Drawing.Point(308, 13);
             this.buttonDekripsi.Name = "buttonDekripsi";
             this.buttonDekripsi.Size = new System.Drawing.Size(110, 26);
             this.buttonDekripsi.TabIndex = 23;
@@ -525,6 +553,26 @@
             this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesDekripsi.TabIndex = 24;
             // 
+            // checkBoxShowEnkripsiDetail
+            // 
+            this.checkBoxShowEnkripsiDetail.AutoSize = true;
+            this.checkBoxShowEnkripsiDetail.Location = new System.Drawing.Point(635, 15);
+            this.checkBoxShowEnkripsiDetail.Name = "checkBoxShowEnkripsiDetail";
+            this.checkBoxShowEnkripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowEnkripsiDetail.TabIndex = 29;
+            this.checkBoxShowEnkripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowEnkripsiDetail.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxShowDekripsiDetail
+            // 
+            this.checkBoxShowDekripsiDetail.AutoSize = true;
+            this.checkBoxShowDekripsiDetail.Location = new System.Drawing.Point(439, 16);
+            this.checkBoxShowDekripsiDetail.Name = "checkBoxShowDekripsiDetail";
+            this.checkBoxShowDekripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowDekripsiDetail.TabIndex = 30;
+            this.checkBoxShowDekripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowDekripsiDetail.UseVisualStyleBackColor = true;
+            // 
             // FormLUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -543,6 +591,7 @@
             this.tabControlRSA.ResumeLayout(false);
             this.tabPageKey.ResumeLayout(false);
             this.tabPageKey.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).EndInit();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
@@ -598,5 +647,8 @@
         private System.Windows.Forms.TextBox textBoxTotientNPPlusQMin;
         private System.Windows.Forms.Label labelTotientNPMinQPlus;
         private System.Windows.Forms.Label labelTotientNPPlusQMin;
+        private DataGridViewNotSortAble dataGridViewNotSortAbleEEA;
+        private System.Windows.Forms.CheckBox checkBoxShowEnkripsiDetail;
+        private System.Windows.Forms.CheckBox checkBoxShowDekripsiDetail;
     }
 }
