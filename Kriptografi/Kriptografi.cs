@@ -141,6 +141,85 @@ namespace Kriptografi
             return res % div;
         }
 
+        static long[] pangkat = new long[33];
+        static long[] angka = new long[33];
+        static int c = 0;
+        static int lcm = -1;
+
+        private static void PrintExponent(long div, System.Windows.Forms.DataGridView gridProses)
+        {
+            StringBuilder t = new StringBuilder();
+            t.Append("(");
+            for (int i = c - 1; i >= 0; i--)
+            {
+                if (angka[i] > 0)
+                {
+                    if (pangkat[i] > 1)
+                        t.Append(" " + angka[i] + "^" + pangkat[i] + " ");
+                    else
+                        t.Append(" " + angka[i] + " ");
+                    if (i != lcm)
+                    {
+                        t.Append(".");
+                    }
+                    else
+                    {
+                        t.Append(")");
+                    }
+                }
+            }
+            t.Append(" % " + div);
+            gridProses.Rows.Add(t.ToString());
+        }
+        public static int FastExponent(int num, int power, int div, System.Windows.Forms.DataGridView gridProses)
+        {
+            return (int)FastExponent((long)num, (long)power, (long)div, gridProses);
+        }
+
+        public static long FastExponent(long num, long power, long div, System.Windows.Forms.DataGridView gridProses)
+        {
+            c = 0;
+            lcm = -1;
+            Array.Clear(pangkat, 0, pangkat.Length);
+            Array.Clear(angka, 0, angka.Length);
+            long t = power;
+            while (t > 0)
+            {
+                if ((t & 1) == 1)
+                {
+                    if (lcm == -1)
+                        lcm = c;
+                    pangkat[c] = 1 << c;
+                    angka[c] = num;
+                }
+                t >>= 1;
+                c++;
+            }
+            PrintExponent(div, gridProses);
+            while (pangkat[c - 1] != 1)
+            {
+                t = MultiplyModulo(angka[c - 1], angka[c - 1], div);
+                for (int i = 0; i < c; i++)
+                {
+                    if (pangkat[i] > 1)
+                    {
+                        pangkat[i] >>= 1;
+                        angka[i] = t;
+                    }
+                }
+                PrintExponent(div, gridProses);
+            }
+            t = 1;
+            for (int i = 0; i < c; i++)
+            {
+                if (pangkat[i] == 1)
+                {
+                    t = MultiplyModulo(t, angka[i], div);
+                }
+            }
+            return t;
+        }
+
         /// <summary>
         /// Multiply num1 and num2 Modulo N, anticipate overflow
         /// </summary>
@@ -230,11 +309,11 @@ namespace Kriptografi
         /// <param name="number">Number</param>
         /// <param name="div">Divisor(prime number)</param>
         /// <returns></returns>
-        public static bool IsGeneratorModulo(int number, int div)
+        public static bool IsGeneratorModulo(int number, int prime)
         {
             Sieve();
             List<int> faktorPrima = new List<int>();
-            int p = number - 1;
+            int p = prime - 1;
             int sq = (int)Math.Sqrt(p);
             for (int i = 2; i <= sq && p > 1; i++)
             {
@@ -251,11 +330,11 @@ namespace Kriptografi
             {
                 faktorPrima.Add(p);
             }
-            p = number - 1;
+            p = prime - 1;
             bool res = true;
             foreach (int prima in faktorPrima)
             {
-                int mod = QuickModulo(number, p / prima, div);
+                int mod = QuickModulo(number, p / prima, prime);
                 res &= (mod > 1);
             }
             return res;

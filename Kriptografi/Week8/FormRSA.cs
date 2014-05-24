@@ -102,7 +102,6 @@ namespace Kriptografi.Week8
                     //E = Kripto.InversModulo(D, TN);
                     E = Kripto.InversModulo(D, TN, dataGridViewNotSortAbleEEA);
                     textBoxE.Text = E.ToString();
-                    buttonEnkripsi.Enabled = true;
                     int t = 0;
                     long x = N;
                     while (x > 1)
@@ -111,6 +110,8 @@ namespace Kriptografi.Week8
                         x >>= 1;
                     }
                     numericUpDownBlockSize.Maximum = t;
+                    numericUpDownBlockSize.Value = t;
+                    buttonEnkripsi.Enabled = true;
                 }
                 else
                 {
@@ -128,92 +129,21 @@ namespace Kriptografi.Week8
         List<long> cipher = new List<long>();
         int blokSize;
 
-        long[] pangkat = new long[33];
-        long[] angka = new long[33];
-        int c = 0;
-        int lcm = -1;
-
-        private void PrintExponent(long div, DataGridView gridProses)
-        {
-            StringBuilder t = new StringBuilder();
-            t.Append("(");
-            for (int i = c - 1; i >= 0; i--)
-            {
-                if (angka[i] > 0)
-                {
-                    t.Append(" " + angka[i] + "^" + pangkat[i] + " ");
-                    if (i != lcm)
-                    {
-                        t.Append(".");
-                    }
-                    else
-                    {
-                        t.Append(")");
-                    }
-                }
-            }
-            t.Append(" % " + div);
-            gridProses.Rows.Add(t.ToString());
-        }
-
-        private long FastExponent(long num, long power, long div, DataGridView gridProses)
-        {
-            c = 0;
-            lcm = -1;
-            Array.Clear(pangkat, 0, pangkat.Length);
-            Array.Clear(angka, 0, angka.Length);
-            long t = power;
-            while (t > 0)
-            {
-                if ((t & 1) == 1)
-                {
-                    if (lcm == -1)
-                        lcm = c;
-                    pangkat[c] = 1 << c;
-                    angka[c] = num;
-                }
-                t >>= 1;
-                c++;
-            }
-            PrintExponent(div, gridProses);
-            while (pangkat[c - 1] != 1)
-            {
-                t = Kripto.MultiplyModulo(angka[c - 1], angka[c - 1], div);
-                for (int i = 0; i < c; i++)
-                {
-                    if (pangkat[i] > 1)
-                    {
-                        pangkat[i] >>= 1;
-                        angka[i] = t;
-                    }
-                }
-                PrintExponent(div, gridProses);
-            }
-            t = 1;
-            for (int i = 0; i < c; i++)
-            {
-                if (pangkat[i] == 1)
-                {
-                    t = Kripto.MultiplyModulo(t, angka[i], div);
-                }
-            }
-            return t;
-        }
-
         #region "Tab Enkrip"
 
         private void ClearEnkrip()
         {
             dataGridViewProsesEnkripsi.Rows.Clear();
             buttonDekripsi.Enabled = false;
+            cipher.Clear();
             ClearDekrip();
         }
 
         private void buttonEnkripsi_Click(object sender, EventArgs e)
         {
             ClearEnkrip();
-            string text = textBoxEnkripsiPlainText.Text;
             blokSize = (int)numericUpDownBlockSize.Value;
+            string text = textBoxEnkripsiPlainText.Text;
             string now;
             StringBuilder plainBiner = new StringBuilder();
             foreach (char c in text)
@@ -221,7 +151,6 @@ namespace Kriptografi.Week8
                 plainBiner.Append(((int)c).ToBin(8));
             }
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
-            cipher.Clear();
             int i = 1;
             while (plainBiner.Length > 0)
             {
@@ -233,7 +162,7 @@ namespace Kriptografi.Week8
                 long c = 0;
                 if (checkBoxShowEnkripsiDetail.Checked)
                 {
-                    c = FastExponent(t, E, N, dataGridViewProsesEnkripsi);
+                    c = Kripto.FastExponent(t, E, N, dataGridViewProsesEnkripsi);
                 }
                 else
                 {
@@ -266,7 +195,7 @@ namespace Kriptografi.Week8
                 long m = 0;
                 if (checkBoxShowDekripsiDetail.Checked)
                 {
-                    m = FastExponent(c, D, N, dataGridViewProsesDekripsi);
+                    m = Kripto.FastExponent(c, D, N, dataGridViewProsesDekripsi);
                 }
                 else
                 {

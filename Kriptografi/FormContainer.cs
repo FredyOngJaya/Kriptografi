@@ -92,7 +92,7 @@ namespace Kriptografi
 
         private void elGamalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ShowForm(ref ElGamal);
         }
 
         private void lUCToolStripMenuItem_Click(object sender, EventArgs e)

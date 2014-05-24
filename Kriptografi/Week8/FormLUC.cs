@@ -134,7 +134,6 @@ namespace Kriptografi.Week8
                     textBoxDPMinQPlus.Text = D[2].ToString();
                     textBoxDPMinQMin.Text = D[3].ToString();
 
-                    buttonEnkripsi.Enabled = true;
                     int t = 0;
                     long x = N;
                     while (x > 1)
@@ -143,6 +142,8 @@ namespace Kriptografi.Week8
                         x >>= 1;
                     }
                     numericUpDownBlockSize.Maximum = t;
+                    numericUpDownBlockSize.Value = t;
+                    buttonEnkripsi.Enabled = true;
                 }
                 else
                 {
@@ -196,14 +197,15 @@ namespace Kriptografi.Week8
         {
             dataGridViewProsesEnkripsi.Rows.Clear();
             buttonDekripsi.Enabled = false;
+            cipherList.Clear();
             ClearDekrip();
         }
 
         private void buttonEnkripsi_Click(object sender, EventArgs e)
         {
             ClearEnkrip();
-            string text = textBoxEnkripsiPlainText.Text;
             blokSize = (int)numericUpDownBlockSize.Value;
+            string text = textBoxEnkripsiPlainText.Text;
             string now;
             StringBuilder plainBiner = new StringBuilder();
             foreach (char c in text)
@@ -211,7 +213,6 @@ namespace Kriptografi.Week8
                 plainBiner.Append(((int)c).ToBin(8));
             }
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
-            cipherList.Clear();
             int i = 1;
             while (plainBiner.Length > 0)
             {
