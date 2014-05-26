@@ -230,7 +230,7 @@ namespace Kriptografi.Week8
 
         #endregion
 
-        #region "Tab Enkrip"
+        #region "Tab Dekrip"
 
         private void ClearDekrip()
         {
