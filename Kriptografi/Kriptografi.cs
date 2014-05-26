@@ -257,7 +257,7 @@ namespace Kriptografi
         //*
         /// <summary>
         /// Rabin miller primality test, iteration signifies the accuracy,
-        /// source http://community.topcoder.com/tc&amp;module=Static&amp;d1=tutorials&amp;d2=primalityTesting
+        /// source http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=primalityTesting
         /// </summary>
         /// <param name="number">Number to test</param>
         /// <param name="iteration">Number of iteration</param>

@@ -38,6 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
+            this.dataGridViewNotSortAbleEEA = new Kriptografi.DataGridViewNotSortAble();
             this.buttonRandomD = new System.Windows.Forms.Button();
             this.buttonHitungE = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,27 +48,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxE = new System.Windows.Forms.TextBox();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
+            this.checkBoxShowEnkripsiDetail = new System.Windows.Forms.CheckBox();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonEnkripsi = new System.Windows.Forms.Button();
             this.textBoxEnkripsiPlainText = new System.Windows.Forms.TextBox();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBoxShowDekripsiDetail = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
             this.buttonDekripsi = new System.Windows.Forms.Button();
-            this.checkBoxShowEnkripsiDetail = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowDekripsiDetail = new System.Windows.Forms.CheckBox();
-            this.dataGridViewNotSortAbleEEA = new Kriptografi.DataGridViewNotSortAble();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).BeginInit();
             this.tabPageEnkripsi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,6 +179,27 @@
             this.tabPageKey.Text = "Key";
             this.tabPageKey.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewNotSortAbleEEA
+            // 
+            this.dataGridViewNotSortAbleEEA.AllowUserToAddRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToDeleteRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToOrderColumns = true;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeColumns = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeRows = false;
+            this.dataGridViewNotSortAbleEEA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewNotSortAbleEEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewNotSortAbleEEA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewNotSortAbleEEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotSortAbleEEA.Location = new System.Drawing.Point(8, 219);
+            this.dataGridViewNotSortAbleEEA.Name = "dataGridViewNotSortAbleEEA";
+            this.dataGridViewNotSortAbleEEA.ReadOnly = true;
+            this.dataGridViewNotSortAbleEEA.RowHeadersVisible = false;
+            this.dataGridViewNotSortAbleEEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewNotSortAbleEEA.Size = new System.Drawing.Size(928, 248);
+            this.dataGridViewNotSortAbleEEA.TabIndex = 28;
+            // 
             // buttonRandomD
             // 
             this.buttonRandomD.Location = new System.Drawing.Point(265, 130);
@@ -266,6 +287,16 @@
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
             // 
+            // checkBoxShowEnkripsiDetail
+            // 
+            this.checkBoxShowEnkripsiDetail.AutoSize = true;
+            this.checkBoxShowEnkripsiDetail.Location = new System.Drawing.Point(637, 15);
+            this.checkBoxShowEnkripsiDetail.Name = "checkBoxShowEnkripsiDetail";
+            this.checkBoxShowEnkripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowEnkripsiDetail.TabIndex = 28;
+            this.checkBoxShowEnkripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowEnkripsiDetail.UseVisualStyleBackColor = true;
+            // 
             // numericUpDownBlockSize
             // 
             this.numericUpDownBlockSize.Location = new System.Drawing.Point(551, 13);
@@ -280,7 +311,7 @@
             0,
             0});
             this.numericUpDownBlockSize.Name = "numericUpDownBlockSize";
-            this.numericUpDownBlockSize.Size = new System.Drawing.Size(34, 25);
+            this.numericUpDownBlockSize.Size = new System.Drawing.Size(50, 25);
             this.numericUpDownBlockSize.TabIndex = 24;
             this.numericUpDownBlockSize.Value = new decimal(new int[] {
             8,
@@ -323,6 +354,27 @@
             this.textBoxEnkripsiPlainText.Size = new System.Drawing.Size(204, 25);
             this.textBoxEnkripsiPlainText.TabIndex = 17;
             // 
+            // dataGridViewProsesEnkripsi
+            // 
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.checkBoxShowDekripsiDetail);
@@ -337,6 +389,16 @@
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Dekripsi";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxShowDekripsiDetail
+            // 
+            this.checkBoxShowDekripsiDetail.AutoSize = true;
+            this.checkBoxShowDekripsiDetail.Location = new System.Drawing.Point(435, 16);
+            this.checkBoxShowDekripsiDetail.Name = "checkBoxShowDekripsiDetail";
+            this.checkBoxShowDekripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowDekripsiDetail.TabIndex = 29;
+            this.checkBoxShowDekripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowDekripsiDetail.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -364,68 +426,6 @@
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
             this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
-            // 
-            // checkBoxShowEnkripsiDetail
-            // 
-            this.checkBoxShowEnkripsiDetail.AutoSize = true;
-            this.checkBoxShowEnkripsiDetail.Location = new System.Drawing.Point(637, 15);
-            this.checkBoxShowEnkripsiDetail.Name = "checkBoxShowEnkripsiDetail";
-            this.checkBoxShowEnkripsiDetail.Size = new System.Drawing.Size(162, 22);
-            this.checkBoxShowEnkripsiDetail.TabIndex = 28;
-            this.checkBoxShowEnkripsiDetail.Text = "Tunjukan Proses Detail";
-            this.checkBoxShowEnkripsiDetail.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxShowDekripsiDetail
-            // 
-            this.checkBoxShowDekripsiDetail.AutoSize = true;
-            this.checkBoxShowDekripsiDetail.Location = new System.Drawing.Point(435, 16);
-            this.checkBoxShowDekripsiDetail.Name = "checkBoxShowDekripsiDetail";
-            this.checkBoxShowDekripsiDetail.Size = new System.Drawing.Size(162, 22);
-            this.checkBoxShowDekripsiDetail.TabIndex = 29;
-            this.checkBoxShowDekripsiDetail.Text = "Tunjukan Proses Detail";
-            this.checkBoxShowDekripsiDetail.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewNotSortAbleEEA
-            // 
-            this.dataGridViewNotSortAbleEEA.AllowUserToAddRows = false;
-            this.dataGridViewNotSortAbleEEA.AllowUserToDeleteRows = false;
-            this.dataGridViewNotSortAbleEEA.AllowUserToOrderColumns = true;
-            this.dataGridViewNotSortAbleEEA.AllowUserToResizeColumns = false;
-            this.dataGridViewNotSortAbleEEA.AllowUserToResizeRows = false;
-            this.dataGridViewNotSortAbleEEA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewNotSortAbleEEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewNotSortAbleEEA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewNotSortAbleEEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNotSortAbleEEA.Location = new System.Drawing.Point(8, 219);
-            this.dataGridViewNotSortAbleEEA.Name = "dataGridViewNotSortAbleEEA";
-            this.dataGridViewNotSortAbleEEA.ReadOnly = true;
-            this.dataGridViewNotSortAbleEEA.RowHeadersVisible = false;
-            this.dataGridViewNotSortAbleEEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewNotSortAbleEEA.Size = new System.Drawing.Size(928, 248);
-            this.dataGridViewNotSortAbleEEA.TabIndex = 28;
-            // 
-            // dataGridViewProsesEnkripsi
-            // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
             // dataGridViewProsesDekripsi
             // 
@@ -465,13 +465,13 @@
             this.tabControlRSA.ResumeLayout(false);
             this.tabPageKey.ResumeLayout(false);
             this.tabPageKey.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).EndInit();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
             this.ResumeLayout(false);
 

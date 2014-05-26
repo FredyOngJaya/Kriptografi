@@ -151,17 +151,27 @@ namespace Kriptografi.Week8
                 plainBiner.Append(((int)c).ToBin(8));
             }
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
+            dataGridViewProsesEnkripsi.Rows.Add("C = M ^ E mod N");
             int i = 1;
             while (plainBiner.Length > 0)
             {
-                now = plainBiner.ToString(0, Math.Min(blokSize, plainBiner.Length));
+                dataGridViewProsesEnkripsi.Rows.Add();
+                if (plainBiner.Length < blokSize)
+                {
+                    now = plainBiner.ToString().PadRight(blokSize,'0');
+                    dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
+                }
+                else
+                {
+                    now = plainBiner.ToString(0, blokSize);
+                }
                 plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
                 int t = now.BinToInt();
-                dataGridViewProsesEnkripsi.Rows.Add();
-                dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
+                dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
                 long c = 0;
                 if (checkBoxShowEnkripsiDetail.Checked)
                 {
+                    dataGridViewProsesEnkripsi.Rows.Add("C" + i + " = " + t + " ^ " + E + " mod " + N);
                     c = Kripto.FastExponent(t, E, N, dataGridViewProsesEnkripsi);
                 }
                 else
@@ -188,40 +198,48 @@ namespace Kriptografi.Week8
         {
             ClearDekrip();
             StringBuilder plainBiner = new StringBuilder();
-            int last = 8 - (((cipher.Count - 1) * blokSize) % 8);
+            string now = "";
+            dataGridViewProsesDekripsi.Rows.Add("M  = C ^ D mod N");
             for (int i = 0; i < cipher.Count; i++)
             {
                 long c = cipher[i];
                 long m = 0;
+                dataGridViewProsesDekripsi.Rows.Add();
+                dataGridViewProsesDekripsi.Rows.Add("C" + (i + 1) + " = " + c);
                 if (checkBoxShowDekripsiDetail.Checked)
                 {
+                    dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + c + " ^ " + D + " mod " + N);
                     m = Kripto.FastExponent(c, D, N, dataGridViewProsesDekripsi);
                 }
                 else
                 {
                     m = Kripto.QuickModulo(c, D, N);
                 }
-                if (i == cipher.Count - 1)
-                {
-                    plainBiner.Append(m.ToBin(last));
-                }
-                else
-                {
-                    plainBiner.Append(m.ToBin(blokSize));
-                }
+                now = m.ToBin(blokSize);
+                plainBiner.Append(now);
                 dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + c + " ^ " + D + " mod " + N + " = " + m);
-                dataGridViewProsesDekripsi.Rows.Add();
+                dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + now);
             }
+            dataGridViewProsesDekripsi.Rows.Add();
             dataGridViewProsesDekripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
             StringBuilder plainText = new StringBuilder();
-            string now;
             while (plainBiner.Length > 0)
             {
                 now = plainBiner.ToString(0, Math.Min(8, plainBiner.Length));
-                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
                 int t = now.BinToInt();
-                plainText.Append((char)t);
+                if (t == 0)
+                {
+                    dataGridViewProsesDekripsi.Rows.Add(plainBiner.ToString() + " = bit yang ditambahkan");
+                    break;
+                }
+                else
+                {
+                    dataGridViewProsesDekripsi.Rows.Add(now + " = " + t + " = " + (char)t);
+                    plainText.Append((char)t);
+                }
+                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
             }
+            dataGridViewProsesDekripsi.Rows.Add("Plaintext : " + plainText.ToString());
             textBoxDekripsiPlainText.Text = plainText.ToString();
         }
 

@@ -39,6 +39,7 @@
             this.textBoxN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
+            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
@@ -52,14 +53,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.buttonDekripsi = new System.Windows.Forms.Button();
             this.textBoxDekripsiCipherText = new System.Windows.Forms.TextBox();
-            this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             this.tabPageEnkripsi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,6 +179,27 @@
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewProsesEnkripsi
+            // 
+            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
+            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
+            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
+            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
+            this.dataGridViewProsesEnkripsi.ReadOnly = true;
+            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
+            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -210,7 +231,7 @@
             0,
             0});
             this.numericUpDownBlockSize.Name = "numericUpDownBlockSize";
-            this.numericUpDownBlockSize.Size = new System.Drawing.Size(34, 25);
+            this.numericUpDownBlockSize.Size = new System.Drawing.Size(50, 25);
             this.numericUpDownBlockSize.TabIndex = 24;
             this.numericUpDownBlockSize.Value = new decimal(new int[] {
             8,
@@ -313,27 +334,6 @@
             this.textBoxDekripsiCipherText.Size = new System.Drawing.Size(204, 25);
             this.textBoxDekripsiCipherText.TabIndex = 21;
             // 
-            // dataGridViewProsesEnkripsi
-            // 
-            this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToDeleteRows = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToOrderColumns = true;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeColumns = false;
-            this.dataGridViewProsesEnkripsi.AllowUserToResizeRows = false;
-            this.dataGridViewProsesEnkripsi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProsesEnkripsi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewProsesEnkripsi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewProsesEnkripsi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProsesEnkripsi.Location = new System.Drawing.Point(8, 45);
-            this.dataGridViewProsesEnkripsi.Name = "dataGridViewProsesEnkripsi";
-            this.dataGridViewProsesEnkripsi.ReadOnly = true;
-            this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
-            this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
-            // 
             // dataGridViewProsesDekripsi
             // 
             this.dataGridViewProsesDekripsi.AllowUserToAddRows = false;
@@ -362,7 +362,7 @@
             this.ClientSize = new System.Drawing.Size(952, 506);
             this.Controls.Add(this.tabControlRSA);
             this.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(960, 540);
             this.Name = "FormRabin";
             this.ShowIcon = false;
@@ -373,10 +373,10 @@
             this.tabPageKey.PerformLayout();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
             this.ResumeLayout(false);
 

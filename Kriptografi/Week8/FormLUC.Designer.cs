@@ -60,6 +60,7 @@
             this.textBoxDPPlusQMin = new System.Windows.Forms.TextBox();
             this.textBoxDPPlusQPlus = new System.Windows.Forms.TextBox();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
+            this.checkBoxShowEnkripsiDetail = new System.Windows.Forms.CheckBox();
             this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
             this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,12 +68,11 @@
             this.buttonEnkripsi = new System.Windows.Forms.Button();
             this.textBoxEnkripsiPlainText = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBoxShowDekripsiDetail = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
             this.buttonDekripsi = new System.Windows.Forms.Button();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
-            this.checkBoxShowEnkripsiDetail = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowDekripsiDetail = new System.Windows.Forms.CheckBox();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).BeginInit();
@@ -413,6 +413,16 @@
             this.tabPageEnkripsi.Text = "Enkripsi";
             this.tabPageEnkripsi.UseVisualStyleBackColor = true;
             // 
+            // checkBoxShowEnkripsiDetail
+            // 
+            this.checkBoxShowEnkripsiDetail.AutoSize = true;
+            this.checkBoxShowEnkripsiDetail.Location = new System.Drawing.Point(635, 15);
+            this.checkBoxShowEnkripsiDetail.Name = "checkBoxShowEnkripsiDetail";
+            this.checkBoxShowEnkripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowEnkripsiDetail.TabIndex = 29;
+            this.checkBoxShowEnkripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowEnkripsiDetail.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewProsesEnkripsi
             // 
             this.dataGridViewProsesEnkripsi.AllowUserToAddRows = false;
@@ -448,7 +458,7 @@
             0,
             0});
             this.numericUpDownBlockSize.Name = "numericUpDownBlockSize";
-            this.numericUpDownBlockSize.Size = new System.Drawing.Size(34, 25);
+            this.numericUpDownBlockSize.Size = new System.Drawing.Size(50, 25);
             this.numericUpDownBlockSize.TabIndex = 24;
             this.numericUpDownBlockSize.Value = new decimal(new int[] {
             8,
@@ -506,6 +516,16 @@
             this.tabPage3.Text = "Dekripsi";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // checkBoxShowDekripsiDetail
+            // 
+            this.checkBoxShowDekripsiDetail.AutoSize = true;
+            this.checkBoxShowDekripsiDetail.Location = new System.Drawing.Point(439, 16);
+            this.checkBoxShowDekripsiDetail.Name = "checkBoxShowDekripsiDetail";
+            this.checkBoxShowDekripsiDetail.Size = new System.Drawing.Size(162, 22);
+            this.checkBoxShowDekripsiDetail.TabIndex = 30;
+            this.checkBoxShowDekripsiDetail.Text = "Tunjukan Proses Detail";
+            this.checkBoxShowDekripsiDetail.UseVisualStyleBackColor = true;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -552,26 +572,6 @@
             this.dataGridViewProsesDekripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesDekripsi.TabIndex = 24;
-            // 
-            // checkBoxShowEnkripsiDetail
-            // 
-            this.checkBoxShowEnkripsiDetail.AutoSize = true;
-            this.checkBoxShowEnkripsiDetail.Location = new System.Drawing.Point(635, 15);
-            this.checkBoxShowEnkripsiDetail.Name = "checkBoxShowEnkripsiDetail";
-            this.checkBoxShowEnkripsiDetail.Size = new System.Drawing.Size(162, 22);
-            this.checkBoxShowEnkripsiDetail.TabIndex = 29;
-            this.checkBoxShowEnkripsiDetail.Text = "Tunjukan Proses Detail";
-            this.checkBoxShowEnkripsiDetail.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxShowDekripsiDetail
-            // 
-            this.checkBoxShowDekripsiDetail.AutoSize = true;
-            this.checkBoxShowDekripsiDetail.Location = new System.Drawing.Point(439, 16);
-            this.checkBoxShowDekripsiDetail.Name = "checkBoxShowDekripsiDetail";
-            this.checkBoxShowDekripsiDetail.Size = new System.Drawing.Size(162, 22);
-            this.checkBoxShowDekripsiDetail.TabIndex = 30;
-            this.checkBoxShowDekripsiDetail.Text = "Tunjukan Proses Detail";
-            this.checkBoxShowDekripsiDetail.UseVisualStyleBackColor = true;
             // 
             // FormLUC
             // 

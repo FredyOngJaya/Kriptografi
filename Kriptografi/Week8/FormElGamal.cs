@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Kripto = Kriptografi.KriptografiLibrary;
 using KriptografiExtensions;
 
-
 namespace Kriptografi.Week8
 {
     public partial class FormElGamal : Form
