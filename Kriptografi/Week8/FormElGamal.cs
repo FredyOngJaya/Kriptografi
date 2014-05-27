@@ -132,12 +132,21 @@ namespace Kriptografi.Week8
                 int i = 1;
                 while (plainBiner.Length > 0)
                 {
-                    now = plainBiner.ToString(0, Math.Min(blokSize, plainBiner.Length));
+                    dataGridViewProsesEnkripsi.Rows.Add();
+                    dataGridViewProsesEnkripsi.Rows.Add();
+                    if (plainBiner.Length < blokSize)
+                    {
+                        now = plainBiner.ToString().PadRight(blokSize, '0');
+                        dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + plainBiner.ToString());
+                        dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
+                    }
+                    else
+                    {
+                        now = plainBiner.ToString(0, blokSize);
+                    }
                     plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
                     int t = now.BinToInt();
-                    dataGridViewProsesEnkripsi.Rows.Add();
-                    dataGridViewProsesEnkripsi.Rows.Add();
-                    dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
+                    dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
                     long a = 0, b = 0;
                     dataGridViewProsesEnkripsi.Rows.Add("a = " + G + "^" + K + " % " + P);
                     if (checkBoxShowEnkripsiDetail.Checked)
@@ -166,8 +175,8 @@ namespace Kriptografi.Week8
                     dataGridViewProsesEnkripsi.Rows.Add("b = " + t + "." + Y + "^" + K + " % " + P + " = " + b);
                     ca.Add(a);
                     cb.Add(b);
-                    buttonDekripsi.Enabled = true;
                 }
+                buttonDekripsi.Enabled = true;
             }
             else
             {
@@ -189,7 +198,7 @@ namespace Kriptografi.Week8
         {
             ClearDekrip();
             StringBuilder plainBiner = new StringBuilder();
-            int last = 8 - (((ca.Count - 1) * blokSize) % 8);
+            string now;
             dataGridViewProsesDekripsi.Rows.Add("c = a^(p-1-x) % p");
             dataGridViewProsesDekripsi.Rows.Add("m = c.b % p");
             for (int i = 0; i < ca.Count; i++)
@@ -208,26 +217,29 @@ namespace Kriptografi.Week8
                     c = Kripto.QuickModulo(a, P - 1 - X, P);
                 }
                 m = Kripto.MultiplyModulo(c, b, P);
+                plainBiner.Append(m.ToBin(blokSize));
                 dataGridViewProsesDekripsi.Rows.Add("m = (" + c + " . " + b + ") % " + P + " = " + m);
-                if (i == ca.Count - 1)
-                {
-                    plainBiner.Append(m.ToBin(last));
-                }
-                else
-                {
-                    plainBiner.Append(m.ToBin(blokSize));
-                }
             }
+            dataGridViewProsesDekripsi.Rows.Add();
             dataGridViewProsesDekripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
             StringBuilder plainText = new StringBuilder();
-            string now;
             while (plainBiner.Length > 0)
             {
                 now = plainBiner.ToString(0, Math.Min(8, plainBiner.Length));
-                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
                 int t = now.BinToInt();
-                plainText.Append((char)t);
+                if (t == 0)
+                {
+                    dataGridViewProsesDekripsi.Rows.Add(plainBiner.ToString() + " = bit yang ditambahkan");
+                    break;
+                }
+                else
+                {
+                    dataGridViewProsesDekripsi.Rows.Add(now + " = " + t + " = " + (char)t);
+                    plainText.Append((char)t);
+                }
+                plainBiner.Remove(0, Math.Min(8, plainBiner.Length));
             }
+            dataGridViewProsesDekripsi.Rows.Add("Plaintext : " + plainText.ToString());
             textBoxDekripsiPlainText.Text = plainText.ToString();
         }
 

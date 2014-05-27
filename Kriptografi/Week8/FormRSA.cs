@@ -158,7 +158,8 @@ namespace Kriptografi.Week8
                 dataGridViewProsesEnkripsi.Rows.Add();
                 if (plainBiner.Length < blokSize)
                 {
-                    now = plainBiner.ToString().PadRight(blokSize,'0');
+                    now = plainBiner.ToString().PadRight(blokSize, '0');
+                    dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + plainBiner.ToString());
                     dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
                 }
                 else
@@ -215,8 +216,7 @@ namespace Kriptografi.Week8
                 {
                     m = Kripto.QuickModulo(c, D, N);
                 }
-                now = m.ToBin(blokSize);
-                plainBiner.Append(now);
+                plainBiner.Append(m.ToBin(blokSize));
                 dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + c + " ^ " + D + " mod " + N + " = " + m);
                 dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + now);
             }

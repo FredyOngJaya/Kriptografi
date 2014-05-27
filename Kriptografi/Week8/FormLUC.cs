@@ -213,14 +213,24 @@ namespace Kriptografi.Week8
                 plainBiner.Append(((int)c).ToBin(8));
             }
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
+            dataGridViewProsesEnkripsi.Rows.Add("C = Vxxxx mod N");
             int i = 1;
             while (plainBiner.Length > 0)
             {
-                now = plainBiner.ToString(0, Math.Min(blokSize, plainBiner.Length));
+                dataGridViewProsesEnkripsi.Rows.Add();
+                if (plainBiner.Length < blokSize)
+                {
+                    now = plainBiner.ToString().PadRight(blokSize, '0');
+                    dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + plainBiner.ToString());
+                    dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
+                }
+                else
+                {
+                    now = plainBiner.ToString(0, blokSize);
+                }
                 plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
                 int t = now.BinToInt();
-                dataGridViewProsesEnkripsi.Rows.Add();
-                dataGridViewProsesEnkripsi.Rows.Add(now + " = " + t);
+                dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
                 long c = Lucas(t, E, N, dataGridViewProsesEnkripsi, checkBoxShowEnkripsiDetail.Checked);
                 cipherList.Add(c);
                 dataGridViewProsesEnkripsi.Rows.Add("C" + i++ +  " = V[" + E + "](" + t + ",1) mod " + N + " = " + c);
@@ -242,6 +252,7 @@ namespace Kriptografi.Week8
         {
             ClearDekrip();
             StringBuilder[] plainBiner = new StringBuilder[4];
+            string now = "";
             for (int i = 0; i < plainBiner.Length; i++)
             {
                 plainBiner[i] = new StringBuilder();
@@ -270,13 +281,21 @@ namespace Kriptografi.Week8
             for (int i = 0; i < D.Length; i++)
             {
                 StringBuilder plainText = new StringBuilder();
-                string now;
                 while (plainBiner[i].Length > 0)
                 {
                     now = plainBiner[i].ToString(0, Math.Min(8, plainBiner[i].Length));
-                    plainBiner[i].Remove(0, Math.Min(8, plainBiner[i].Length));
                     int t = now.BinToInt();
-                    plainText.Append((char)t);
+                    if (t == 0)
+                    {
+                        dataGridViewProsesDekripsi.Rows.Add(plainBiner[i].ToString() + " = bit yang ditambahkan");
+                        break;
+                    }
+                    else
+                    {
+                        dataGridViewProsesDekripsi.Rows.Add(now + " = " + t + " = " + (char)t);
+                        plainText.Append((char)t);
+                    }
+                    plainBiner[i].Remove(0, Math.Min(8, plainBiner[i].Length));
                 }
                 dataGridViewProsesDekripsi.Rows.Add("Dengan D = " + D[i] + " plaintext = " + plainText.ToString());
             }
