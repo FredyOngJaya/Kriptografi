@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Kriptografi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mikroskil")]
+[assembly: AssemblyCompany("Xinvayne")]
 [assembly: AssemblyProduct("Kriptografi")]
-[assembly: AssemblyCopyright("Copyright © Mikroskil 2014")]
+[assembly: AssemblyCopyright("Copyright © Xinvayne 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

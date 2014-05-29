@@ -100,9 +100,10 @@ namespace Kriptografi.Week8
             ClearKey();
             if (ulong.TryParse(textBoxD.Text, out D))
             {
-                if (D > TN)
+                ulong max = Math.Max(P, Q) + 1;
+                if (D >= TN || D < max)
                 {
-                    MessageBox.Show("D harus lebih kecil dari \u03D5(n)");
+                    MessageBox.Show("D antara " + max + " sampai " + (TN - 1));
                 }
                 else if (Kripto.IsRelatifPrima(D, TN))
                 {
