@@ -15,9 +15,9 @@ namespace Kriptografi.Week8
     public partial class FormRSA : Form
     {
         Random random;
-        long P = 0, Q = 0;
-        long N = 0, TN = 0;
-        long D = 0, E = 0;
+        ulong P = 0, Q = 0;
+        ulong N = 0, TN = 0;
+        ulong D = 0, E = 0;
 
         public FormRSA()
         {
@@ -46,13 +46,16 @@ namespace Kriptografi.Week8
             textBoxTotientN.Clear();
             buttonRandomD.Enabled = false;
             buttonHitungE.Enabled = false;
-            if (long.TryParse(textBoxP.Text, out P) && long.TryParse(textBoxQ.Text, out Q))
+            uint p, q;
+            if (uint.TryParse(textBoxP.Text, out p) && uint.TryParse(textBoxQ.Text, out q))
             {
-                if (!Kripto.IsMiller(P, (int)Math.Min(P, (long)100)))
+                P = p;
+                Q = q;
+                if (!Kripto.IsMiller(P, (int)Math.Min(P, (ulong)100)))
                 {
                     MessageBox.Show("P bukan prima");
                 }
-                else if (!Kripto.IsMiller(Q, (int)Math.Min(Q, (long)100)))
+                else if (!Kripto.IsMiller(Q, (int)Math.Min(Q, (ulong)100)))
                 {
                     MessageBox.Show("Q bukan prima");
                 }
@@ -74,11 +77,11 @@ namespace Kriptografi.Week8
 
         private void buttonRandomD_Click(object sender, EventArgs e)
         {
-            long max = Math.Max(P, Q) + 1;
-            long t;
+            ulong max = Math.Max(P, Q) + 1;
+            ulong t;
             do
             {
-                t = (long)(random.NextDouble() * (N - max)) + max;
+                t = (ulong)(random.NextDouble() * (N - max)) + max;
             } while (!Kripto.IsRelatifPrima(t, TN));
             textBoxD.Text = t.ToString();
         }
@@ -95,19 +98,25 @@ namespace Kriptografi.Week8
         private void buttonHitungE_Click(object sender, EventArgs e)
         {
             ClearKey();
-            if (long.TryParse(textBoxD.Text, out D))
+            if (ulong.TryParse(textBoxD.Text, out D))
             {
                 if (Kripto.IsRelatifPrima(D, TN))
                 {
-                    //E = Kripto.InversModulo(D, TN);
+                    dataGridViewNotSortAbleEEA.Columns.Add("P1", "P1");
+                    dataGridViewNotSortAbleEEA.Rows.Add("P = " + P);
+                    dataGridViewNotSortAbleEEA.Rows.Add("Q = " + Q);
+                    dataGridViewNotSortAbleEEA.Rows.Add("N = " +  N);
+                    dataGridViewNotSortAbleEEA.Rows.Add("\u03D5(n) = " + TN);
+                    dataGridViewNotSortAbleEEA.Rows.Add("D = " + D);
                     E = Kripto.InversModulo(D, TN, dataGridViewNotSortAbleEEA);
+                    dataGridViewNotSortAbleEEA.Rows.Add("E = " + E);
                     textBoxE.Text = E.ToString();
                     int t = 0;
-                    long x = N;
-                    while (x > 1)
+                    ulong temp = N;
+                    while (temp > 1)
                     {
                         t++;
-                        x >>= 1;
+                        temp >>= 1;
                     }
                     numericUpDownBlockSize.Maximum = t;
                     numericUpDownBlockSize.Value = t;
@@ -126,7 +135,7 @@ namespace Kriptografi.Week8
 
         #endregion
 
-        List<long> cipher = new List<long>();
+        List<ulong> cipher = new List<ulong>();
         int blokSize;
 
         #region "Tab Enkrip"
@@ -150,6 +159,9 @@ namespace Kriptografi.Week8
             {
                 plainBiner.Append(((int)c).ToBin(8));
             }
+            dataGridViewProsesEnkripsi.Rows.Add("Plaintext : " + text);
+            dataGridViewProsesEnkripsi.Rows.Add("Ukuran Blok = " + blokSize);
+            dataGridViewProsesEnkripsi.Rows.Add();
             dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
             dataGridViewProsesEnkripsi.Rows.Add("C = M ^ E mod N");
             int i = 1;
@@ -167,9 +179,9 @@ namespace Kriptografi.Week8
                     now = plainBiner.ToString(0, blokSize);
                 }
                 plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
-                int t = now.BinToInt();
+                ulong t = now.BinToUlong();
                 dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
-                long c = 0;
+                ulong c = 0;
                 if (checkBoxShowEnkripsiDetail.Checked)
                 {
                     dataGridViewProsesEnkripsi.Rows.Add("C" + i + " = " + t + " ^ " + E + " mod " + N);
@@ -203,8 +215,8 @@ namespace Kriptografi.Week8
             dataGridViewProsesDekripsi.Rows.Add("M  = C ^ D mod N");
             for (int i = 0; i < cipher.Count; i++)
             {
-                long c = cipher[i];
-                long m = 0;
+                ulong c = cipher[i];
+                ulong m = 0;
                 dataGridViewProsesDekripsi.Rows.Add();
                 dataGridViewProsesDekripsi.Rows.Add("C" + (i + 1) + " = " + c);
                 if (checkBoxShowDekripsiDetail.Checked)
@@ -216,7 +228,8 @@ namespace Kriptografi.Week8
                 {
                     m = Kripto.QuickModulo(c, D, N);
                 }
-                plainBiner.Append(m.ToBin(blokSize));
+                now = m.ToBin(blokSize);
+                plainBiner.Append(now);
                 dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + c + " ^ " + D + " mod " + N + " = " + m);
                 dataGridViewProsesDekripsi.Rows.Add("M" + (i + 1) + " = " + now);
             }
@@ -226,7 +239,7 @@ namespace Kriptografi.Week8
             while (plainBiner.Length > 0)
             {
                 now = plainBiner.ToString(0, Math.Min(8, plainBiner.Length));
-                int t = now.BinToInt();
+                ulong t = now.BinToUlong();
                 if (t == 0)
                 {
                     dataGridViewProsesDekripsi.Rows.Add(plainBiner.ToString() + " = bit yang ditambahkan");

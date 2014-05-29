@@ -14,12 +14,13 @@ namespace Kriptografi.Week8
 {
     public partial class FormRabin : Form
     {
-        long P = 0, Q = 0;
-        long N = 0;
+        ulong P = 0, Q = 0;
+        ulong N = 0;
 
         public FormRabin()
         {
             InitializeComponent();
+            dataGridViewNotSortAbleEEA.Columns.Add("P1", "P1");
             dataGridViewProsesEnkripsi.Columns.Add("P1", "P1");
             dataGridViewProsesDekripsi.Columns.Add("P1", "P1");
             buttonEnkripsi.Enabled = false;
@@ -34,6 +35,7 @@ namespace Kriptografi.Week8
         {
             textBoxN.Clear();
             buttonEnkripsi.Enabled = false;
+            dataGridViewNotSortAbleEEA.Rows.Clear();
             textBoxEnkripsiPlainText.Clear();
             ClearEnkrip();
         }
@@ -41,9 +43,12 @@ namespace Kriptografi.Week8
         private void buttonHitungN_Click(object sender, EventArgs e)
         {
             ClearKey();
-            if (long.TryParse(textBoxP.Text, out P) && long.TryParse(textBoxQ.Text, out Q))
+            uint p, q;
+            if (uint.TryParse(textBoxP.Text, out p) && uint.TryParse(textBoxQ.Text, out q))
             {
-                if (!Kripto.IsMiller(P, (int)Math.Min(P, (long)100)))
+                P = p;
+                Q = q;
+                if (!Kripto.IsMiller(P, (int)Math.Min(P, (ulong)100)))
                 {
                     MessageBox.Show("P bukan prima");
                 }
@@ -51,7 +56,7 @@ namespace Kriptografi.Week8
                 {
                     MessageBox.Show("P + 1 tidak habis dibagi 4");
                 }
-                else if (!Kripto.IsMiller(Q, (int)Math.Min(Q, (long)100)))
+                else if (!Kripto.IsMiller(Q, (int)Math.Min(Q, (ulong)100)))
                 {
                     MessageBox.Show("Q bukan prima");
                 }
@@ -61,7 +66,10 @@ namespace Kriptografi.Week8
                 }
                 else
                 {
+                    dataGridViewNotSortAbleEEA.Rows.Add("P = " + P);
+                    dataGridViewNotSortAbleEEA.Rows.Add("Q = " + Q);
                     N = P * Q;
+                    dataGridViewNotSortAbleEEA.Rows.Add("N = " + N);
                     textBoxN.Text = N.ToString();
                     buttonEnkripsi.Enabled = true;
                 }
@@ -72,7 +80,7 @@ namespace Kriptografi.Week8
             }
         }
 
-        List<long> cipher = new List<long>();
+        List<ulong> cipher = new List<ulong>();
 
         private void ClearEnkrip()
         {
@@ -87,17 +95,27 @@ namespace Kriptografi.Week8
             ClearEnkrip();
             string text = textBoxEnkripsiPlainText.Text;
             int i = 1;
+            dataGridViewProsesEnkripsi.Rows.Add("Plaintext : " + text);
+            dataGridViewProsesEnkripsi.Rows.Add("M = MM");
+            dataGridViewProsesEnkripsi.Rows.Add("C = M ^ 2 mod N");
             foreach (char c in text)
             {
+                dataGridViewProsesEnkripsi.Rows.Add();
                 int now = (int)c;
-                string binary = now.ToBin();
+                string binary = now.ToBin(8);
                 int duaKali = (now << 8) + now;
-                long res = Kripto.MultiplyModulo(duaKali, duaKali, N);
+                ulong res = Kripto.MultiplyModulo((ulong)duaKali, (ulong)duaKali, N);
                 cipher.Add(res);
                 dataGridViewProsesEnkripsi.Rows.Add(c + " = " + now + " = " + binary);
+                now = dataGridViewProsesEnkripsi.RowCount;
                 dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + binary + " " + binary + " = " + duaKali);
+                if ((ulong)duaKali > N)
+                {
+                    dataGridViewProsesEnkripsi[0, now].Style.BackColor = Color.Red;
+                    dataGridViewProsesEnkripsi.Rows.Add("Pesan lebih besar dari N(" + duaKali + ">" + N + "), silakan cari prima lain jika ingin mengenkripsi pesan ini");
+                    return;
+                }
                 dataGridViewProsesEnkripsi.Rows.Add("C" + i + " = (" + duaKali + ")^2 mod " + N + " = " + res);
-                dataGridViewProsesEnkripsi.Rows.Add();
                 i++;
             }
             buttonDekripsi.Enabled = true;
@@ -112,37 +130,57 @@ namespace Kriptografi.Week8
         private void buttonDekripsi_Click(object sender, EventArgs e)
         {
             ClearDekrip();
-            long a = Kripto.InversModulo(P, Q);
-            long b = Kripto.InversModulo(Q, P);
-            dataGridViewProsesDekripsi.Rows.Add("a = " + P + "^-1 mod " + P + " = " + a);
-            dataGridViewProsesDekripsi.Rows.Add("b = " + Q + "^-1 mod " + Q + " = " + b);
+            dataGridViewProsesDekripsi.Rows.Add("a = P^-1 mod Q");
+            dataGridViewProsesDekripsi.Rows.Add("b = Q^-1 mod P");
+            dataGridViewProsesDekripsi.Rows.Add("r = c ^ ((P+1)/4) mod P");
+            dataGridViewProsesDekripsi.Rows.Add("s = c ^ ((Q+1)/4) mod Q");
+            dataGridViewProsesDekripsi.Rows.Add("x = (a * P * s + b * Q * r) mod N");
+            dataGridViewProsesDekripsi.Rows.Add("y = (a * P * s - b * Q * r) mod N");
+            dataGridViewProsesDekripsi.Rows.Add("M1 = x");
+            dataGridViewProsesDekripsi.Rows.Add("M2 = N - x");
+            dataGridViewProsesDekripsi.Rows.Add("M1 = y");
+            dataGridViewProsesDekripsi.Rows.Add("M2 = N - y");
+            dataGridViewProsesDekripsi.Rows.Add();
+            ulong a = Kripto.InversModulo(P, Q, dataGridViewProsesDekripsi);
+            ulong b = Kripto.InversModulo(Q, P, dataGridViewProsesDekripsi);
+            dataGridViewProsesDekripsi.Rows.Add("a = " + P + "^-1 mod " + Q + " = " + a);
+            dataGridViewProsesDekripsi.Rows.Add("b = " + Q + "^-1 mod " + P + " = " + b);
             int i = 1;
-            long[] arr = new long[4];
-            List<long> m = new List<long>();
+            ulong[] arr = new ulong[4];
+            List<ulong> m = new List<ulong>();
             StringBuilder plaintext = new StringBuilder();
-            foreach (long c in cipher)
+            ulong p4 = (P + 1) / 4;
+            ulong q4 = (Q + 1) / 4;
+            foreach (ulong c in cipher)
             {
-                long r = Kripto.QuickModulo(c, (P + 1) / 4, P);
-                long s = Kripto.QuickModulo(c, (Q + 1) / 4, Q);
-                long x = (Kripto.MultiplyModulo(Kripto.MultiplyModulo(a, P, N), s, N) + Kripto.MultiplyModulo(Kripto.MultiplyModulo(b, Q, N), r, N)) % N;
-                long y = (Kripto.MultiplyModulo(Kripto.MultiplyModulo(a, P, N), s, N) - Kripto.MultiplyModulo(Kripto.MultiplyModulo(b, Q, N), r, N)) % N;
-                if (y < 0)
-                    y += N;
+                ulong r = Kripto.QuickModulo(c, p4, P);
+                ulong s = Kripto.QuickModulo(c, q4, Q);
+                ulong left = Kripto.MultiplyModulo(Kripto.MultiplyModulo(a, P, N), s, N);
+                ulong right = Kripto.MultiplyModulo(Kripto.MultiplyModulo(b, Q, N), r, N);
+                ulong x = (left + right) % N;
+                ulong y;
+                if (right > left)
+                {
+                    y = N - right + left;
+                }
+                else
+                {
+                    y = (Kripto.MultiplyModulo(Kripto.MultiplyModulo(a, P, N), s, N) - Kripto.MultiplyModulo(Kripto.MultiplyModulo(b, Q, N), r, N)) % N;
+                }
                 arr[0] = x;
-                arr[1] = y;
-                arr[2] = N - x;
+                arr[1] = N - x;
+                arr[2] = y;
                 arr[3] = N - y;
                 dataGridViewProsesDekripsi.Rows.Add();
                 dataGridViewProsesDekripsi.Rows.Add("r" + i + " = " + c + " ^ ((" + P + "+1)/4) mod " + P + " = " + r);
                 dataGridViewProsesDekripsi.Rows.Add("s" + i + " = " + c + " ^ ((" + Q + "+1)/4) mod " + Q + " = " + s);
-                int idx = dataGridViewProsesDekripsi.RowCount;
                 dataGridViewProsesDekripsi.Rows.Add("x" + i + " = (" + a + " * " + P + " * " + s + " + " + b + " * " + Q + " * " + r + ") mod " + N + " = " + x);
                 dataGridViewProsesDekripsi.Rows.Add("y" + i + " = (" + a + " * " + P + " * " + s + " - " + b + " * " + Q + " * " + r + ") mod " + N + " = " + y);
-                dataGridViewProsesDekripsi.Rows.Add("-x" + i + " = " + arr[2]);
-                dataGridViewProsesDekripsi.Rows.Add("-y" + i + " = " + arr[3]);
+                int idx = dataGridViewProsesDekripsi.RowCount;
                 for (int j = 0; j < 4; j++)
                 {
-                    long t = arr[j];
+                    ulong t = arr[j];
+                    dataGridViewProsesDekripsi.Rows.Add("M" + (j + 1) + " = " + arr[j] + " = " + arr[j].ToBin(16));
                     if (((t >> 8) & ((1 << 8) - 1)) == (t & ((1 << 8) - 1)))
                     {
                         m.Add(t);
@@ -151,12 +189,12 @@ namespace Kriptografi.Week8
                 }
                 i++;
             }
+            dataGridViewProsesDekripsi.Rows.Add();
             i = 1;
-            foreach (long t in m)
+            foreach (ulong t in m)
             {
-                dataGridViewProsesDekripsi.Rows.Add();
                 dataGridViewProsesDekripsi.Rows.Add("M" + i + " = " + t + " = " + t.ToBin(16));
-                dataGridViewProsesDekripsi.Rows.Add("M" + i + " = " + (t >> 8).ToBin(8) + " = " + (t >> 8) + " = " + (char)(t >> 8));
+                dataGridViewProsesDekripsi.Rows.Add("M" + i++ + " = " + (t >> 8).ToBin(8) + " = " + (t >> 8) + " = " + (char)(t >> 8));
                 plaintext.Append((char)(t >> 8));
             }
             textBoxDekripsiPlainText.Text = plaintext.ToString();

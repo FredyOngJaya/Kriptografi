@@ -373,7 +373,7 @@
             this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
             this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            this.dataGridViewProsesEnkripsi.TabIndex = 30;
             // 
             // tabPage3
             // 
@@ -415,14 +415,14 @@
             this.textBoxDekripsiPlainText.Name = "textBoxDekripsiPlainText";
             this.textBoxDekripsiPlainText.ReadOnly = true;
             this.textBoxDekripsiPlainText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxDekripsiPlainText.TabIndex = 25;
+            this.textBoxDekripsiPlainText.TabIndex = 24;
             // 
             // buttonDekripsi
             // 
             this.buttonDekripsi.Location = new System.Drawing.Point(306, 13);
             this.buttonDekripsi.Name = "buttonDekripsi";
             this.buttonDekripsi.Size = new System.Drawing.Size(110, 26);
-            this.buttonDekripsi.TabIndex = 23;
+            this.buttonDekripsi.TabIndex = 25;
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
             this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
@@ -445,7 +445,7 @@
             this.dataGridViewProsesDekripsi.RowHeadersVisible = false;
             this.dataGridViewProsesDekripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesDekripsi.TabIndex = 24;
+            this.dataGridViewProsesDekripsi.TabIndex = 30;
             // 
             // FormRSA
             // 

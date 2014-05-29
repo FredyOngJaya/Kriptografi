@@ -30,6 +30,7 @@
         {
             this.tabControlRSA = new System.Windows.Forms.TabControl();
             this.tabPageKey = new System.Windows.Forms.TabPage();
+            this.dataGridViewNotSortAbleEEA = new Kriptografi.DataGridViewNotSortAble();
             this.textBoxP = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,25 +41,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageEnkripsi = new System.Windows.Forms.TabPage();
             this.dataGridViewProsesEnkripsi = new Kriptografi.DataGridViewNotSortAble();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxEnkripsiCipherText = new System.Windows.Forms.TextBox();
-            this.numericUpDownBlockSize = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonEnkripsi = new System.Windows.Forms.Button();
             this.textBoxEnkripsiPlainText = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDekripsiPlainText = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.buttonDekripsi = new System.Windows.Forms.Button();
-            this.textBoxDekripsiCipherText = new System.Windows.Forms.TextBox();
             this.dataGridViewProsesDekripsi = new Kriptografi.DataGridViewNotSortAble();
             this.tabControlRSA.SuspendLayout();
             this.tabPageKey.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).BeginInit();
             this.tabPageEnkripsi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +72,7 @@
             // 
             // tabPageKey
             // 
+            this.tabPageKey.Controls.Add(this.dataGridViewNotSortAbleEEA);
             this.tabPageKey.Controls.Add(this.textBoxP);
             this.tabPageKey.Controls.Add(this.label6);
             this.tabPageKey.Controls.Add(this.label1);
@@ -92,6 +88,27 @@
             this.tabPageKey.TabIndex = 0;
             this.tabPageKey.Text = "Key";
             this.tabPageKey.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewNotSortAbleEEA
+            // 
+            this.dataGridViewNotSortAbleEEA.AllowUserToAddRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToDeleteRows = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToOrderColumns = true;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeColumns = false;
+            this.dataGridViewNotSortAbleEEA.AllowUserToResizeRows = false;
+            this.dataGridViewNotSortAbleEEA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewNotSortAbleEEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewNotSortAbleEEA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewNotSortAbleEEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotSortAbleEEA.Location = new System.Drawing.Point(8, 128);
+            this.dataGridViewNotSortAbleEEA.Name = "dataGridViewNotSortAbleEEA";
+            this.dataGridViewNotSortAbleEEA.ReadOnly = true;
+            this.dataGridViewNotSortAbleEEA.RowHeadersVisible = false;
+            this.dataGridViewNotSortAbleEEA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewNotSortAbleEEA.Size = new System.Drawing.Size(928, 339);
+            this.dataGridViewNotSortAbleEEA.TabIndex = 29;
             // 
             // textBoxP
             // 
@@ -164,10 +181,6 @@
             // tabPageEnkripsi
             // 
             this.tabPageEnkripsi.Controls.Add(this.dataGridViewProsesEnkripsi);
-            this.tabPageEnkripsi.Controls.Add(this.label9);
-            this.tabPageEnkripsi.Controls.Add(this.textBoxEnkripsiCipherText);
-            this.tabPageEnkripsi.Controls.Add(this.numericUpDownBlockSize);
-            this.tabPageEnkripsi.Controls.Add(this.label8);
             this.tabPageEnkripsi.Controls.Add(this.label7);
             this.tabPageEnkripsi.Controls.Add(this.buttonEnkripsi);
             this.tabPageEnkripsi.Controls.Add(this.textBoxEnkripsiPlainText);
@@ -200,54 +213,6 @@
             this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
             this.dataGridViewProsesEnkripsi.TabIndex = 27;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(644, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 18);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Cipher text";
-            // 
-            // textBoxEnkripsiCipherText
-            // 
-            this.textBoxEnkripsiCipherText.Location = new System.Drawing.Point(732, 13);
-            this.textBoxEnkripsiCipherText.Name = "textBoxEnkripsiCipherText";
-            this.textBoxEnkripsiCipherText.ReadOnly = true;
-            this.textBoxEnkripsiCipherText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxEnkripsiCipherText.TabIndex = 25;
-            // 
-            // numericUpDownBlockSize
-            // 
-            this.numericUpDownBlockSize.Location = new System.Drawing.Point(551, 13);
-            this.numericUpDownBlockSize.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.numericUpDownBlockSize.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownBlockSize.Name = "numericUpDownBlockSize";
-            this.numericUpDownBlockSize.Size = new System.Drawing.Size(50, 25);
-            this.numericUpDownBlockSize.TabIndex = 24;
-            this.numericUpDownBlockSize.Value = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(472, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 18);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Blok size ?";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -278,9 +243,7 @@
             // 
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.textBoxDekripsiPlainText);
-            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.buttonDekripsi);
-            this.tabPage3.Controls.Add(this.textBoxDekripsiCipherText);
             this.tabPage3.Controls.Add(this.dataGridViewProsesDekripsi);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
@@ -293,7 +256,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(644, 16);
+            this.label10.Location = new System.Drawing.Point(22, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 18);
             this.label10.TabIndex = 26;
@@ -301,38 +264,21 @@
             // 
             // textBoxDekripsiPlainText
             // 
-            this.textBoxDekripsiPlainText.Location = new System.Drawing.Point(732, 13);
+            this.textBoxDekripsiPlainText.Location = new System.Drawing.Point(110, 14);
             this.textBoxDekripsiPlainText.Name = "textBoxDekripsiPlainText";
             this.textBoxDekripsiPlainText.ReadOnly = true;
             this.textBoxDekripsiPlainText.Size = new System.Drawing.Size(204, 25);
             this.textBoxDekripsiPlainText.TabIndex = 25;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 18);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Cipher text";
             // 
             // buttonDekripsi
             // 
             this.buttonDekripsi.Location = new System.Drawing.Point(320, 13);
             this.buttonDekripsi.Name = "buttonDekripsi";
             this.buttonDekripsi.Size = new System.Drawing.Size(110, 26);
-            this.buttonDekripsi.TabIndex = 23;
+            this.buttonDekripsi.TabIndex = 26;
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
             this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
-            // 
-            // textBoxDekripsiCipherText
-            // 
-            this.textBoxDekripsiCipherText.Location = new System.Drawing.Point(109, 13);
-            this.textBoxDekripsiCipherText.Name = "textBoxDekripsiCipherText";
-            this.textBoxDekripsiCipherText.ReadOnly = true;
-            this.textBoxDekripsiCipherText.Size = new System.Drawing.Size(204, 25);
-            this.textBoxDekripsiCipherText.TabIndex = 21;
             // 
             // dataGridViewProsesDekripsi
             // 
@@ -351,8 +297,8 @@
             this.dataGridViewProsesDekripsi.ReadOnly = true;
             this.dataGridViewProsesDekripsi.RowHeadersVisible = false;
             this.dataGridViewProsesDekripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(595, 326);
-            this.dataGridViewProsesDekripsi.TabIndex = 24;
+            this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
+            this.dataGridViewProsesDekripsi.TabIndex = 30;
             // 
             // FormRabin
             // 
@@ -371,10 +317,10 @@
             this.tabControlRSA.ResumeLayout(false);
             this.tabPageKey.ResumeLayout(false);
             this.tabPageKey.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleEEA)).EndInit();
             this.tabPageEnkripsi.ResumeLayout(false);
             this.tabPageEnkripsi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesEnkripsi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProsesDekripsi)).EndInit();
@@ -396,19 +342,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPageEnkripsi;
         private DataGridViewNotSortAble dataGridViewProsesEnkripsi;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxEnkripsiCipherText;
-        private System.Windows.Forms.NumericUpDown numericUpDownBlockSize;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonEnkripsi;
         private System.Windows.Forms.TextBox textBoxEnkripsiPlainText;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxDekripsiPlainText;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonDekripsi;
-        private System.Windows.Forms.TextBox textBoxDekripsiCipherText;
         private DataGridViewNotSortAble dataGridViewProsesDekripsi;
+        private DataGridViewNotSortAble dataGridViewNotSortAbleEEA;
     }
 }

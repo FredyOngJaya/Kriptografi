@@ -45,6 +45,23 @@ namespace Kriptografi
         }
 
         /// <summary>
+        /// Greatest Common Divisor ulong
+        /// </summary>
+        /// <param name="num1">Bilangan 1</param>
+        /// <param name="num2">Bilangan 2</param>
+        /// <returns></returns>
+        public static ulong GCD(ulong num1, ulong num2)
+        {
+            while (num2 > 0)
+            {
+                ulong _t = num1 % num2;
+                num1 = num2;
+                num2 = _t;
+            }
+            return num1;
+        }
+
+        /// <summary>
         /// Least Common Multiple int
         /// </summary>
         /// <param name="num1">Bilangan 1</param>
@@ -99,13 +116,13 @@ namespace Kriptografi
             return GCD(num1, num2) == 1;
         }
 
-        public static bool IsRelatifPrima(long num1, long num2)
+        public static bool IsRelatifPrima(ulong num1, ulong num2)
         {
             return GCD(num1, num2) == 1;
         }
 
         /// <summary>
-        /// Quick Modulo Method Int
+        /// Quick Modulo Method int
         /// </summary>
         /// <param name="num">Number</param>
         /// <param name="power">Power</param>
@@ -113,20 +130,20 @@ namespace Kriptografi
         /// <returns></returns>
         public static int QuickModulo(int num, int power, int div)
         {
-            return (int)QuickModulo((long)num, (long)power, (long)div);
+            return (int)QuickModulo((ulong)num, (ulong)power, (ulong)div);
         }
 
         /// <summary>
-        /// Quick Modulo Method Long
+        /// Quick Modulo Method ulong
         /// </summary>
         /// <param name="num">Number</param>
         /// <param name="power">Power</param>
         /// <param name="div">Divisor</param>
         /// <returns></returns>
-        public static long QuickModulo(long num, long power, long div)
+        public static ulong QuickModulo(ulong num, ulong power, ulong div)
         {
-            long res = 1;
-            long y = num;
+            ulong res = 1;
+            ulong y = num;
             while (power > 0)
             {
                 if ((power & 1) == 1)
@@ -141,12 +158,12 @@ namespace Kriptografi
             return res % div;
         }
 
-        static long[] pangkat = new long[33];
-        static long[] angka = new long[33];
+        static ulong[] pangkat = new ulong[33];
+        static ulong[] angka = new ulong[33];
         static int c = 0;
         static int lcm = -1;
 
-        private static void PrintExponent(long div, System.Windows.Forms.DataGridView gridProses)
+        private static void PrintExponent(ulong div, System.Windows.Forms.DataGridView gridProses)
         {
             StringBuilder t = new StringBuilder();
             t.Append("(");
@@ -173,23 +190,23 @@ namespace Kriptografi
         }
         public static int FastExponent(int num, int power, int div, System.Windows.Forms.DataGridView gridProses)
         {
-            return (int)FastExponent((long)num, (long)power, (long)div, gridProses);
+            return (int)FastExponent((ulong)num, (ulong)power, (ulong)div, gridProses);
         }
 
-        public static long FastExponent(long num, long power, long div, System.Windows.Forms.DataGridView gridProses)
+        public static ulong FastExponent(ulong num, ulong power, ulong div, System.Windows.Forms.DataGridView gridProses)
         {
             c = 0;
             lcm = -1;
             Array.Clear(pangkat, 0, pangkat.Length);
             Array.Clear(angka, 0, angka.Length);
-            long t = power;
+            ulong t = power;
             while (t > 0)
             {
                 if ((t & 1) == 1)
                 {
                     if (lcm == -1)
                         lcm = c;
-                    pangkat[c] = 1 << c;
+                    pangkat[c] = (ulong)1 << c;
                     angka[c] = num;
                 }
                 t >>= 1;
@@ -227,10 +244,10 @@ namespace Kriptografi
         /// <param name="num2">Number 2</param>
         /// <param name="divisor">Divisor</param>
         /// <returns></returns>
-        public static long MultiplyModulo(long num1, long num2, long divisor)
+        public static ulong MultiplyModulo(ulong num1, ulong num2, ulong divisor)
         {
-            long res = 0;
-            long y = num1 % divisor;
+            ulong res = 0;
+            ulong y = num1 % divisor;
             while (num2 > 0)
             {
                 if ((num2 & 1) == 1)
@@ -262,7 +279,7 @@ namespace Kriptografi
         /// <param name="number">Number to test</param>
         /// <param name="iteration">Number of iteration</param>
         /// <returns></returns>
-        public static bool IsMiller(long number, int iteration)
+        public static bool IsMiller(ulong number, int iteration)
         {
             if (number < 2)
             {
@@ -272,7 +289,7 @@ namespace Kriptografi
             {
                 return false;
             }
-            long s = number - 1;
+            ulong s = number - 1;
             while ((s & 1) == 0)
             {
                 s >>= 1;
@@ -280,9 +297,9 @@ namespace Kriptografi
             Random rand = new Random();
             for (int i = 0; i < iteration; i++)
             {
-                long a = ((long)rand.Next() * (long)rand.Next()) % (number - 1) + 1;
-                long temp = s;
-                long mod = QuickModulo(a, temp, number);
+                ulong a = ((ulong)rand.Next() * (ulong)rand.Next()) % (number - 1) + 1;
+                ulong temp = s;
+                ulong mod = QuickModulo(a, temp, number);
                 while (temp != number - 1 && mod != 1 && mod != number - 1)
                 {
                     mod = (mod * mod) % number;
@@ -309,11 +326,11 @@ namespace Kriptografi
         /// <param name="number">Number</param>
         /// <param name="div">Divisor(prime number)</param>
         /// <returns></returns>
-        public static bool IsGeneratorModulo(int number, int prime)
+        public static bool IsGeneratorModulo(uint number, uint prime)
         {
             Sieve();
             List<int> faktorPrima = new List<int>();
-            int p = prime - 1;
+            uint p = prime - 1;
             int sq = (int)Math.Sqrt(p);
             for (int i = 2; i <= sq && p > 1; i++)
             {
@@ -322,19 +339,19 @@ namespace Kriptografi
                     faktorPrima.Add(i);
                     while (p % i == 0)
                     {
-                        p /= i;
+                        p /= (uint)i;
                     }
                 }
             }
             if (p > 1)
             {
-                faktorPrima.Add(p);
+                faktorPrima.Add((int)p);
             }
             p = prime - 1;
             bool res = true;
             foreach (int prima in faktorPrima)
             {
-                int mod = QuickModulo(number, p / prima, prime);
+                ulong mod = QuickModulo((ulong)number, (ulong)(p / prima), (ulong)prime);
                 res &= (mod > 1);
             }
             return res;
@@ -377,10 +394,10 @@ namespace Kriptografi
                 aLast += div;
             return aLast;
         }
-        public static long InversModulo(long number, long divisor, System.Windows.Forms.DataGridView gridProses)
+        public static ulong InversModulo(ulong number, ulong divisor, System.Windows.Forms.DataGridView gridProses)
         {
             if (divisor == 1) return 1;
-            long div = divisor;
+            ulong div = divisor;
             long aLast = 0, bLast = 1;
             int i = 1;
             int col = 0;
@@ -412,28 +429,28 @@ namespace Kriptografi
                 {
                     gridProses.Columns.Add("P" + i, "P" + i);
                 }
-                long mod = divisor / number;
-                long x = divisor - (mod * number);
+                ulong mod = divisor / number;
+                ulong x = divisor - (mod * number);
 
                 gridProses[col, nRow].Value = mod;
                 gridProses[col, nRow + 1].Value = x;
 
                 divisor = number;
                 number = x;
-                x = aLast - (mod * bLast);
+                long z = aLast - ((long)mod * bLast);
                 aLast = bLast;
-                bLast = x;
+                bLast = z;
                 if (number != 0)
                     gridProses[col, nRow + 2].Value = bLast;
             }
+            ulong res = (ulong)aLast;
             if (aLast < 0)
             {
                 pers += aLast + " + " + div + " = ";
-                aLast += div;
+                res += div;
             }
-            gridProses.Rows.Add(pers + aLast);
-            gridProses.Rows.Add();
-            return aLast;
+            gridProses.Rows.Add(pers + res);
+            return res;
         }
 
         #endregion
@@ -521,7 +538,7 @@ namespace Kriptografi
             pnB = nTemp - 1;
             pnM = pnC / (1 << pnB);
             pnJ = 0;
-            pnZ = QuickModulo(pnA, pnM, pnP);
+            pnZ = (long)QuickModulo((ulong)pnA, (ulong)pnM, (ulong)pnP);
             if (pnZ == 1 || pnZ == (pnP - 1))
                 return true;
             while (true)
@@ -531,7 +548,7 @@ namespace Kriptografi
                 pnJ = pnJ + 1;
                 if (pnJ < pnB && pnZ != pnP - 1)
                 {
-                    pnZ = QuickModulo(pnZ, (long)2, pnP);
+                    pnZ = (long)QuickModulo((ulong)pnZ, (ulong)2, (ulong)pnP);
                     continue;
                 }
                 else

@@ -147,7 +147,7 @@
             this.textBoxTotientNPPlusQPlus.Name = "textBoxTotientNPPlusQPlus";
             this.textBoxTotientNPPlusQPlus.ReadOnly = true;
             this.textBoxTotientNPPlusQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPPlusQPlus.TabIndex = 5;
+            this.textBoxTotientNPPlusQPlus.TabIndex = 8;
             // 
             // label4
             // 
@@ -163,7 +163,7 @@
             this.textBoxE.Location = new System.Drawing.Point(102, 99);
             this.textBoxE.Name = "textBoxE";
             this.textBoxE.Size = new System.Drawing.Size(200, 25);
-            this.textBoxE.TabIndex = 6;
+            this.textBoxE.TabIndex = 5;
             // 
             // label5
             // 
@@ -180,7 +180,7 @@
             this.textBoxDPMinQMin.Name = "textBoxDPMinQMin";
             this.textBoxDPMinQMin.ReadOnly = true;
             this.textBoxDPMinQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPMinQMin.TabIndex = 8;
+            this.textBoxDPMinQMin.TabIndex = 15;
             // 
             // buttonHitungN
             // 
@@ -197,7 +197,7 @@
             this.buttonHitungD.Location = new System.Drawing.Point(403, 99);
             this.buttonHitungD.Name = "buttonHitungD";
             this.buttonHitungD.Size = new System.Drawing.Size(89, 25);
-            this.buttonHitungD.TabIndex = 9;
+            this.buttonHitungD.TabIndex = 7;
             this.buttonHitungD.Text = "Hitung D";
             this.buttonHitungD.UseVisualStyleBackColor = true;
             this.buttonHitungD.Click += new System.EventHandler(this.buttonHitungD_Click);
@@ -207,7 +207,7 @@
             this.buttonRandomE.Location = new System.Drawing.Point(308, 99);
             this.buttonRandomE.Name = "buttonRandomE";
             this.buttonRandomE.Size = new System.Drawing.Size(89, 25);
-            this.buttonRandomE.TabIndex = 7;
+            this.buttonRandomE.TabIndex = 6;
             this.buttonRandomE.Text = "Random E";
             this.buttonRandomE.UseVisualStyleBackColor = true;
             this.buttonRandomE.Click += new System.EventHandler(this.buttonRandomE_Click);
@@ -300,7 +300,7 @@
             this.textBoxTotientNPMinQMin.Name = "textBoxTotientNPMinQMin";
             this.textBoxTotientNPMinQMin.ReadOnly = true;
             this.textBoxTotientNPMinQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPMinQMin.TabIndex = 5;
+            this.textBoxTotientNPMinQMin.TabIndex = 14;
             // 
             // textBoxTotientNPMinQPlus
             // 
@@ -308,7 +308,7 @@
             this.textBoxTotientNPMinQPlus.Name = "textBoxTotientNPMinQPlus";
             this.textBoxTotientNPMinQPlus.ReadOnly = true;
             this.textBoxTotientNPMinQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPMinQPlus.TabIndex = 5;
+            this.textBoxTotientNPMinQPlus.TabIndex = 12;
             // 
             // labelTotientNPMinQMin
             // 
@@ -325,7 +325,7 @@
             this.textBoxTotientNPPlusQMin.Name = "textBoxTotientNPPlusQMin";
             this.textBoxTotientNPPlusQMin.ReadOnly = true;
             this.textBoxTotientNPPlusQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxTotientNPPlusQMin.TabIndex = 5;
+            this.textBoxTotientNPPlusQMin.TabIndex = 10;
             // 
             // labelTotientNPMinQPlus
             // 
@@ -378,7 +378,7 @@
             this.textBoxDPMinQPlus.Name = "textBoxDPMinQPlus";
             this.textBoxDPMinQPlus.ReadOnly = true;
             this.textBoxDPMinQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPMinQPlus.TabIndex = 8;
+            this.textBoxDPMinQPlus.TabIndex = 13;
             // 
             // textBoxDPPlusQMin
             // 
@@ -386,7 +386,7 @@
             this.textBoxDPPlusQMin.Name = "textBoxDPPlusQMin";
             this.textBoxDPPlusQMin.ReadOnly = true;
             this.textBoxDPPlusQMin.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPPlusQMin.TabIndex = 8;
+            this.textBoxDPPlusQMin.TabIndex = 11;
             // 
             // textBoxDPPlusQPlus
             // 
@@ -394,7 +394,7 @@
             this.textBoxDPPlusQPlus.Name = "textBoxDPPlusQPlus";
             this.textBoxDPPlusQPlus.ReadOnly = true;
             this.textBoxDPPlusQPlus.Size = new System.Drawing.Size(200, 25);
-            this.textBoxDPPlusQPlus.TabIndex = 8;
+            this.textBoxDPPlusQPlus.TabIndex = 9;
             // 
             // tabPageEnkripsi
             // 
@@ -442,7 +442,7 @@
             this.dataGridViewProsesEnkripsi.RowHeadersVisible = false;
             this.dataGridViewProsesEnkripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewProsesEnkripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesEnkripsi.TabIndex = 27;
+            this.dataGridViewProsesEnkripsi.TabIndex = 30;
             // 
             // numericUpDownBlockSize
             // 
@@ -548,7 +548,7 @@
             this.buttonDekripsi.Location = new System.Drawing.Point(308, 13);
             this.buttonDekripsi.Name = "buttonDekripsi";
             this.buttonDekripsi.Size = new System.Drawing.Size(110, 26);
-            this.buttonDekripsi.TabIndex = 23;
+            this.buttonDekripsi.TabIndex = 26;
             this.buttonDekripsi.Text = "Dekripsi";
             this.buttonDekripsi.UseVisualStyleBackColor = true;
             this.buttonDekripsi.Click += new System.EventHandler(this.buttonDekripsi_Click);
@@ -571,7 +571,7 @@
             this.dataGridViewProsesDekripsi.RowHeadersVisible = false;
             this.dataGridViewProsesDekripsi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewProsesDekripsi.Size = new System.Drawing.Size(927, 422);
-            this.dataGridViewProsesDekripsi.TabIndex = 24;
+            this.dataGridViewProsesDekripsi.TabIndex = 31;
             // 
             // FormLUC
             // 

@@ -21,6 +21,7 @@ namespace KriptografiExtensions
         {
             return number.ToBin().PadLeft(binLength, '0');
         }
+
         public static string ToHex(this long number)
         {
             return number.ToString("X2");
@@ -36,9 +37,29 @@ namespace KriptografiExtensions
             return number.ToBin().PadLeft(binLength, '0');
         }
 
+        public static string ToHex(this ulong number)
+        {
+            return number.ToString("X2");
+        }
+
+        public static string ToBin(this ulong number)
+        {
+            return ToBin((long)number);
+        }
+
+        public static string ToBin(this ulong number, int binLength)
+        {
+            return number.ToBin().PadLeft(binLength, '0');
+        }
+
         public static int BinToInt(this string binary)
         {
             return Convert.ToInt32(binary, 2);
+        }
+
+        public static ulong BinToUlong(this string binary)
+        {
+            return Convert.ToUInt64(binary, 2);
         }
 
         public static int HexToInt(this string hexa)
