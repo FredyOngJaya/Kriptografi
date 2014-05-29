@@ -125,69 +125,80 @@ namespace Kriptografi.Week8
             ClearEnkrip();
             if (ulong.TryParse(textBoxK.Text, out K))
             {
-                blokSize = (int)numericUpDownBlockSize.Value;
-                string text = textBoxEnkripsiPlainText.Text;
-                string now;
-                StringBuilder plainBiner = new StringBuilder();
-                foreach (char c in text)
+                if (K > P - 2 || K < 1)
                 {
-                    plainBiner.Append(((int)c).ToBin(8));
+                    MessageBox.Show("K antara 1 sampai " + (P - 2));
                 }
-                dataGridViewProsesEnkripsi.Rows.Add("Plaintext : " + text);
-                dataGridViewNotSortAbleKey.Rows.Add("K = " + K);
-                dataGridViewProsesEnkripsi.Rows.Add("Ukuran Blok = " + blokSize);
-                dataGridViewProsesEnkripsi.Rows.Add();
-                dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
-                dataGridViewProsesEnkripsi.Rows.Add("a = g^k % p");
-                dataGridViewProsesEnkripsi.Rows.Add("b = m.y^k % p");
-                int i = 1;
-                while (plainBiner.Length > 0)
+                else if (textBoxEnkripsiPlainText.Text.Length == 0)
                 {
-                    dataGridViewProsesEnkripsi.Rows.Add();
-                    dataGridViewProsesEnkripsi.Rows.Add();
-                    if (plainBiner.Length < blokSize)
-                    {
-                        now = plainBiner.ToString().PadRight(blokSize, '0');
-                        dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + plainBiner.ToString());
-                        dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
-                    }
-                    else
-                    {
-                        now = plainBiner.ToString(0, blokSize);
-                    }
-                    plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
-                    ulong t = now.BinToUlong();
-                    dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
-                    ulong a = 0, b = 0;
-                    if (checkBoxShowEnkripsiDetail.Checked)
-                    {
-                        dataGridViewProsesEnkripsi.Rows.Add("a = " + G + "^" + K + " % " + P);
-                        a = Kripto.FastExponent(G, K, P, dataGridViewProsesEnkripsi);
-                    }
-                    else
-                    {
-                        a = Kripto.QuickModulo(G, K, P);
-                    }
-                    dataGridViewProsesEnkripsi.Rows.Add("a = " + G + "^" + K + " % " + P + " = " + a);
-                    dataGridViewProsesEnkripsi.Rows.Add();
-                    if (checkBoxShowEnkripsiDetail.Checked)
-                    {
-                        dataGridViewProsesEnkripsi.Rows.Add("b = " + t + "." + Y + "^" + K + " % " + P);
-                        dataGridViewProsesEnkripsi.Rows.Add(Y + "^" + K + " % " + P);
-                        b = Kripto.FastExponent(Y, K, P, dataGridViewProsesEnkripsi);
-                        dataGridViewProsesEnkripsi.Rows.Add(Y + "^" + K + " % " + P + " = " + b);
-                        dataGridViewProsesEnkripsi.Rows.Add("b = (" + t + "." + b + ") % " + P);
-                    }
-                    else
-                    {
-                        b = Kripto.QuickModulo(Y, K, P);
-                    }
-                    b = Kripto.MultiplyModulo(b, (ulong)t, P);
-                    dataGridViewProsesEnkripsi.Rows.Add("b = " + t + "." + Y + "^" + K + " % " + P + " = " + b);
-                    ca.Add(a);
-                    cb.Add(b);
+                    MessageBox.Show("Plaintext kosong");
                 }
-                buttonDekripsi.Enabled = true;
+                else
+                {
+                    blokSize = (int)numericUpDownBlockSize.Value;
+                    string text = textBoxEnkripsiPlainText.Text;
+                    string now;
+                    StringBuilder plainBiner = new StringBuilder();
+                    foreach (char c in text)
+                    {
+                        plainBiner.Append(((int)c).ToBin(8));
+                    }
+                    dataGridViewProsesEnkripsi.Rows.Add("Plaintext : " + text);
+                    dataGridViewNotSortAbleKey.Rows.Add("K = " + K);
+                    dataGridViewProsesEnkripsi.Rows.Add("Ukuran Blok = " + blokSize);
+                    dataGridViewProsesEnkripsi.Rows.Add();
+                    dataGridViewProsesEnkripsi.Rows.Add("Plaintext Biner : " + plainBiner.ToString());
+                    dataGridViewProsesEnkripsi.Rows.Add("a = g^k % p");
+                    dataGridViewProsesEnkripsi.Rows.Add("b = m.y^k % p");
+                    int i = 1;
+                    while (plainBiner.Length > 0)
+                    {
+                        dataGridViewProsesEnkripsi.Rows.Add();
+                        dataGridViewProsesEnkripsi.Rows.Add();
+                        if (plainBiner.Length < blokSize)
+                        {
+                            now = plainBiner.ToString().PadRight(blokSize, '0');
+                            dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + plainBiner.ToString());
+                            dataGridViewProsesEnkripsi.Rows.Add("Tambah " + (blokSize - plainBiner.Length) + " bit 0 di belakang supaya sesuai ukuran blok");
+                        }
+                        else
+                        {
+                            now = plainBiner.ToString(0, blokSize);
+                        }
+                        plainBiner.Remove(0, Math.Min(blokSize, plainBiner.Length));
+                        ulong t = now.BinToUlong();
+                        dataGridViewProsesEnkripsi.Rows.Add("M" + i + " = " + now + " = " + t);
+                        ulong a = 0, b = 0;
+                        if (checkBoxShowEnkripsiDetail.Checked)
+                        {
+                            dataGridViewProsesEnkripsi.Rows.Add("a = " + G + "^" + K + " % " + P);
+                            a = Kripto.FastExponent(G, K, P, dataGridViewProsesEnkripsi);
+                        }
+                        else
+                        {
+                            a = Kripto.QuickModulo(G, K, P);
+                        }
+                        dataGridViewProsesEnkripsi.Rows.Add("a = " + G + "^" + K + " % " + P + " = " + a);
+                        dataGridViewProsesEnkripsi.Rows.Add();
+                        if (checkBoxShowEnkripsiDetail.Checked)
+                        {
+                            dataGridViewProsesEnkripsi.Rows.Add("b = " + t + "." + Y + "^" + K + " % " + P);
+                            dataGridViewProsesEnkripsi.Rows.Add(Y + "^" + K + " % " + P);
+                            b = Kripto.FastExponent(Y, K, P, dataGridViewProsesEnkripsi);
+                            dataGridViewProsesEnkripsi.Rows.Add(Y + "^" + K + " % " + P + " = " + b);
+                            dataGridViewProsesEnkripsi.Rows.Add("b = (" + t + "." + b + ") % " + P);
+                        }
+                        else
+                        {
+                            b = Kripto.QuickModulo(Y, K, P);
+                        }
+                        b = Kripto.MultiplyModulo(b, (ulong)t, P);
+                        dataGridViewProsesEnkripsi.Rows.Add("b = " + t + "." + Y + "^" + K + " % " + P + " = " + b);
+                        ca.Add(a);
+                        cb.Add(b);
+                    }
+                    buttonDekripsi.Enabled = true;
+                }
             }
             else
             {

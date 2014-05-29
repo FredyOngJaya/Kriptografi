@@ -100,12 +100,16 @@ namespace Kriptografi.Week8
             ClearKey();
             if (ulong.TryParse(textBoxD.Text, out D))
             {
-                if (Kripto.IsRelatifPrima(D, TN))
+                if (D > TN)
+                {
+                    MessageBox.Show("D harus lebih kecil dari \u03D5(n)");
+                }
+                else if (Kripto.IsRelatifPrima(D, TN))
                 {
                     dataGridViewNotSortAbleEEA.Columns.Add("P1", "P1");
                     dataGridViewNotSortAbleEEA.Rows.Add("P = " + P);
                     dataGridViewNotSortAbleEEA.Rows.Add("Q = " + Q);
-                    dataGridViewNotSortAbleEEA.Rows.Add("N = " +  N);
+                    dataGridViewNotSortAbleEEA.Rows.Add("N = " + N);
                     dataGridViewNotSortAbleEEA.Rows.Add("\u03D5(n) = " + TN);
                     dataGridViewNotSortAbleEEA.Rows.Add("D = " + D);
                     E = Kripto.InversModulo(D, TN, dataGridViewNotSortAbleEEA);
@@ -151,6 +155,11 @@ namespace Kriptografi.Week8
         private void buttonEnkripsi_Click(object sender, EventArgs e)
         {
             ClearEnkrip();
+            if (textBoxEnkripsiPlainText.Text.Length == 0)
+            {
+                MessageBox.Show("Plaintext kosong");
+                return;
+            }
             blokSize = (int)numericUpDownBlockSize.Value;
             string text = textBoxEnkripsiPlainText.Text;
             string now;

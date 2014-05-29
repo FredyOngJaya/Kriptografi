@@ -102,7 +102,7 @@ namespace Kriptografi.Week8
             ulong t;
             do
             {
-                t = (ulong)(random.NextDouble() * (N - max)) + max;
+                t = (ulong)(random.NextDouble() * (TN[3] - max - 1)) + max;
             } while (!relatifPrimaD(t));
             textBoxE.Text = t.ToString();
         }
@@ -125,7 +125,12 @@ namespace Kriptografi.Week8
             ClearKey();
             if (ulong.TryParse(textBoxE.Text, out E))
             {
-                if (relatifPrimaD(E))
+                ulong max = Math.Max(P, Q) + 1;
+                if (E > TN[3] - 1 || E < max)
+                {
+                    MessageBox.Show("E antara " + max + " sampai " + (TN[3] - 1));
+                }
+                else if (relatifPrimaD(E))
                 {
                     dataGridViewNotSortAbleEEA.Columns.Add("P1", "P1");
                     dataGridViewNotSortAbleEEA.Rows.Add("P = " + P);
@@ -163,7 +168,7 @@ namespace Kriptografi.Week8
                 }
                 else
                 {
-                    MessageBox.Show(E + " dan " + TN + " tidak relatif prima");
+                    MessageBox.Show(E + " tidak relatif prima");
                 }
             }
             else
