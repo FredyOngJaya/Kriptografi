@@ -158,8 +158,8 @@ namespace Kriptografi
             return res % div;
         }
 
-        static ulong[] pangkat = new ulong[33];
-        static ulong[] angka = new ulong[33];
+        static ulong[] pangkat = new ulong[65];
+        static ulong[] angka = new ulong[65];
         static int c = 0;
         static int lcm = -1;
 
@@ -248,13 +248,30 @@ namespace Kriptografi
         {
             ulong res = 0;
             ulong y = num1 % divisor;
+            ulong t1, t2;
             while (num2 > 0)
             {
                 if ((num2 & 1) == 1)
                 {
-                    res = (res + y) % divisor;
+                    t2 = (res & 1) + (y & 1);
+                    t1 = (res >> 1) + (y >> 1) + (t2 >> 1);
+                    if ((t1 & ((ulong)1 << 63)) > 0)
+                    {
+                        res = res - (divisor - y);
+                    }
+                    else
+                    {
+                        res = (res + y) % divisor;
+                    }
                 }
-                y = (y * 2) % divisor;
+                if ((y & ((ulong)1 << 63)) > 0)
+                {
+                    y = y - (divisor - y);
+                }
+                else
+                {
+                    y = (y << 1) % divisor;
+                }
                 num2 >>= 1;
             }
             return res;
