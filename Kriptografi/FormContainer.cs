@@ -30,6 +30,7 @@ namespace Kriptografi
         private Week8.FormLUC LUC;
         private Week8.FormRabin Rabin;
         private Week8.FormPrimeList PrimeList;
+        private Week9.FormSHA1 SHA1;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -108,6 +109,11 @@ namespace Kriptografi
         private void primeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref PrimeList);
+        }
+
+        private void sHA1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref SHA1);
         }
     }
 }

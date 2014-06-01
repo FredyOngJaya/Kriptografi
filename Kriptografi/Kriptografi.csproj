@@ -110,6 +110,9 @@
     <EmbeddedResource Include="Week8\FormRSA.resx">
       <DependentUpon>FormRSA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week9\FormSHA1.resx">
+      <DependentUpon>FormSHA1.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -206,6 +209,12 @@
     </Compile>
     <Compile Include="Week8\FormRSA.Designer.cs">
       <DependentUpon>FormRSA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Week9\FormSHA1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week9\FormSHA1.Designer.cs">
+      <DependentUpon>FormSHA1.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
