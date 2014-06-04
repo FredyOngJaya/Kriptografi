@@ -15,6 +15,11 @@ namespace Kriptografi.Week9
 {
     public partial class FormSHA1 : Form
     {
+        private byte[] messageBlock = new byte[64];
+        private int messageBlockIndex;
+        private int lengthLow, lengthHigh;
+        uint[] H = new uint[5];
+
         public FormSHA1()
         {
             InitializeComponent();
@@ -22,52 +27,92 @@ namespace Kriptografi.Week9
                 dataGridViewNotSortAbleProses.Columns.Add("P" + i, "P" + i);
         }
 
-        private void buttonSHA1_Click(object sender, EventArgs e)
+        private void reset()
         {
-            dataGridViewNotSortAbleProses.Rows.Clear();
-            string message = textBoxMessage.Text;
-            int len = message.Length;
-            int k = message.Length * 8;
-            StringBuilder hexa = new StringBuilder();
-            foreach (char c in message)
-            {
-                hexa.Append(((int)c).ToHex());
-            }
-            hexa.Append("80");
-            string padding = hexa.ToString().PadRight(112, '0') + k.ToHex().PadLeft(16, '0');
-            writeToGrid(padding, dataGridViewNotSortAbleProses);
-            uint[] H = new uint[5];
+            messageBlockIndex = 0;
+            lengthLow = 0;
+            lengthHigh = 0;
+
             H[0] = 0x67452301;
             H[1] = 0xEFCDAB89;
             H[2] = 0x98BADCFE;
             H[3] = 0x10325476;
             H[4] = 0xC3D2E1F0;
+        }
+
+        private void writeToGrid(byte[] data, DataGridView grid)
+        {
+            string[] view = new string[6];
+            for (int i = 0; i < data.Length / 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    view[j] = data[i * 4 + j].ToBin();
+                }
+                grid.Rows.Add(view);
+            }
+        }
+
+        private void processMessageBlock()
+        {
             uint[] W = new uint[80];
             uint A, B, C, D, E;
-            for (int i = 0; i < 16; i++)
+            string[] view = new string[6];
+            DataGridView grid = dataGridViewNotSortAbleProses;
+            // Biner
+            grid.Rows.Add("Biner");
+            for (int i = 0; i < messageBlock.Length; i++)
             {
-                W[i] = (uint)padding.Substring(i * 8, 8).HexToInt();
+                view[i % 4] = messageBlock[i].ToBin();
+                if (i % 4 == 3)
+                    grid.Rows.Add(view);
+            }
+            // Hexa
+            grid.Rows.Add("Hexa");
+            for (int t = 0; t < 16; t++)
+            {
+                W[t] = ((uint)messageBlock[t * 4]) << 24;
+                W[t] |= ((uint)messageBlock[t * 4 + 1]) << 16;
+                W[t] |= ((uint)messageBlock[t * 4 + 2]) << 8;
+                W[t] |= ((uint)messageBlock[t * 4 + 3]);
+                view[t % 4] = ((int)W[t]).ToHex().PadLeft(8, '0');
+                if (t % 4 == 3)
+                    grid.Rows.Add(view);
+            }
+            // W
+            grid.Rows.Add("W");
+            for (int t = 0; t < 16; t++)
+            {
+                view[t % 4] = "W" + t + " = " + ((int)W[t]).ToHex().PadLeft(8, '0');
+                if (t % 4 == 3)
+                    grid.Rows.Add(view);
             }
             for (int t = 16; t < 80; t++)
             {
                 W[t] = Sn(1, W[t - 3] ^ W[t - 8] ^ W[t - 14] ^ W[t - 16]);
+                view[t % 4] = "W" + t + " = " + ((int)W[t]).ToHex().PadLeft(8, '0');
+                if (t % 4 == 3)
+                    grid.Rows.Add(view);
             }
-            //for (int i = 0; i < 80; i++)
-            //{
-            //    dataGridViewNotSortAbleProses.Rows.Add(new string[] { i.ToString(), ((int)W[i]).ToHex().PadLeft(8, '0') });
-            //}
             A = H[0];
             B = H[1];
             C = H[2];
             D = H[3];
             E = H[4];
-            string[] data = new string[10];
-            data[0] = "T";
+            // ABCDE
+            grid.Rows.Add("Register");
+            grid.Rows.Add("A = " + ((int)A).ToHex(8));
+            grid.Rows.Add("B = " + ((int)B).ToHex(8));
+            grid.Rows.Add("C = " + ((int)C).ToHex(8));
+            grid.Rows.Add("D = " + ((int)D).ToHex(8));
+            grid.Rows.Add("E = " + ((int)E).ToHex(8));
+            // Tabel
+            view[0] = "T";
             for (int i = 0; i < 5; i++)
             {
-                data[i + 1] = ((char)('A' + i)).ToString();
+                view[i + 1] = ((char)('A' + i)).ToString();
             }
-            dataGridViewNotSortAbleProses.Rows.Add(data);
+            grid.Rows.Add(view);
             for (int t = 0; t < 80; t++)
             {
                 uint temp = Sn(5, A) + fBCD(t, B, C, D) + E + W[t] + getK(t);
@@ -76,42 +121,99 @@ namespace Kriptografi.Week9
                 C = Sn(30, B);
                 B = A;
                 A = temp;
-                data[0] = t.ToString();
-                data[1] = ((int)A).ToHex().PadLeft(8, '0');
-                data[2] = ((int)B).ToHex().PadLeft(8, '0');
-                data[3] = ((int)C).ToHex().PadLeft(8, '0');
-                data[4] = ((int)D).ToHex().PadLeft(8, '0');
-                data[5] = ((int)E).ToHex().PadLeft(8, '0');
-                dataGridViewNotSortAbleProses.Rows.Add(data);
+                view[0] = t.ToString();
+                view[1] = ((int)A).ToHex(8);
+                view[2] = ((int)B).ToHex(8);
+                view[3] = ((int)C).ToHex(8);
+                view[4] = ((int)D).ToHex(8);
+                view[5] = ((int)E).ToHex(8);
+                grid.Rows.Add(view);
             }
             H[0] += A;
             H[1] += B;
             H[2] += C;
             H[3] += D;
             H[4] += E;
+            for (int i = 0; i < H.Length; i++)
+            {
+                dataGridViewNotSortAbleProses.Rows.Add("H" + i + " = H" + i + " + " + (char)('A' + i) + " = " + ((int)H[i]).ToHex(8));
+            }
+
+            messageBlockIndex = 0;
+        }
+
+        private void buttonSHA1_Click(object sender, EventArgs e)
+        {
+            dataGridViewNotSortAbleProses.Rows.Clear();
+            reset();
+            // H
+            dataGridViewNotSortAbleProses.Rows.Add("Initial H");
+            for (int i = 0; i < H.Length; i++)
+            {
+                dataGridViewNotSortAbleProses.Rows.Add("H" + i + " = " + ((int)H[i]).ToHex(8));
+            }
+            string message = textBoxMessage.Text;
+            byte[] _message = Encoding.ASCII.GetBytes(message);
+            for (int i = 0; i < _message.Length; i++)
+            {
+                messageBlock[messageBlockIndex++] = _message[i];
+
+                lengthLow += 8;
+                if (lengthLow == 0)
+                {
+                    lengthHigh++;
+                }
+
+                if (messageBlockIndex == 64)
+                {
+                    processMessageBlock();
+                }
+            }
+            if (messageBlockIndex > 55)
+            {
+                messageBlock[messageBlockIndex++] = 0x80;
+                while (messageBlockIndex < 64)
+                {
+                    messageBlock[messageBlockIndex++] = 0;
+                }
+
+                processMessageBlock();
+
+                while (messageBlockIndex < 56)
+                {
+                    messageBlock[messageBlockIndex++] = 0;
+                }
+            }
+            else
+            {
+                messageBlock[messageBlockIndex++] = 0x80;
+                while (messageBlockIndex < 56)
+                {
+                    messageBlock[messageBlockIndex++] = 0;
+                }
+            }
+
+            messageBlock[56] = (byte)((lengthHigh >> 24) & 0xFF);
+            messageBlock[57] = (byte)((lengthHigh >> 16) & 0xFF);
+            messageBlock[58] = (byte)((lengthHigh >> 8) & 0xFF);
+            messageBlock[59] = (byte)((lengthHigh) & 0xFF);
+            messageBlock[60] = (byte)((lengthLow >> 24) & 0xFF);
+            messageBlock[61] = (byte)((lengthLow >> 16) & 0xFF);
+            messageBlock[62] = (byte)((lengthLow >> 8) & 0xFF);
+            messageBlock[63] = (byte)((lengthLow) & 0xFF);
+
+            processMessageBlock();
+
+            string[] data = new string[10];
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < 5; i++)
             {
                 result.Append(((int)H[i]).ToHex().PadLeft(8, '0'));
             }
-            dataGridViewNotSortAbleProses.Rows.Add(result);
-            dataGridViewNotSortAbleProses.Rows.Add(getSHA1(message));
-        }
-
-        private void writeToGrid(string message, DataGridView grid)
-        {
-            string[] data = new string[6];
-            data[5] = message;
-            grid.Rows.Add(data);
-            data[5] = "";
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    data[j] = message.Substring(i * 32 + j * 8, 8);
-                }
-                grid.Rows.Add(data);
-            }
+            data[5] = result.ToString();
+            dataGridViewNotSortAbleProses.Rows.Add(data);
+            data[5] = getSHA1(message);
+            dataGridViewNotSortAbleProses.Rows.Add(data);
         }
 
         private uint getK(int t)

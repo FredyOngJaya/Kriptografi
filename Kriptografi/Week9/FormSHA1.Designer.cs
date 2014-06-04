@@ -38,12 +38,12 @@
             // 
             this.textBoxMessage.Location = new System.Drawing.Point(12, 12);
             this.textBoxMessage.Name = "textBoxMessage";
-            this.textBoxMessage.Size = new System.Drawing.Size(264, 25);
+            this.textBoxMessage.Size = new System.Drawing.Size(847, 25);
             this.textBoxMessage.TabIndex = 0;
             // 
             // buttonSHA1
             // 
-            this.buttonSHA1.Location = new System.Drawing.Point(282, 13);
+            this.buttonSHA1.Location = new System.Drawing.Point(865, 13);
             this.buttonSHA1.Name = "buttonSHA1";
             this.buttonSHA1.Size = new System.Drawing.Size(75, 23);
             this.buttonSHA1.TabIndex = 1;
@@ -69,7 +69,7 @@
             this.dataGridViewNotSortAbleProses.ReadOnly = true;
             this.dataGridViewNotSortAbleProses.RowHeadersVisible = false;
             this.dataGridViewNotSortAbleProses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewNotSortAbleProses.Size = new System.Drawing.Size(758, 374);
+            this.dataGridViewNotSortAbleProses.Size = new System.Drawing.Size(928, 452);
             this.dataGridViewNotSortAbleProses.TabIndex = 29;
             // 
             // FormSHA1
@@ -77,12 +77,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(782, 428);
+            this.ClientSize = new System.Drawing.Size(952, 506);
             this.Controls.Add(this.dataGridViewNotSortAbleProses);
             this.Controls.Add(this.buttonSHA1);
             this.Controls.Add(this.textBoxMessage);
             this.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSHA1";
             this.ShowIcon = false;
             this.Text = "SHA1";
