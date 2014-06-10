@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewNotSortAble.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormContainer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,7 +59,6 @@
     </Compile>
     <Compile Include="KriptoExtensions.cs" />
     <Compile Include="Kriptografi.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +69,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Week10\FormLargestPrimeDivisor.resx">
+      <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Week3\FormGF.resx">
       <DependentUpon>FormGF.cs</DependentUpon>
@@ -125,6 +130,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Week10\FormLargestPrimeDivisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week10\FormLargestPrimeDivisor.Designer.cs">
+      <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
     </Compile>
     <Compile Include="Week3\FormGF.cs">
       <SubType>Form</SubType>

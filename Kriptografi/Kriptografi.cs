@@ -14,6 +14,7 @@ namespace Kriptografi
     public class KriptografiLibrary
     {
         public static BitArray isPrima = new BitArray(1000001, false);
+        public static List<int> prima = new List<int>();
         private static bool isPrimeGenerated = false;
 
         /// <summary>
@@ -106,6 +107,11 @@ namespace Kriptografi
                             isPrima[j] = false;
                         }
                     }
+                }
+                prima.Add(2);
+                for (int i = 3; i <= n; i += 2)
+                {
+                    if (isPrima[i]) prima.Add(i);
                 }
                 isPrimeGenerated = true;
             }
@@ -288,7 +294,6 @@ namespace Kriptografi
             return hexa.IsMatch(data);
         }
 
-        //*
         /// <summary>
         /// Rabin miller primality test, iteration signifies the accuracy,
         /// source http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=primalityTesting
@@ -329,7 +334,26 @@ namespace Kriptografi
             }
             return true;
         }
-        //*/
+
+        public static uint GetLargestPrimeDivisor(uint number)
+        {
+            Sieve();
+            uint res = 1;
+            int sq = (int)Math.Sqrt(number);
+            foreach (int p in prima)
+            {
+                if (sq < p || number == 1) break;
+                while (number % p == 0)
+                {
+                    res = (uint)p;
+                    number /= (uint)p;
+                }
+            }
+            if (number > 1)
+                return number;
+            else
+                return res;
+        }
 
         #region "Minggu 2"
         //generator modulo
@@ -627,14 +651,5 @@ namespace Kriptografi
         //*/
 
         #endregion
-    }
-
-    public class DataGridViewNotSortAble : System.Windows.Forms.DataGridView
-    {
-        protected override void OnColumnAdded(System.Windows.Forms.DataGridViewColumnEventArgs e)
-        {
-            base.OnColumnAdded(e);
-            e.Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-        }
     }
 }
