@@ -48,7 +48,11 @@ namespace Kriptografi.Week10
             {
                 for (uint i = (uint)numericUpDownDari.Value; i <= (uint)numericUpDownSampai.Value; i++)
                 {
-                    dataGridViewNotSortAbleInfo.Rows.Add(new string[] { i.ToString(), Kripto.GetLargestPrimeDivisor(i).ToString() });
+                    if (Kripto.IsMiller((ulong)i, 100))
+                    {
+                        dataGridViewNotSortAbleInfo.Rows.Add(new string[] { i.ToString(), Kripto.GetLargestPrimeDivisor(i - 1).ToString() });
+                    }
+                    if (i + 1 == 0) break;
                 }
             }
             checkBoxWriteToFile.Enabled = true;

@@ -11,6 +11,7 @@ namespace KriptografiExtensions
         {
             return number.ToString("X2");
         }
+
         public static string ToHex(this int number, int hexLength)
         {
             return number.ToString("X2").PadLeft(hexLength, '0');
@@ -24,6 +25,16 @@ namespace KriptografiExtensions
         public static string ToBin(this int number, int binLength)
         {
             return number.ToBin().PadLeft(binLength, '0');
+        }
+
+        public static string ToHex(this uint number)
+        {
+            return number.ToString("X2");
+        }
+
+        public static string ToHex(this uint number, int hexLength)
+        {
+            return number.ToString("X2").PadLeft(hexLength, '0');
         }
 
         public static string ToHex(this long number)

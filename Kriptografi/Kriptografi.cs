@@ -92,26 +92,25 @@ namespace Kriptografi
             if (!isPrimeGenerated)
             {
                 int n = 1000000;
-                isPrima[2] = true;
-                for (int i = 3; i <= n; i += 2)
+                isPrima.SetAll(true);
+                isPrima[0] = isPrima[1] = false;
+                for (int i = 4; i <= n; i += 2)
                 {
-                    isPrima[i] = true;
+                    isPrima[i] = false;
                 }
                 int sq = (int)Math.Sqrt(n + 1e-6);
-                for (int i = 3; i <= sq; i += 2)
+
+                prima.Add(2);
+                for (int i = 3; i <= n; i += 2)
                 {
                     if (isPrima[i])
                     {
-                        for (int j = i * i; j <= n; j += i)
+                        prima.Add(i);
+                        for (int j = i * i; i <= sq && j <= n; j += i)
                         {
                             isPrima[j] = false;
                         }
                     }
-                }
-                prima.Add(2);
-                for (int i = 3; i <= n; i += 2)
-                {
-                    if (isPrima[i]) prima.Add(i);
                 }
                 isPrimeGenerated = true;
             }

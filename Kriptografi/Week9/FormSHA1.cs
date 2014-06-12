@@ -28,14 +28,13 @@ namespace Kriptografi.Week9
             dataGridViewNotSortAbleK.Columns.Add("K", "K");
             dataGridViewNotSortAbleW.Columns.Add("W", "W");
             dataGridViewNotSortAbleF.Columns.Add("F", "F");
-            for (int i = 1; i <= 4; i++)
-                dataGridViewNotSortAbleInfo.Columns.Add("I" + i, "I" + i);
             for (int i = 1; i <= 6; i++)
-                dataGridViewNotSortAbleProses.Columns.Add("P" + i, "P" + i);
-            dataGridViewNotSortAbleK.Rows.Add("K(0 <= t < 20) = " + ((int)getK(0)).ToHex(8));
-            dataGridViewNotSortAbleK.Rows.Add("K(20 <= t < 40) = " + ((int)getK(20)).ToHex(8));
-            dataGridViewNotSortAbleK.Rows.Add("K(40 <= t < 60) = " + ((int)getK(40)).ToHex(8));
-            dataGridViewNotSortAbleK.Rows.Add("K(60 <= t < 80) = " + ((int)getK(60)).ToHex(8));
+                dataGridViewNotSortAbleInfo.Columns.Add("I" + i, "I" + i);
+            dataGridViewNotSortAbleProses.Columns.Add("P1", "P1");
+            dataGridViewNotSortAbleK.Rows.Add("K(0 <= t < 20) = " + getK(0).ToHex(8));
+            dataGridViewNotSortAbleK.Rows.Add("K(20 <= t < 40) = " + getK(20).ToHex(8));
+            dataGridViewNotSortAbleK.Rows.Add("K(40 <= t < 60) = " + getK(40).ToHex(8));
+            dataGridViewNotSortAbleK.Rows.Add("K(60 <= t < 80) = " + getK(60).ToHex(8));
             dataGridViewNotSortAbleF.Rows.Add("0..20 (B & C) | (~B & D)");
             dataGridViewNotSortAbleF.Rows.Add("20..40 (B ^ C ^ D)");
             dataGridViewNotSortAbleF.Rows.Add("40..60 (B & C) | (B & D) | (C & D)");
@@ -96,7 +95,7 @@ namespace Kriptografi.Week9
                 W[t] |= ((uint)messageBlock[t * 4 + 1]) << 16;
                 W[t] |= ((uint)messageBlock[t * 4 + 2]) << 8;
                 W[t] |= ((uint)messageBlock[t * 4 + 3]);
-                view[t % 4] = ((int)W[t]).ToHex().PadLeft(8, '0');
+                view[t % 4] = W[t].ToHex(8);
                 if (t % 4 == 3)
                     gridInfo.Rows.Add(view);
             }
@@ -107,19 +106,19 @@ namespace Kriptografi.Week9
             int idx = gridW.RowCount;
             for (int t = 0; t < 16; t++)
             {
-                grid.Rows.Add("W" + t + " = " + ((int)W[t]).ToHex(8));
-                gridW.Rows.Add("W" + t + " = " + ((int)W[t]).ToHex(8));
+                grid.Rows.Add("W" + t + " = " + W[t].ToHex(8));
+                gridW.Rows.Add("W" + t + " = " + W[t].ToHex(8));
                 gridW[0, idx++].Style.BackColor = fill;
             }
             for (int t = 16; t < 80; t++)
             {
                 W[t] = W[t - 3] ^ W[t - 8] ^ W[t - 14] ^ W[t - 16];
                 grid.Rows.Add("W[" + t + "] = S1(W[" + (t - 3) + "] ^ W[" + (t - 8) + "] ^ W[" + (t - 14) + "] ^ W[" + (t - 16) + "])");
-                grid.Rows.Add("W[" + t + "] = S1(" + ((int)W[t - 3]).ToHex(8) + " ^ " + ((int)W[t - 8]).ToHex(8) + " ^ " + ((int)W[t - 14]).ToHex(8) + " ^ " + ((int)W[t - 16]).ToHex(8) + ")");
-                grid.Rows.Add("W[" + t + "] = S1(" + ((int)W[t]).ToHex(8) + ")");
+                grid.Rows.Add("W[" + t + "] = S1(" + W[t - 3].ToHex(8) + " ^ " + W[t - 8].ToHex(8) + " ^ " + W[t - 14].ToHex(8) + " ^ " + W[t - 16].ToHex(8) + ")");
+                grid.Rows.Add("W[" + t + "] = S1(" + W[t].ToHex(8) + ")");
                 W[t] = Sn(1, W[t]);
-                grid.Rows.Add("W[" + t + "] = " + ((int)W[t]).ToHex(8));
-                gridW.Rows.Add("W" + t + " = " + ((int)W[t]).ToHex(8));
+                grid.Rows.Add("W[" + t + "] = " + W[t].ToHex(8));
+                gridW.Rows.Add("W" + t + " = " + W[t].ToHex(8));
                 gridW[0, idx++].Style.BackColor = fill;
             }
             A = H[0];
@@ -129,11 +128,11 @@ namespace Kriptografi.Week9
             E = H[4];
             // ABCDE
             grid.Rows.Add("Register");
-            grid.Rows.Add("A = H0 = " + ((int)A).ToHex(8));
-            grid.Rows.Add("B = H1 = " + ((int)B).ToHex(8));
-            grid.Rows.Add("C = H2 = " + ((int)C).ToHex(8));
-            grid.Rows.Add("D = H3 = " + ((int)D).ToHex(8));
-            grid.Rows.Add("E = H4 = " + ((int)E).ToHex(8));
+            grid.Rows.Add("A = H0 = " + A.ToHex(8));
+            grid.Rows.Add("B = H1 = " + B.ToHex(8));
+            grid.Rows.Add("C = H2 = " + C.ToHex(8));
+            grid.Rows.Add("D = H3 = " + D.ToHex(8));
+            grid.Rows.Add("E = H4 = " + E.ToHex(8));
             // Tabel
             view[0] = "T";
             for (int i = 0; i < 5; i++)
@@ -142,28 +141,40 @@ namespace Kriptografi.Week9
             }
             grid.Rows.Add();
             grid.Rows.Add("Untuk t = 0 sampai 80");
-            grid.Rows.Add("temp = S5(, A) + ft(B,C,D) + E + W[t] + K[t]");
+            grid.Rows.Add("temp = S5(A) + ft(B,C,D) + E + W[t] + K[t]");
             grid.Rows.Add("E = D");
             grid.Rows.Add("D = C");
             grid.Rows.Add("C = S30(B)");
             grid.Rows.Add("B = A");
             grid.Rows.Add("A = temp");
-            grid.Rows.Add(view);
+            gridInfo.Rows.Add(view);
             for (int t = 0; t < 80; t++)
             {
-                uint temp = Sn(5, A) + fBCD(t, B, C, D) + E + W[t] + getK(t);
+                uint S5A = Sn(5, A);
+                grid.Rows.Add();
+                grid.Rows.Add("t = " + t);
+                grid.Rows.Add("S5(A) = S5(" + A.ToHex(8) + ") = " + S5A.ToHex(8));
+                uint ft = fBCD(t, B, C, D, grid);
+                uint temp = S5A + ft + E + W[t] + getK(t);
+                uint S30B = Sn(30, B);
+                grid.Rows.Add("temp = " + S5A.ToHex(8) + " + " + ft.ToHex(8) + " + " + E.ToHex(8) + " + " + W[t].ToHex(8) + " + " + getK(t).ToHex(8) + " = " + temp.ToHex(8));
+                grid.Rows.Add("E = D = " + D.ToHex(8));
+                grid.Rows.Add("D = C = " + C.ToHex(8));
+                grid.Rows.Add("C = S30(B) = S30(" + B.ToHex(8) + ") = " + S30B.ToHex(8));
+                grid.Rows.Add("B = A = " + A.ToHex(8));
+                grid.Rows.Add("A = temp = " + temp.ToHex(8));
                 E = D;
                 D = C;
-                C = Sn(30, B);
+                C = S30B;
                 B = A;
                 A = temp;
                 view[0] = t.ToString();
-                view[1] = ((int)A).ToHex(8);
-                view[2] = ((int)B).ToHex(8);
-                view[3] = ((int)C).ToHex(8);
-                view[4] = ((int)D).ToHex(8);
-                view[5] = ((int)E).ToHex(8);
-                grid.Rows.Add(view);
+                view[1] = A.ToHex(8);
+                view[2] = B.ToHex(8);
+                view[3] = C.ToHex(8);
+                view[4] = D.ToHex(8);
+                view[5] = E.ToHex(8);
+                gridInfo.Rows.Add(view);
             }
             H[0] += A;
             H[1] += B;
@@ -172,7 +183,7 @@ namespace Kriptografi.Week9
             H[4] += E;
             for (int i = 0; i < H.Length; i++)
             {
-                grid.Rows.Add("H" + i + " = H" + i + " + " + (char)('A' + i) + " = " + ((int)H[i]).ToHex(8));
+                grid.Rows.Add("H" + i + " = H" + i + " + " + (char)('A' + i) + " = " + H[i].ToHex(8));
             }
             grid.Rows.Add();
 
@@ -190,12 +201,12 @@ namespace Kriptografi.Week9
             string message = textBoxMessage.Text;
             StringBuilder currentBlok = new StringBuilder();
             // Message
-            gridInfo.Rows.Add(new string[] { "", "Message", "=", message });
+            gridInfo.Rows.Add(new string[] { "", "", "Message", "", "=", message });
             // H
             gridInfo.Rows.Add("Initial H");
             for (int i = 0; i < H.Length; i++)
             {
-                gridInfo.Rows.Add("H" + i + " = " + ((int)H[i]).ToHex(8));
+                gridInfo.Rows.Add("H" + i + " = " + H[i].ToHex(8));
             }
             byte[] _message = Encoding.ASCII.GetBytes(message);
             for (int i = 0; i < _message.Length; i++)
@@ -212,16 +223,16 @@ namespace Kriptografi.Week9
                 if (messageBlockIndex == 64)
                 {
                     gridInfo.Rows.Add();
-                    gridInfo.Rows.Add(new string[] { "Blok sekarang", "", "=", currentBlok.ToString() });
+                    gridInfo.Rows.Add(new string[] { "Blok sekarang", "", "", "=", "", currentBlok.ToString() });
                     gridInfo.Rows.Add(new string[] { "Blok = 64 karakter", "proses dulu" });
                     currentBlok.Length = 0;
                     processMessageBlock();
                 }
             }
             gridInfo.Rows.Add();
+            gridInfo.Rows.Add(new string[] { "Blok sekarang", "", "", "=", "", currentBlok.ToString() });
             if (messageBlockIndex > 55)
             {
-                gridInfo.Rows.Add(new string[] { "Blok sekarang", "", "=", currentBlok.ToString() });
                 gridInfo.Rows.Add(new string[] { "Blok > 55 karakter,", "proses dulu" });
                 gridInfo.Rows.Add(new string[] { "Append bit 1, diikuti 0", "sampai 512 bit" });
                 currentBlok.Length = 0;
@@ -242,7 +253,6 @@ namespace Kriptografi.Week9
             }
             else
             {
-                gridInfo.Rows.Add(new string[] { "Blok sekarang", "", "=", currentBlok.ToString() });
                 gridInfo.Rows.Add(new string[] { "Append bit 1, diikuti 0", "sampai 448 bit" });
                 messageBlock[messageBlockIndex++] = 0x80;
                 while (messageBlockIndex < 56)
@@ -263,19 +273,19 @@ namespace Kriptografi.Week9
 
             processMessageBlock();
 
-            string[] data = new string[5];
+            string[] data = new string[6];
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < 5; i++)
             {
-                result.Append(((int)H[i]).ToHex(8));
+                result.Append(H[i].ToHex(8));
             }
             gridInfo.Rows.Add();
-            data[2] = "Hasil";
-            data[3] = result.ToString();
+            data[4] = "Hasil";
+            data[5] = result.ToString();
             gridInfo.Rows.Add(data);
-            data[1] = "Hasil dengan";
-            data[2] = "built-in library";
-            data[3] = getSHA1(message);
+            data[3] = "Hasil dengan";
+            data[4] = "built-in library";
+            data[5] = getSHA1(message);
             gridInfo.Rows.Add(data);
         }
 
@@ -291,16 +301,30 @@ namespace Kriptografi.Week9
                 return 0xCA62C1D6;
         }
 
-        private uint fBCD(int t, uint B, uint C, uint D)
+        private uint fBCD(int t, uint B, uint C, uint D, DataGridView grid)
         {
+            uint res = 0;
             if (t < 20)
-                return (B & C) | ((~B) & D);
+            {
+                res =  (B & C) | ((~B) & D);
+                grid.Rows.Add("f" + t + "(B,C,D) = (" + B.ToHex(8) + " & " + C.ToHex(8) + ") | (" + (~B).ToHex(8) + " & " + D.ToHex(8) + ") = " + res.ToHex(8));
+            }
             else if (t < 40)
-                return B ^ C ^ D;
+            {
+                res = B ^ C ^ D;
+                grid.Rows.Add("f" + t + "(B,C,D) = " + B.ToHex(8) + " ^ " + C.ToHex(8) + " ^ " + D.ToHex(8) + " = " + res.ToHex(8));
+            }
             else if (t < 60)
-                return (B & C) | (B & D) | (C & D);
+            {
+                res = (B & C) | (B & D) | (C & D);
+                grid.Rows.Add("f" + t + "(B,C,D) = (" + B.ToHex(8) + " & " + C.ToHex(8) + ") | (" + B.ToHex(8) + " & " + D.ToHex(8) + ") | (" + C.ToHex(8) + " & " + D.ToHex(8) + ") = " + res.ToHex(8));
+            }
             else
-                return B ^ C ^ D;
+            {
+                res = B ^ C ^ D;
+                grid.Rows.Add("f" + t + "(B,C,D) = " + B.ToHex(8) + " ^ " + C.ToHex(8) + " ^ " + D.ToHex(8) + " = " + res.ToHex(8));
+            }
+            return res;
         }
 
         private uint Sn(int n, uint num)
