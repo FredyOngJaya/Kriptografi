@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 
 using Kripto = Kriptografi.KriptografiLibrary;
 using KriptografiExtensions;
@@ -285,7 +284,7 @@ namespace Kriptografi.Week9
             gridInfo.Rows.Add(data);
             data[3] = "Hasil dengan";
             data[4] = "built-in library";
-            data[5] = getSHA1(message);
+            data[5] = Kripto.getSHA1(message);
             gridInfo.Rows.Add(data);
         }
 
@@ -330,20 +329,6 @@ namespace Kriptografi.Week9
         private uint Sn(int n, uint num)
         {
             return (num << n) | (num >> (32 - n));
-        }
-
-        private string getSHA1(string _string)
-        {
-            SHA1 _sha1 = SHA1.Create();
-            byte[] _input = Encoding.ASCII.GetBytes(_string);
-            byte[] _hash = _sha1.ComputeHash(_input);
-
-            StringBuilder output = new StringBuilder();
-            for (int i = 0; i < _hash.Length; i++)
-            {
-                output.Append(_hash[i].ToString("X2"));
-            }
-            return output.ToString();
         }
     }
 }

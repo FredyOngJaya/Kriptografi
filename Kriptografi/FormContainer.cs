@@ -32,6 +32,7 @@ namespace Kriptografi
         private Week8.FormPrimeList PrimeList;
         private Week9.FormSHA1 SHA1;
         private Week10.FormLargestPrimeDivisor LargetPrimeDivisor;
+        private Week10.FormBlindSignature BlindSignature;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -120,6 +121,11 @@ namespace Kriptografi
         private void largestPrimeDivisorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref LargetPrimeDivisor);
+        }
+
+        private void blindSignatureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref BlindSignature);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 using KriptografiExtensions;
 
 namespace Kriptografi
@@ -648,6 +649,26 @@ namespace Kriptografi
             }
         }
         //*/
+
+        #endregion
+
+        #region Build-In
+
+
+
+        public static string getSHA1(string _string)
+        {
+            SHA1 _sha1 = SHA1.Create();
+            byte[] _input = Encoding.ASCII.GetBytes(_string);
+            byte[] _hash = _sha1.ComputeHash(_input);
+
+            StringBuilder output = new StringBuilder();
+            for (int i = 0; i < _hash.Length; i++)
+            {
+                output.Append(_hash[i].ToString("X2"));
+            }
+            return output.ToString();
+        }
 
         #endregion
     }

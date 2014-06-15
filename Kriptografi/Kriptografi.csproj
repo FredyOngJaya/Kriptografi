@@ -70,6 +70,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week10\FormBlindSignature.resx">
+      <DependentUpon>FormBlindSignature.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week10\FormLargestPrimeDivisor.resx">
       <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +133,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Week10\FormBlindSignature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week10\FormBlindSignature.Designer.cs">
+      <DependentUpon>FormBlindSignature.cs</DependentUpon>
     </Compile>
     <Compile Include="Week10\FormLargestPrimeDivisor.cs">
       <SubType>Form</SubType>
