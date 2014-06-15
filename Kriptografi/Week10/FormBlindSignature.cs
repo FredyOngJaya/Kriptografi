@@ -160,7 +160,7 @@ namespace Kriptografi.Week10
                 gridInfo.Rows.Add("S* = (M* ^ D) % N");
                 gridInfo.Rows.Add("S* = (" + M_1 + " ^ " + D + ") % " + N);
                 S_1 = Kripto.FastExponent(M_1, D, N, gridInfo);
-                gridInfo.Rows.Add("S* = (" + M_1 + " ^ " + D + ") % " + N + " = " + c);
+                gridInfo.Rows.Add("S* = (" + M_1 + " ^ " + D + ") % " + N + " = " + S_1);
                 gridInfo.Rows.Add();
                 gridInfo.Rows.Add("S = (K^-1 * S*) % N");
                 gridInfo.Rows.Add("S = (" + K_1 + " * " + S_1 + ") % " + N);
@@ -177,6 +177,8 @@ namespace Kriptografi.Week10
         private void buttonVerify_Click(object sender, EventArgs e)
         {
             DataGridView gridInfo = dataGridViewNotSortAbleInfo;
+            gridInfo.Rows.Add();
+            gridInfo.Rows.Add();
             gridInfo.Rows.Add("M* == ((M*) ^ D) ^ E % N");
             gridInfo.Rows.Add("M* == S* ^ E % N");
             gridInfo.Rows.Add("M* == " + S_1 + " ^ " + E + " % " + N);
