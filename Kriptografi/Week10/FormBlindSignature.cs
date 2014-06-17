@@ -145,6 +145,7 @@ namespace Kriptografi.Week10
             {
                 string sha1 = Kripto.getSHA1(textBoxPlaintext.Text);
                 int _16bit = sha1.Substring(0, 4).HexToInt();
+                gridInfo.Rows.Add("Sign");
                 gridInfo.Rows.Add("K = " + K);
                 K_1 = Kripto.InversModulo(K, N, gridInfo);
                 gridInfo.Rows.Add("SHA-1(" + textBoxPlaintext.Text + ")=" + sha1);
@@ -179,6 +180,7 @@ namespace Kriptografi.Week10
             DataGridView gridInfo = dataGridViewNotSortAbleInfo;
             gridInfo.Rows.Add();
             gridInfo.Rows.Add();
+            gridInfo.Rows.Add("Verify");
             gridInfo.Rows.Add("M* == ((M*) ^ D) ^ E % N");
             gridInfo.Rows.Add("M* == S* ^ E % N");
             gridInfo.Rows.Add("M* == " + S_1 + " ^ " + E + " % " + N);

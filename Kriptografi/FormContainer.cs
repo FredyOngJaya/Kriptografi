@@ -33,6 +33,7 @@ namespace Kriptografi
         private Week9.FormSHA1 SHA1;
         private Week10.FormLargestPrimeDivisor LargetPrimeDivisor;
         private Week10.FormBlindSignature BlindSignature;
+        private Week10.FormElGamalSignature ElGamalSignature;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -126,6 +127,11 @@ namespace Kriptografi
         private void blindSignatureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref BlindSignature);
+        }
+
+        private void elGamalSignatureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref ElGamalSignature);
         }
     }
 }

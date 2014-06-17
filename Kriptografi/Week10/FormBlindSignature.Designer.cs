@@ -260,6 +260,7 @@
             this.dataGridViewNotSortAbleInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewNotSortAbleInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewNotSortAbleInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotSortAbleInfo.ColumnHeadersVisible = false;
             this.dataGridViewNotSortAbleInfo.Location = new System.Drawing.Point(12, 344);
             this.dataGridViewNotSortAbleInfo.Name = "dataGridViewNotSortAbleInfo";
             this.dataGridViewNotSortAbleInfo.ReadOnly = true;
@@ -280,6 +281,7 @@
             this.dataGridViewNotSortAbleEEA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewNotSortAbleEEA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewNotSortAbleEEA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotSortAbleEEA.ColumnHeadersVisible = false;
             this.dataGridViewNotSortAbleEEA.Location = new System.Drawing.Point(12, 200);
             this.dataGridViewNotSortAbleEEA.Name = "dataGridViewNotSortAbleEEA";
             this.dataGridViewNotSortAbleEEA.ReadOnly = true;
@@ -293,7 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(944, 502);
+            this.ClientSize = new System.Drawing.Size(952, 506);
             this.Controls.Add(this.dataGridViewNotSortAbleInfo);
             this.Controls.Add(this.buttonVerify);
             this.Controls.Add(this.buttonSign);

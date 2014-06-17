@@ -73,6 +73,9 @@
     <EmbeddedResource Include="Week10\FormBlindSignature.resx">
       <DependentUpon>FormBlindSignature.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week10\FormElGamalSignature.resx">
+      <DependentUpon>FormElGamalSignature.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week10\FormLargestPrimeDivisor.resx">
       <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +142,12 @@
     </Compile>
     <Compile Include="Week10\FormBlindSignature.Designer.cs">
       <DependentUpon>FormBlindSignature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Week10\FormElGamalSignature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week10\FormElGamalSignature.Designer.cs">
+      <DependentUpon>FormElGamalSignature.cs</DependentUpon>
     </Compile>
     <Compile Include="Week10\FormLargestPrimeDivisor.cs">
       <SubType>Form</SubType>
