@@ -80,7 +80,7 @@ namespace Kriptografi.Week10
             }
             else
             {
-                MessageBox.Show("Cek p, q dan x");
+                MessageBox.Show("Cek p, g dan x");
             }
         }
 

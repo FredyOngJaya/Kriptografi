@@ -79,6 +79,9 @@
     <EmbeddedResource Include="Week10\FormLargestPrimeDivisor.resx">
       <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Week10\FormSchnorrSignature.resx">
+      <DependentUpon>FormSchnorrSignature.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week3\FormGF.resx">
       <DependentUpon>FormGF.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +157,12 @@
     </Compile>
     <Compile Include="Week10\FormLargestPrimeDivisor.Designer.cs">
       <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Week10\FormSchnorrSignature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Week10\FormSchnorrSignature.Designer.cs">
+      <DependentUpon>FormSchnorrSignature.cs</DependentUpon>
     </Compile>
     <Compile Include="Week3\FormGF.cs">
       <SubType>Form</SubType>

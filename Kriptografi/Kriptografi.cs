@@ -15,7 +15,7 @@ namespace Kriptografi
     public class KriptografiLibrary
     {
         public static BitArray isPrima = new BitArray(1000001, false);
-        public static List<int> prima = new List<int>();
+        public static List<int> listPrima = new List<int>();
         private static bool isPrimeGenerated = false;
 
         /// <summary>
@@ -101,12 +101,12 @@ namespace Kriptografi
                 }
                 int sq = (int)Math.Sqrt(n + 1e-6);
 
-                prima.Add(2);
+                listPrima.Add(2);
                 for (int i = 3; i <= n; i += 2)
                 {
                     if (isPrima[i])
                     {
-                        prima.Add(i);
+                        listPrima.Add(i);
                         for (int j = i * i; i <= sq && j <= n; j += i)
                         {
                             isPrima[j] = false;
@@ -340,7 +340,7 @@ namespace Kriptografi
             Sieve();
             uint res = 1;
             int sq = (int)Math.Sqrt(number);
-            foreach (int p in prima)
+            foreach (int p in listPrima)
             {
                 if (sq < p || number == 1) break;
                 while (number % p == 0)
@@ -353,6 +353,30 @@ namespace Kriptografi
                 return number;
             else
                 return res;
+        }
+
+        public static List<uint> GetPrimeDivisor(uint number)
+        {
+            Sieve();
+            List<uint> result = new List<uint>();
+            int sq = (int)Math.Sqrt(number);
+            foreach (int p in listPrima)
+            {
+                if (sq < p || number == 1) break;
+                if (number % p == 0)
+                {
+                    result.Add((uint)p);
+                    while (number % p == 0)
+                    {
+                        number /= (uint)p;
+                    }
+                }
+            }
+            if (number > 1)
+            {
+                result.Add((uint)number);
+            }
+            return result;
         }
 
         #region "Minggu 2"
@@ -373,17 +397,30 @@ namespace Kriptografi
             List<int> faktorPrima = new List<int>();
             uint p = prime - 1;
             int sq = (int)Math.Sqrt(p);
-            for (int i = 2; i <= sq && p > 1; i++)
+
+            foreach (int t in listPrima)
             {
-                if (isPrima[i] && p % i == 0)
+                if (sq < t || number == 1) break;
+                if (p % t == 0)
                 {
-                    faktorPrima.Add(i);
-                    while (p % i == 0)
+                    faktorPrima.Add(t);
+                    while (p % t == 0)
                     {
-                        p /= (uint)i;
+                        p /= (uint)t;
                     }
                 }
             }
+            //for (int i = 2; i <= sq && p > 1; i++)
+            //{
+            //    if (isPrima[i] && p % i == 0)
+            //    {
+            //        faktorPrima.Add(i);
+            //        while (p % i == 0)
+            //        {
+            //            p /= (uint)i;
+            //        }
+            //    }
+            //}
             if (p > 1)
             {
                 faktorPrima.Add((int)p);

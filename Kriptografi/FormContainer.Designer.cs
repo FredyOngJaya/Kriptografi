@@ -53,6 +53,7 @@
             this.largestPrimeDivisorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blindSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elGamalSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schnorrSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -232,7 +233,8 @@
             this.week10ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.largestPrimeDivisorToolStripMenuItem,
             this.blindSignatureToolStripMenuItem,
-            this.elGamalSignatureToolStripMenuItem});
+            this.elGamalSignatureToolStripMenuItem,
+            this.schnorrSignatureToolStripMenuItem});
             this.week10ToolStripMenuItem.Name = "week10ToolStripMenuItem";
             this.week10ToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.week10ToolStripMenuItem.Text = "Week10";
@@ -257,6 +259,13 @@
             this.elGamalSignatureToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.elGamalSignatureToolStripMenuItem.Text = "El Gamal Signature";
             this.elGamalSignatureToolStripMenuItem.Click += new System.EventHandler(this.elGamalSignatureToolStripMenuItem_Click);
+            // 
+            // schnorrSignatureToolStripMenuItem
+            // 
+            this.schnorrSignatureToolStripMenuItem.Name = "schnorrSignatureToolStripMenuItem";
+            this.schnorrSignatureToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.schnorrSignatureToolStripMenuItem.Text = "Schnorr Signature";
+            this.schnorrSignatureToolStripMenuItem.Click += new System.EventHandler(this.schnorrSignatureToolStripMenuItem_Click);
             // 
             // FormContainer
             // 
@@ -307,5 +316,6 @@
         private System.Windows.Forms.ToolStripMenuItem largestPrimeDivisorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blindSignatureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem elGamalSignatureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schnorrSignatureToolStripMenuItem;
     }
 }
