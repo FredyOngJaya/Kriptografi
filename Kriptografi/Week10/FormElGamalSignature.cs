@@ -116,6 +116,7 @@ namespace Kriptografi.Week10
 
                     M = (ulong)textBoxPlaintext.Text[0];
                     B = Kripto.MultiplyModulo(X, A, P - 1);
+                    grid.Rows.Add();
                     grid.Rows.Add("M = X * A + K * B (mod P-1)");
                     grid.Rows.Add(M + " = " + X + " * " + A + " + " + K + " * B mod " + (P - 1));
                     grid.Rows.Add(M + " = " + B + " + " + K + " mod " + (P - 1) + " * B mod " + (P - 1));
@@ -149,15 +150,19 @@ namespace Kriptografi.Week10
             grid.Rows.Add("Verify");
             grid.Rows.Add("(Y ^ A * A ^ B) mod P = G ^ M mod P");
             grid.Rows.Add("(" + Y + " ^ " + A + " * " + A + " ^ " + B + ") mod " + P + " = " + G + " ^ " + M + " mod " + P);
+            grid.Rows.Add();
             grid.Rows.Add(Y + " ^ " + A + " mod " + P);
             ulong ya = Kripto.FastExponent(Y, A, P, grid);
             grid.Rows.Add(Y + " ^ " + A + " mod " + P + " = " + ya);
+            grid.Rows.Add();
             grid.Rows.Add(A + " ^ " + B + " mod " + P);
             ulong ab = Kripto.FastExponent(A, B, P, grid);
             grid.Rows.Add(A + " ^ " + B + " mod " + P + " = " + ab);
+            grid.Rows.Add();
             grid.Rows.Add(G + " ^ " + M + " mod " + P);
             ulong gm = Kripto.FastExponent(G, M, P, grid);
             grid.Rows.Add(G + " ^ " + M + " mod " + P + " = " + gm);
+            grid.Rows.Add();
             grid.Rows.Add("(" + ya + " * " + ab + ") mod " + P + " = " + gm);
             ya = Kripto.MultiplyModulo(ya, ab, P);
             grid.Rows.Add(ya + " = " + gm);
