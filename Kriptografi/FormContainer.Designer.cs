@@ -54,6 +54,7 @@
             this.blindSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elGamalSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schnorrSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.digitalSignatureAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -234,7 +235,8 @@
             this.largestPrimeDivisorToolStripMenuItem,
             this.blindSignatureToolStripMenuItem,
             this.elGamalSignatureToolStripMenuItem,
-            this.schnorrSignatureToolStripMenuItem});
+            this.schnorrSignatureToolStripMenuItem,
+            this.digitalSignatureAlgorithmToolStripMenuItem});
             this.week10ToolStripMenuItem.Name = "week10ToolStripMenuItem";
             this.week10ToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.week10ToolStripMenuItem.Text = "Week10";
@@ -242,30 +244,37 @@
             // largestPrimeDivisorToolStripMenuItem
             // 
             this.largestPrimeDivisorToolStripMenuItem.Name = "largestPrimeDivisorToolStripMenuItem";
-            this.largestPrimeDivisorToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.largestPrimeDivisorToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.largestPrimeDivisorToolStripMenuItem.Text = "Largest Prime Divisor";
             this.largestPrimeDivisorToolStripMenuItem.Click += new System.EventHandler(this.largestPrimeDivisorToolStripMenuItem_Click);
             // 
             // blindSignatureToolStripMenuItem
             // 
             this.blindSignatureToolStripMenuItem.Name = "blindSignatureToolStripMenuItem";
-            this.blindSignatureToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.blindSignatureToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.blindSignatureToolStripMenuItem.Text = "Blind Signature";
             this.blindSignatureToolStripMenuItem.Click += new System.EventHandler(this.blindSignatureToolStripMenuItem_Click);
             // 
             // elGamalSignatureToolStripMenuItem
             // 
             this.elGamalSignatureToolStripMenuItem.Name = "elGamalSignatureToolStripMenuItem";
-            this.elGamalSignatureToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.elGamalSignatureToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.elGamalSignatureToolStripMenuItem.Text = "El Gamal Signature";
             this.elGamalSignatureToolStripMenuItem.Click += new System.EventHandler(this.elGamalSignatureToolStripMenuItem_Click);
             // 
             // schnorrSignatureToolStripMenuItem
             // 
             this.schnorrSignatureToolStripMenuItem.Name = "schnorrSignatureToolStripMenuItem";
-            this.schnorrSignatureToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.schnorrSignatureToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.schnorrSignatureToolStripMenuItem.Text = "Schnorr Signature";
             this.schnorrSignatureToolStripMenuItem.Click += new System.EventHandler(this.schnorrSignatureToolStripMenuItem_Click);
+            // 
+            // digitalSignatureAlgorithmToolStripMenuItem
+            // 
+            this.digitalSignatureAlgorithmToolStripMenuItem.Name = "digitalSignatureAlgorithmToolStripMenuItem";
+            this.digitalSignatureAlgorithmToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.digitalSignatureAlgorithmToolStripMenuItem.Text = "Digital Signature Algorithm";
+            this.digitalSignatureAlgorithmToolStripMenuItem.Click += new System.EventHandler(this.digitalSignatureAlgorithmToolStripMenuItem_Click);
             // 
             // FormContainer
             // 
@@ -317,5 +326,6 @@
         private System.Windows.Forms.ToolStripMenuItem blindSignatureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem elGamalSignatureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem schnorrSignatureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem digitalSignatureAlgorithmToolStripMenuItem;
     }
 }

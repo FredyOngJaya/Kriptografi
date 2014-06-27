@@ -33,7 +33,6 @@
             this.numericUpDownDivisor = new System.Windows.Forms.NumericUpDown();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.buttonCalculate = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDivisor)).BeginInit();
@@ -43,7 +42,7 @@
             // 
             this.numericUpDownNumber.Location = new System.Drawing.Point(12, 12);
             this.numericUpDownNumber.Maximum = new decimal(new int[] {
-            1000000000,
+            -1,
             0,
             0,
             0});
@@ -65,7 +64,7 @@
             // 
             this.numericUpDownPower.Location = new System.Drawing.Point(138, 12);
             this.numericUpDownPower.Maximum = new decimal(new int[] {
-            1000000000,
+            -1,
             0,
             0,
             0});
@@ -87,7 +86,7 @@
             // 
             this.numericUpDownDivisor.Location = new System.Drawing.Point(264, 12);
             this.numericUpDownDivisor.Maximum = new decimal(new int[] {
-            1000000000,
+            -1,
             0,
             0,
             0});
@@ -122,20 +121,12 @@
             this.buttonCalculate.UseVisualStyleBackColor = true;
             this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(219, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 25);
-            this.textBox1.TabIndex = 6;
-            // 
             // FormQuickModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(491, 296);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(410, 112);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.numericUpDownDivisor);
@@ -163,6 +154,5 @@
         private System.Windows.Forms.NumericUpDown numericUpDownDivisor;
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Button buttonCalculate;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

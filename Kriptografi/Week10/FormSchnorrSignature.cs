@@ -17,8 +17,9 @@ namespace Kriptografi.Week10
         Random random;
         ulong P, G, X, Y;
         ulong Q;
-        ulong K, R, B;
-        ulong M;
+        ulong K, R;
+        int M;
+        ulong S, E;
         List<uint> listDivisor = new List<uint>();
 
         public FormSchnorrSignature()
@@ -40,6 +41,7 @@ namespace Kriptografi.Week10
         {
             textBoxY.Clear();
             dataGridViewNotSortAbleInfo.Rows.Clear();
+            dataGridViewNotSortAbleProses.Rows.Clear();
             textBoxPlaintext.Clear();
             textBoxK.Clear();
             buttonRandomK.Enabled = false;
@@ -64,10 +66,10 @@ namespace Kriptografi.Week10
                 {
                     MessageBox.Show("X harus < " + (Q - 1));
                 }
-                else if (!Kripto.IsGeneratorModulo(g, p))
-                {
-                    MessageBox.Show("G bukan generator modulo P");
-                }
+                //else if (!Kripto.IsGeneratorModulo(g, p))
+                //{
+                //    MessageBox.Show("G bukan generator modulo P");
+                //}
                 else
                 {
                     DataGridView grid = dataGridViewNotSortAbleInfo;
@@ -78,7 +80,7 @@ namespace Kriptografi.Week10
                     grid.Rows.Add("Y = (G^-1 % P)^X % P");
                     grid.Rows.Add("G^-1 % P");
                     grid.Rows.Add(G + "^-1 % " + P);
-                    ulong g_1 = Kripto.InversModulo(G, P, dataGridViewNotSortAbleProses);
+                    ulong g_1 = Kripto.InversModulo(G, P, grid);
                     grid.Rows.Add(G + "^-1 % " + P + " = " + g_1);
                     grid.Rows.Add("Y = " + g_1 + "^" + X + " % " + P);
                     Y = Kripto.FastExponent(g_1, X, P, grid);
@@ -133,57 +135,72 @@ namespace Kriptografi.Week10
                 }
                 else
                 {
-                    grid.Rows.Add();
                     grid.Rows.Add("Sign");
                     grid.Rows.Add("R = G^K % P");
                     grid.Rows.Add("R = " + G + "^" + K + " % " + P);
                     R = Kripto.FastExponent(G, K, P, grid);
                     grid.Rows.Add("R = " + G + "^" + K + " % " + P + " = " + R);
 
-                    M = (ulong)textBoxPlaintext.Text[0];
+                    M = (int)textBoxPlaintext.Text[0];
                     string sha1 = Kripto.getSHA1(M.ToString() + R.ToString());
                     int _16bit = sha1.Substring(0, 4).HexToInt();
+                    E = (ulong)_16bit;
                     grid.Rows.Add();
-                    grid.Rows.Add("E = SHA-1(M||r)");
+                    grid.Rows.Add("E = SHA-1(M||R)");
                     grid.Rows.Add("E = SHA-1(" + M + "||" + R + ")");
                     grid.Rows.Add("E = SHA-1(" + M + "" + R + ")");
                     grid.Rows.Add("E = " + sha1);
                     grid.Rows.Add("E = " + sha1.Substring(0, 4));
-                    grid.Rows.Add("E = " + _16bit);
+                    grid.Rows.Add("E = " + E);
 
-                    ulong S = Kripto.MultiplyModulo(X, (ulong)_16bit, Q);
                     grid.Rows.Add();
                     grid.Rows.Add("S = (K + X * E) % Q");
-                    grid.Rows.Add("S = (" + K + " + " + X + " * " + _16bit + ") % " + Q);
-                    grid.Rows.Add("S = (" + K + " + " + S + ") % " + Q);
-                    S = (K + S) % Q;
-                    grid.Rows.Add("S = (" + K + " + " + S + ") % " + Q + " = " + S);
-
-                    //B = Kripto.MultiplyModulo(X, A, P - 1);
-                    //grid.Rows.Add();
-                    //grid.Rows.Add("M = X * A + K * B (mod P-1)");
-                    //grid.Rows.Add(M + " = " + X + " * " + A + " + " + K + " * B mod " + (P - 1));
-                    //grid.Rows.Add(M + " = " + B + " + " + K + " mod " + (P - 1) + " * B mod " + (P - 1));
-                    //grid.Rows.Add("B mod " + (P - 1) + " = " + M + " - " + B + " * " + K + " ^ -1 mod " + (P - 1));
-                    //ulong K_1 = Kripto.InversModulo(K, P - 1, grid);
-                    //if (B > M)
-                    //{
-                    //    B = P - 1 + M - B;
-                    //}
-                    //else
-                    //{
-                    //    B = M - B;
-                    //}
-                    //grid.Rows.Add("B mod " + (P - 1) + " = " + B + " * " + K_1 + " mod " + (P - 1));
-                    //B = Kripto.MultiplyModulo(B, K_1, P - 1);
-                    //grid.Rows.Add("B mod " + (P - 1) + " = " + B);
-                    //grid.Rows.Add("B = " + B);
-
-                    //grid.Rows.Add("Digital signature = concat(a,b) = " + A + "" + B);
+                    grid.Rows.Add("S = (" + K + " + " + X + " * " + E + ") % " + Q);
+                    ulong temp = Kripto.MultiplyModulo(X, E, Q);
+                    grid.Rows.Add("S = (" + K + " + " + temp + ") % " + Q);
+                    S = (K + temp) % Q;
+                    grid.Rows.Add("S = (" + K + " + " + temp + ") % " + Q + " = " + S);
 
                     buttonVerify.Enabled = true;
                 }
             }
+        }
+
+        private void buttonVerify_Click(object sender, EventArgs e)
+        {
+            DataGridView grid = dataGridViewNotSortAbleProses;
+            grid.Rows.Add();
+            grid.Rows.Add();
+            grid.Rows.Add("Verify");
+            grid.Rows.Add("RV = (G ^ S * Y ^ E) % P");
+            grid.Rows.Add("RV = (" + G + " ^ " + S + " * " + Y + " ^ " + E + ") % " + P);
+            grid.Rows.Add();
+            grid.Rows.Add(G + " ^ " + S + " % " + P);
+            ulong left = Kripto.FastExponent(G, S, P, grid);
+            grid.Rows.Add(G + " ^ " + S + " % " + P + " = " + left);
+            grid.Rows.Add();
+            grid.Rows.Add(Y + " ^ " + E + " % " + P);
+            ulong right = Kripto.FastExponent(Y, E, P, grid);
+            grid.Rows.Add(Y + " ^ " + E + " % " + P + " = " + right);
+            ulong RV = Kripto.MultiplyModulo(left, right, P);
+            grid.Rows.Add();
+            grid.Rows.Add("RV = " + left + " * " + right + " % " + P);
+            grid.Rows.Add("RV = " + RV);
+
+            string ev = Kripto.getSHA1(M.ToString() + RV);
+            int _16bit = ev.Substring(0, 4).HexToInt();
+            grid.Rows.Add("EV = SHA-1(M||RV)");
+            grid.Rows.Add("EV = SHA-1(" + M + "||" + RV + ")");
+            grid.Rows.Add("EV = SHA-1(" + M + "" + RV + ")");
+            grid.Rows.Add("EV = " + ev);
+            grid.Rows.Add("EV = " + ev.Substring(0, 4));
+            grid.Rows.Add("EV = " + _16bit);
+
+            grid.Rows.Add();
+            grid.Rows.Add("E = ev");
+            grid.Rows.Add(E + " = " + _16bit);
+            grid.Rows.Add((E == (ulong)_16bit) ? "Verifikasi Berhasil" : "Verifikasi Gagal");
+            buttonVerify.Enabled = false;
         }
     }
 }

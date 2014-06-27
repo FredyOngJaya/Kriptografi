@@ -35,6 +35,7 @@ namespace Kriptografi
         private Week10.FormBlindSignature BlindSignature;
         private Week10.FormElGamalSignature ElGamalSignature;
         private Week10.FormSchnorrSignature SchnorrSignature;
+        private Week10.FormDSA DSA;
 
         private void ShowForm<T>(ref T newForm)
         {
@@ -138,6 +139,11 @@ namespace Kriptografi
         private void schnorrSignatureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(ref SchnorrSignature);
+        }
+
+        private void digitalSignatureAlgorithmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(ref DSA);
         }
     }
 }

@@ -201,6 +201,10 @@ namespace Kriptografi
 
         public static ulong FastExponent(ulong num, ulong power, ulong div, System.Windows.Forms.DataGridView gridProses)
         {
+            if (power < 1)
+            {
+                return 1;
+            }
             c = 0;
             lcm = -1;
             Array.Clear(pangkat, 0, pangkat.Length);
@@ -219,7 +223,7 @@ namespace Kriptografi
                 c++;
             }
             PrintExponent(div, gridProses);
-            while (pangkat[c - 1] != 1)
+            while (pangkat[c - 1] > 1)
             {
                 t = MultiplyModulo(angka[c - 1], angka[c - 1], div);
                 for (int i = 0; i < c; i++)

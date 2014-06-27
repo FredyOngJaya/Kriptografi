@@ -63,6 +63,7 @@
             this.buttonVerify.TabIndex = 58;
             this.buttonVerify.Text = "Verify";
             this.buttonVerify.UseVisualStyleBackColor = true;
+            this.buttonVerify.Click += new System.EventHandler(this.buttonVerify_Click);
             // 
             // buttonSign
             // 
@@ -230,12 +231,12 @@
             this.dataGridViewNotSortAbleFaktorPrimaP1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewNotSortAbleFaktorPrimaP1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNotSortAbleFaktorPrimaP1.ColumnHeadersVisible = false;
-            this.dataGridViewNotSortAbleFaktorPrimaP1.Location = new System.Drawing.Point(671, 40);
+            this.dataGridViewNotSortAbleFaktorPrimaP1.Location = new System.Drawing.Point(671, 39);
             this.dataGridViewNotSortAbleFaktorPrimaP1.Name = "dataGridViewNotSortAbleFaktorPrimaP1";
             this.dataGridViewNotSortAbleFaktorPrimaP1.ReadOnly = true;
             this.dataGridViewNotSortAbleFaktorPrimaP1.RowHeadersVisible = false;
             this.dataGridViewNotSortAbleFaktorPrimaP1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewNotSortAbleFaktorPrimaP1.Size = new System.Drawing.Size(278, 148);
+            this.dataGridViewNotSortAbleFaktorPrimaP1.Size = new System.Drawing.Size(278, 149);
             this.dataGridViewNotSortAbleFaktorPrimaP1.TabIndex = 60;
             // 
             // dataGridViewNotSortAbleProses
@@ -310,7 +311,7 @@
             this.Controls.Add(this.textBoxX);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSchnorrSignature";
             this.ShowIcon = false;
             this.Text = "Schnorr Signature";

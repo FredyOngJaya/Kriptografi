@@ -37,6 +37,7 @@ namespace Kriptografi.Week10
         {
             textBoxY.Clear();
             dataGridViewNotSortAbleInfo.Rows.Clear();
+            dataGridViewNotSortAbleProses.Rows.Clear();
             textBoxPlaintext.Clear();
             textBoxK.Clear();
             buttonRandomK.Enabled = false;
