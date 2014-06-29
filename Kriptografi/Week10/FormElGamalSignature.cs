@@ -110,6 +110,7 @@ namespace Kriptografi.Week10
                 else
                 {
                     grid.Rows.Add("Sign");
+                    grid.Rows.Add("K = " + K);
                     grid.Rows.Add("A = G^K % P");
                     grid.Rows.Add("A = " + G + "^" + K + " % " + P);
                     A = Kripto.FastExponent(G, K, P, grid);
@@ -118,6 +119,7 @@ namespace Kriptografi.Week10
                     M = (ulong)textBoxPlaintext.Text[0];
                     B = Kripto.MultiplyModulo(X, A, P - 1);
                     grid.Rows.Add();
+                    grid.Rows.Add("M = " + textBoxPlaintext.Text[0] + " = " + M);
                     grid.Rows.Add("M = X * A + K * B (mod P-1)");
                     grid.Rows.Add(M + " = " + X + " * " + A + " + " + K + " * B mod " + (P - 1));
                     grid.Rows.Add(M + " = " + B + " + " + K + " mod " + (P - 1) + " * B mod " + (P - 1));
@@ -168,6 +170,7 @@ namespace Kriptografi.Week10
             ya = Kripto.MultiplyModulo(ya, ab, P);
             grid.Rows.Add(ya + " = " + gm);
             grid.Rows.Add((ya == gm) ? "Verifikasi Berhasil" : "Verifikasi Gagal");
+            buttonVerify.Enabled = false;
         }
     }
 }

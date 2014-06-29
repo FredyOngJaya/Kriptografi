@@ -37,6 +37,13 @@ namespace Kriptografi.Week10
             random = new Random(DateTime.Now.Millisecond);
         }
 
+        /*
+         * code change
+         * G = integer with order Q modulo P
+         * reference
+         * http://www.kaspersky.com/images/european_cup_2012_march5_Laura%20Savu.pdf
+         * http://en.wikipedia.org/wiki/Primitive_root_modulo_n
+         */
         private void buttonHitungY_Click(object sender, EventArgs e)
         {
             textBoxY.Clear();
@@ -66,6 +73,10 @@ namespace Kriptografi.Week10
                 {
                     MessageBox.Show("X harus < " + (Q - 1));
                 }
+                else if (Kripto.QuickModulo(G, Q, P) != 1)
+                {
+                    MessageBox.Show("Order dari G modulo P tidak sama dengan Q (G^Q%P != 1)");
+                }
                 //else if (!Kripto.IsGeneratorModulo(g, p))
                 //{
                 //    MessageBox.Show("G bukan generator modulo P");
@@ -74,6 +85,7 @@ namespace Kriptografi.Week10
                 {
                     DataGridView grid = dataGridViewNotSortAbleInfo;
                     grid.Rows.Add("P = " + P);
+                    grid.Rows.Add("Q = " + Q);
                     grid.Rows.Add("G = " + G);
                     grid.Rows.Add("X = " + X);
                     grid.Rows.Add("Y = G^-X % P");
@@ -136,6 +148,7 @@ namespace Kriptografi.Week10
                 else
                 {
                     grid.Rows.Add("Sign");
+                    grid.Rows.Add("K = " + K);
                     grid.Rows.Add("R = G^K % P");
                     grid.Rows.Add("R = " + G + "^" + K + " % " + P);
                     R = Kripto.FastExponent(G, K, P, grid);
@@ -146,6 +159,7 @@ namespace Kriptografi.Week10
                     int _16bit = sha1.Substring(0, 4).HexToInt();
                     E = (ulong)_16bit;
                     grid.Rows.Add();
+                    grid.Rows.Add("M = " + textBoxPlaintext.Text[0] + " = " + M);
                     grid.Rows.Add("E = SHA-1(M||R)");
                     grid.Rows.Add("E = SHA-1(" + M + "||" + R + ")");
                     grid.Rows.Add("E = SHA-1(" + M + "" + R + ")");
@@ -201,6 +215,20 @@ namespace Kriptografi.Week10
             grid.Rows.Add(E + " = " + _16bit);
             grid.Rows.Add((E == (ulong)_16bit) ? "Verifikasi Berhasil" : "Verifikasi Gagal");
             buttonVerify.Enabled = false;
+        }
+
+        private void textBoxG_TextChanged(object sender, EventArgs e)
+        {
+            uint p, g, q;
+            if (uint.TryParse(textBoxP.Text, out p) && uint.TryParse(textBoxG.Text, out g) &&
+                uint.TryParse(textBoxQ.Text, out q))
+            {
+                textBoxOrder.Text = Kripto.QuickModulo(g, q, p).ToString();
+            }
+            else
+            {
+                textBoxOrder.Clear();
+            }
         }
     }
 }

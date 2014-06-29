@@ -131,7 +131,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLargestPrimeDivisor";
             this.ShowIcon = false;
-            this.Text = "Largest Prime Divisor";
+            this.Text = "Largest Prime Divisor P-1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotSortAbleInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSampai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDari)).EndInit();

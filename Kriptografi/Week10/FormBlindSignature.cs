@@ -188,6 +188,7 @@ namespace Kriptografi.Week10
             gridInfo.Rows.Add("M* == " + S_1 + " ^ " + E + " % " + N + " = " + c);
             gridInfo.Rows.Add(M_1 + " == " + c);
             gridInfo.Rows.Add(M_1 == c ? "Valid" : "Tidak valid");
+            buttonVerify.Enabled = false;
         }
     }
 }

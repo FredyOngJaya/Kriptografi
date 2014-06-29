@@ -118,6 +118,8 @@ namespace Kriptografi.Week10
             if (ulong.TryParse(textBoxX.Text, out X))
             {
                 DataGridView grid = dataGridViewNotSortAbleInfo;
+                grid.Rows.Add();
+                grid.Rows.Add("X = " + X);
                 grid.Rows.Add("Y = G^X % P");
                 grid.Rows.Add("Y = " + G + "^" + X + " % " + P);
                 Y = Kripto.FastExponent(G, X, P, grid);
@@ -158,6 +160,7 @@ namespace Kriptografi.Week10
                 else
                 {
                     grid.Rows.Add("Sign");
+                    grid.Rows.Add("K = " + K);
                     grid.Rows.Add("R = (G ^ K % P) % Q");
                     grid.Rows.Add("R = (" + G + "^" + K + " % " + P + ") % " + Q);
                     grid.Rows.Add(G + "^" + K + " % " + P);
