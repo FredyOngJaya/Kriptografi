@@ -1,275 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AE991DBD-9191-45F5-A4D3-5065B9C89108}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kriptografi</RootNamespace>
-    <AssemblyName>Kriptografi</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGridViewNotSortAble.cs">
+    <Compile Update="DataGridViewNotSortAble.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FormContainer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormContainer.Designer.cs">
-      <DependentUpon>FormContainer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KriptoExtensions.cs" />
-    <Compile Include="Kriptografi.cs">
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormContainer.resx">
-      <DependentUpon>FormContainer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week10\FormBlindSignature.resx">
-      <DependentUpon>FormBlindSignature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week10\FormDSA.resx">
-      <DependentUpon>FormDSA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week10\FormElGamalSignature.resx">
-      <DependentUpon>FormElGamalSignature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week10\FormLargestPrimeDivisor.resx">
-      <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week10\FormSchnorrSignature.resx">
-      <DependentUpon>FormSchnorrSignature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week3\FormGF.resx">
-      <DependentUpon>FormGF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week3\FormQuickModulo.resx">
-      <DependentUpon>FormQuickModulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week3\FormRabinMiller.resx">
-      <DependentUpon>FormRabinMiller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week4\FormChineseRemainderTheorem.resx">
-      <DependentUpon>FormChineseRemainderTheorem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week4\FormHillCipher.resx">
-      <DependentUpon>FormHillCipher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week6\FormAES.resx">
-      <DependentUpon>FormAES.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week7\FormA5.resx">
-      <DependentUpon>FormA5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week7\FormLFSR.resx">
-      <DependentUpon>FormLFSR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week7\FormRC4.resx">
-      <DependentUpon>FormRC4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week8\FormElGamal.resx">
-      <DependentUpon>FormElGamal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week8\FormLUC.resx">
-      <DependentUpon>FormLUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week8\FormPrimeList.resx">
-      <DependentUpon>FormPrimeList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week8\FormRabin.resx">
-      <DependentUpon>FormRabin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week8\FormRSA.resx">
-      <DependentUpon>FormRSA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week9\FormSHA1.resx">
-      <DependentUpon>FormSHA1.cs</DependentUpon>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Week10\FormBlindSignature.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week10\FormBlindSignature.Designer.cs">
-      <DependentUpon>FormBlindSignature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week10\FormDSA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week10\FormDSA.Designer.cs">
-      <DependentUpon>FormDSA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week10\FormElGamalSignature.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week10\FormElGamalSignature.Designer.cs">
-      <DependentUpon>FormElGamalSignature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week10\FormLargestPrimeDivisor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week10\FormLargestPrimeDivisor.Designer.cs">
-      <DependentUpon>FormLargestPrimeDivisor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week10\FormSchnorrSignature.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week10\FormSchnorrSignature.Designer.cs">
-      <DependentUpon>FormSchnorrSignature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week3\FormGF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week3\FormGF.designer.cs">
-      <DependentUpon>FormGF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week3\FormQuickModulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week3\FormQuickModulo.designer.cs">
-      <DependentUpon>FormQuickModulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week3\FormRabinMiller.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week3\FormRabinMiller.Designer.cs">
-      <DependentUpon>FormRabinMiller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week4\FormChineseRemainderTheorem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week4\FormChineseRemainderTheorem.designer.cs">
-      <DependentUpon>FormChineseRemainderTheorem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week4\FormHillCipher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week4\FormHillCipher.Designer.cs">
-      <DependentUpon>FormHillCipher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week6\FormAES.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week6\FormAES.designer.cs">
-      <DependentUpon>FormAES.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week7\FormA5.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week7\FormA5.designer.cs">
-      <DependentUpon>FormA5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week7\FormLFSR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week7\FormLFSR.designer.cs">
-      <DependentUpon>FormLFSR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week7\FormRC4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week7\FormRC4.designer.cs">
-      <DependentUpon>FormRC4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week8\FormElGamal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week8\FormElGamal.Designer.cs">
-      <DependentUpon>FormElGamal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week8\FormLUC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week8\FormLUC.Designer.cs">
-      <DependentUpon>FormLUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week8\FormPrimeList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week8\FormPrimeList.Designer.cs">
-      <DependentUpon>FormPrimeList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week8\FormRabin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week8\FormRabin.Designer.cs">
-      <DependentUpon>FormRabin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week8\FormRSA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week8\FormRSA.Designer.cs">
-      <DependentUpon>FormRSA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week9\FormSHA1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week9\FormSHA1.Designer.cs">
-      <DependentUpon>FormSHA1.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.326103">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+  </ItemGroup>
 </Project>

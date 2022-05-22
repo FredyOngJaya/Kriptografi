@@ -20,7 +20,21 @@ namespace Kriptografi.Week3
 
         private void buttonTesPrima_Click(object sender, EventArgs e)
         {
-            bool isPrima = Kripto.TestPrima(Convert.ToInt64(textBoxNum.Text), 1662803);
+            if (ulong.TryParse(textBoxNum.Text, out var num) == false)
+            {
+                MessageBox.Show("Angka diuji tidak valid (max 64 bit integer (ulong)");
+                return;
+            }
+            if (int.TryParse(txtIterasi.Text, out var iter) == false)
+            {
+                MessageBox.Show("Iterasi tidak valid");
+                return;
+            }//999999000001
+            if (iter > 1000000)
+            {
+
+            }
+            bool isPrima = Kripto.IsMiller(num, iter);
             textBoxHasilRabinMiller.Text = "Dengan rabin miller, " + textBoxNum.Text;
             if (isPrima)
             {

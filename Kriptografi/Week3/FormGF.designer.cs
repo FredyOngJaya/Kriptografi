@@ -46,46 +46,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(14, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.Size = new System.Drawing.Size(58, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Num 1";
             // 
             // textBoxNumber1
             // 
             this.textBoxNumber1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxNumber1.Location = new System.Drawing.Point(85, 12);
+            this.textBoxNumber1.Location = new System.Drawing.Point(96, 16);
+            this.textBoxNumber1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNumber1.MaxLength = 2;
             this.textBoxNumber1.Name = "textBoxNumber1";
-            this.textBoxNumber1.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNumber1.Size = new System.Drawing.Size(112, 29);
             this.textBoxNumber1.TabIndex = 1;
             this.textBoxNumber1.Text = "7F";
             // 
             // textBoxNumber2
             // 
             this.textBoxNumber2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxNumber2.Location = new System.Drawing.Point(85, 40);
+            this.textBoxNumber2.Location = new System.Drawing.Point(96, 52);
+            this.textBoxNumber2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNumber2.MaxLength = 2;
             this.textBoxNumber2.Name = "textBoxNumber2";
-            this.textBoxNumber2.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNumber2.Size = new System.Drawing.Size(112, 29);
             this.textBoxNumber2.TabIndex = 3;
             this.textBoxNumber2.Text = "89";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Location = new System.Drawing.Point(14, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.Size = new System.Drawing.Size(58, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Num 2";
             // 
             // buttonCalculate
             // 
-            this.buttonCalculate.Location = new System.Drawing.Point(85, 96);
+            this.buttonCalculate.Location = new System.Drawing.Point(96, 126);
+            this.buttonCalculate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(100, 23);
+            this.buttonCalculate.Size = new System.Drawing.Size(112, 30);
             this.buttonCalculate.TabIndex = 4;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = true;
@@ -94,20 +97,21 @@
             // textBoxDivisor
             // 
             this.textBoxDivisor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxDivisor.Location = new System.Drawing.Point(85, 68);
+            this.textBoxDivisor.Location = new System.Drawing.Point(96, 89);
+            this.textBoxDivisor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDivisor.MaxLength = 2;
             this.textBoxDivisor.Name = "textBoxDivisor";
             this.textBoxDivisor.ReadOnly = true;
-            this.textBoxDivisor.Size = new System.Drawing.Size(100, 22);
+            this.textBoxDivisor.Size = new System.Drawing.Size(112, 29);
             this.textBoxDivisor.TabIndex = 6;
             this.textBoxDivisor.Text = "11B";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 71);
+            this.label3.Location = new System.Drawing.Point(14, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Divisor";
             // 
@@ -117,20 +121,21 @@
             this.dataGridViewCalcBiner.AllowUserToDeleteRows = false;
             this.dataGridViewCalcBiner.AllowUserToResizeColumns = false;
             this.dataGridViewCalcBiner.AllowUserToResizeRows = false;
-            this.dataGridViewCalcBiner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCalcBiner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCalcBiner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCalcBiner.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCalcBiner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCalcBiner.ColumnHeadersVisible = false;
             this.dataGridViewCalcBiner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridViewCalcBiner.Location = new System.Drawing.Point(191, 12);
+            this.dataGridViewCalcBiner.Location = new System.Drawing.Point(215, 16);
+            this.dataGridViewCalcBiner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewCalcBiner.Name = "dataGridViewCalcBiner";
             this.dataGridViewCalcBiner.ReadOnly = true;
             this.dataGridViewCalcBiner.RowHeadersVisible = false;
-            this.dataGridViewCalcBiner.Size = new System.Drawing.Size(291, 482);
+            this.dataGridViewCalcBiner.Size = new System.Drawing.Size(327, 633);
             this.dataGridViewCalcBiner.TabIndex = 7;
             // 
             // Column1
@@ -146,20 +151,21 @@
             this.dataGridViewCalcHex.AllowUserToDeleteRows = false;
             this.dataGridViewCalcHex.AllowUserToResizeColumns = false;
             this.dataGridViewCalcHex.AllowUserToResizeRows = false;
-            this.dataGridViewCalcHex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCalcHex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCalcHex.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCalcHex.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCalcHex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCalcHex.ColumnHeadersVisible = false;
             this.dataGridViewCalcHex.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            this.dataGridViewCalcHex.Location = new System.Drawing.Point(501, 12);
+            this.dataGridViewCalcHex.Location = new System.Drawing.Point(564, 16);
+            this.dataGridViewCalcHex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewCalcHex.Name = "dataGridViewCalcHex";
             this.dataGridViewCalcHex.ReadOnly = true;
             this.dataGridViewCalcHex.RowHeadersVisible = false;
-            this.dataGridViewCalcHex.Size = new System.Drawing.Size(439, 482);
+            this.dataGridViewCalcHex.Size = new System.Drawing.Size(494, 633);
             this.dataGridViewCalcHex.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -171,10 +177,10 @@
             // 
             // FormGF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(952, 506);
+            this.ClientSize = new System.Drawing.Size(1071, 664);
             this.Controls.Add(this.dataGridViewCalcHex);
             this.Controls.Add(this.dataGridViewCalcBiner);
             this.Controls.Add(this.textBoxDivisor);
@@ -184,8 +190,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNumber1);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormGF";

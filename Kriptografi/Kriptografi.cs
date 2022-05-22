@@ -14,7 +14,7 @@ namespace Kriptografi
     /// </summary>
     public class KriptografiLibrary
     {
-        public static BitArray isPrima = new BitArray(1000001, false);
+        public static BitArray isPrima = new BitArray(100000001, false);
         public static List<int> listPrima = new List<int>();
         private static bool isPrimeGenerated = false;
 
@@ -93,28 +93,33 @@ namespace Kriptografi
             if (!isPrimeGenerated)
             {
                 int n = 1000000;
-                isPrima.SetAll(true);
-                isPrima[0] = isPrima[1] = false;
-                for (int i = 4; i <= n; i += 2)
-                {
-                    isPrima[i] = false;
-                }
-                int sq = (int)Math.Sqrt(n + 1e-6);
+                Sieve(n);
+            }
+        }
 
-                listPrima.Add(2);
-                for (int i = 3; i <= n; i += 2)
+        public static void Sieve(int n)
+        {
+            isPrima.SetAll(true);
+            isPrima[0] = isPrima[1] = false;
+            for (int i = 4; i <= n; i += 2)
+            {
+                isPrima[i] = false;
+            }
+            int sq = (int)Math.Sqrt(n + 1e-6);
+
+            listPrima.Add(2);
+            for (int i = 3; i <= n; i += 2)
+            {
+                if (isPrima[i])
                 {
-                    if (isPrima[i])
+                    listPrima.Add(i);
+                    for (int j = i * i; i <= sq && j <= n; j += i)
                     {
-                        listPrima.Add(i);
-                        for (int j = i * i; i <= sq && j <= n; j += i)
-                        {
-                            isPrima[j] = false;
-                        }
+                        isPrima[j] = false;
                     }
                 }
-                isPrimeGenerated = true;
             }
+            isPrimeGenerated = true;
         }
 
         public static bool IsRelatifPrima(int num1, int num2)
@@ -328,7 +333,7 @@ namespace Kriptografi
                 ulong mod = QuickModulo(a, temp, number);
                 while (temp != number - 1 && mod != 1 && mod != number - 1)
                 {
-                    mod = (mod * mod) % number;
+                    mod = MultiplyModulo(mod, mod, number);
                     temp <<= 1;
                 }
                 if (mod != number - 1 && (temp & 1) == 0)
