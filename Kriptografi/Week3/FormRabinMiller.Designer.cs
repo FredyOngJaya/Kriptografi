@@ -39,7 +39,7 @@
             // textBoxNum
             // 
             this.textBoxNum.Location = new System.Drawing.Point(139, 15);
-            this.textBoxNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNum.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNum.Name = "textBoxNum";
             this.textBoxNum.Size = new System.Drawing.Size(327, 29);
             this.textBoxNum.TabIndex = 0;
@@ -47,10 +47,10 @@
             // buttonTesPrima
             // 
             this.buttonTesPrima.Location = new System.Drawing.Point(15, 90);
-            this.buttonTesPrima.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTesPrima.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTesPrima.Name = "buttonTesPrima";
             this.buttonTesPrima.Size = new System.Drawing.Size(278, 35);
-            this.buttonTesPrima.TabIndex = 1;
+            this.buttonTesPrima.TabIndex = 10;
             this.buttonTesPrima.Text = "Rabin Miller";
             this.buttonTesPrima.UseVisualStyleBackColor = true;
             this.buttonTesPrima.Click += new System.EventHandler(this.buttonTesPrima_Click);
@@ -58,16 +58,17 @@
             // textBoxHasilRabinMiller
             // 
             this.textBoxHasilRabinMiller.Location = new System.Drawing.Point(13, 133);
-            this.textBoxHasilRabinMiller.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxHasilRabinMiller.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxHasilRabinMiller.Name = "textBoxHasilRabinMiller";
             this.textBoxHasilRabinMiller.ReadOnly = true;
             this.textBoxHasilRabinMiller.Size = new System.Drawing.Size(710, 29);
             this.textBoxHasilRabinMiller.TabIndex = 2;
+            this.textBoxHasilRabinMiller.TabStop = false;
             // 
             // txtIterasi
             // 
             this.txtIterasi.Location = new System.Drawing.Point(139, 53);
-            this.txtIterasi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIterasi.Margin = new System.Windows.Forms.Padding(4);
             this.txtIterasi.Name = "txtIterasi";
             this.txtIterasi.Size = new System.Drawing.Size(327, 29);
             this.txtIterasi.TabIndex = 3;
