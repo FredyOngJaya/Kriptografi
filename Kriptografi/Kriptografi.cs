@@ -14,7 +14,7 @@ namespace Kriptografi
     /// </summary>
     public class KriptografiLibrary
     {
-        public static BitArray isPrima = new BitArray(100000001, false);
+        public static BitArray isPrima;// = new BitArray(1000001, false);
         public static List<int> listPrima = new List<int>();
         private static bool isPrimeGenerated = false;
 
@@ -99,6 +99,7 @@ namespace Kriptografi
 
         public static void Sieve(int n)
         {
+            isPrima = new BitArray(n + 1, false);
             isPrima.SetAll(true);
             isPrima[0] = isPrima[1] = false;
             for (int i = 4; i <= n; i += 2)
@@ -449,7 +450,7 @@ namespace Kriptografi
             Sieve();
             System.Data.DataTable list = new System.Data.DataTable();
             list.Columns.Add("Prima");
-            for (int i = lower; i <= upper; i++)
+            for (int i = lower; i <= upper && i < isPrima.Count; i++)
             {
                 if (isPrima[i]) list.Rows.Add(i);
             }

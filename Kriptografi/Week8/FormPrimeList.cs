@@ -28,11 +28,28 @@ namespace Kriptografi.Week8
             dataGridViewNotSortAblePrima.DataSource = Kripto.GetPrime((int)numericUpDownDari.Value, (int)numericUpDownSampai.Value);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnPrecompute10_Click(object sender, EventArgs e)
         {
-            btnPrecompute.Enabled = false;
-            Kripto.Sieve(100000000);
-            btnPrecompute.Enabled = true;
+            btnPrecompute10.Enabled = false;
+            Kripto.Sieve(10_000_000);
+            btnPrecompute10.Enabled = true;
+            MessageBox.Show("Selesai");
+        }
+
+        private void btnPrecompute100_Click(object sender, EventArgs e)
+        {
+            btnPrecompute100.Enabled = false;
+            Kripto.Sieve(100_000_000);
+            btnPrecompute100.Enabled = true;
+            MessageBox.Show("Selesai");
+        }
+
+        private void btnPrecompute1000_Click(object sender, EventArgs e)
+        {
+            btnPrecompute1000.Enabled = false;
+            Kripto.Sieve(1_000_000_000);
+            btnPrecompute1000.Enabled = true;
+            MessageBox.Show("Selesai");
         }
     }
 }
